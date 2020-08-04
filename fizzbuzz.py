@@ -41,6 +41,7 @@ net = NeuralNet([
     Dense(4, activation=Softmax())
 ])
 
+
 net.build(optimizer=AdaGrad(lr=0.005))
 
 net.fit(inputs, targets, num_epochs=5000)
