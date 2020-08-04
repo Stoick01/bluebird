@@ -8,7 +8,7 @@ from typing import Dict
 import numpy as np
 
 from bluebird.tensor import Tensor
-from bluebird.activation import Activation
+from bluebird.activations import Activation
 
 from .layer import Layer
 from .linear import Linear

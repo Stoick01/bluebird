@@ -11,7 +11,7 @@ import numpy as np
 
 from bluebird.tensor import Tensor
 from bluebird.layers import Input
-from bluebird.activation import Activation
+from bluebird.activations import Activation
 
 class Optimizer:
     def step(self, predicted: Tensor, targets: Tensor) -> None:

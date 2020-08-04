@@ -2,7 +2,7 @@ import numpy as np
 
 from bluebird.nn import NeuralNet
 from bluebird.layers import Linear, Input
-from bluebird.activation import Tanh
+from bluebird.activations import Tanh
 
 inputs = np.array([
     [0, 0],

@@ -9,7 +9,7 @@ from .layers import Layer, Input
 from .loss import Loss, MSE
 from .data import DataIterator, BatchIterator
 from .optimizers import Optimizer, SGD
-from .activation import Activation
+from .activations import Activation
 
 class NeuralNet:
     def __init__(self, layers: Sequence[Layer]) -> None:

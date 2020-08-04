@@ -4,7 +4,7 @@ import numpy as np
 
 from bluebird.nn import NeuralNet
 from bluebird.layers import Linear, Input, Dense
-from bluebird.activation import Tanh, Relu, Softmax
+from bluebird.activations import Tanh, Relu, Softmax
 from bluebird.optimizers import SGD, NestovMomentum, AdaGrad
 from bluebird.data import BatchIterator
 
