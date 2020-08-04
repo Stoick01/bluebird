@@ -54,3 +54,14 @@ def relu_prime(x: Tensor) -> Tensor:
 class Relu(Activation):
     def __init__(self):
         super().__init__(relu, relu_prime)
+
+def softmax(x):
+    exp = np.exp(x)
+    return exp / (np.sum(exp, axis=0) + 1e-8)
+
+def softmax_prime(x):
+    return softmax(x) * (1 - softmax(x))
+
+class Softmax(Activation):
+    def __init__(self):
+        super().__init__(softmax, softmax_prime)

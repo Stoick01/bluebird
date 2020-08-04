@@ -3,8 +3,8 @@ from typing import List
 import numpy as np
 
 from bluebird.nn import NeuralNet
-from bluebird.layers import Linear, Input
-from bluebird.activation import Tanh, Relu
+from bluebird.layers import Linear, Input, Dense
+from bluebird.activation import Tanh, Relu, Softmax
 from bluebird.optimizers import SGD, NestovMomentum, AdaGrad
 from bluebird.data import BatchIterator
 
@@ -36,15 +36,12 @@ targets = np.array([
 
 net = NeuralNet([
     Input(10),
-    Linear(100),
-    Tanh(),
-    Linear(100),
-    Tanh(),
-    Linear(4),
-    Tanh()
+    Dense(50, activation=Relu()),
+    Dense(50, activation=Relu()),
+    Dense(4, activation=Softmax())
 ])
 
-net.build(optimizer=AdaGrad(lr=0.03), iterator=BatchIterator(batch_size=64))
+net.build(optimizer=AdaGrad(lr=0.005))
 
 net.fit(inputs, targets, num_epochs=5000)
 
