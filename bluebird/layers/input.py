@@ -12,11 +12,10 @@ from bluebird.tensor import Tensor
 from .layer import Layer
 
 class Input(Layer):
-    def __init__(self, shape: int) -> None:
-        super().__init__(shape)
-        self.input_size = shape
+    def __init__(self, input_size: int) -> None:
+        self.input_size = input_size
 
-    def build(self, output_size: int = 0) -> None:
+    def build(self) -> None:
         self.output_size = self.input_size
 
     def forward(self, inputs: Tensor) -> Tensor:

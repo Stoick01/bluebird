@@ -5,7 +5,7 @@ Neural Net
 from typing import Sequence, Iterator, Tuple
 
 from .tensor import Tensor
-from .layers import Layer
+from .layers import Layer, Input
 from .loss import Loss, MSE
 from .data import DataIterator, BatchIterator
 from .optimizers import Optimizer, SGD
@@ -18,18 +18,23 @@ class NeuralNet:
     def build(self, 
             iterator: DataIterator = BatchIterator(),
             loss: Loss = MSE(),
-            optimizer: Optimizer = SGD()):
+            optimizer: Optimizer = SGD()) -> None:
         self.iterator = iterator
         self.loss = loss
         self.optimizer = optimizer
 
-        shape = 0
+        dimension = 0
         for layer in self.layers:
             if isinstance(layer, Activation):
                 continue
 
-            layer.build(shape)
-            shape = layer.shape
+            if isinstance(layer, Input):
+                layer.build()
+                dimension = layer.input_size
+                continue
+
+            layer.build(dimension)
+            dimension = layer.output_size
 
         self.optimizer.build(self)
 

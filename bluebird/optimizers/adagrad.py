@@ -56,6 +56,6 @@ class AdaGrad(Optimizer):
 
             layer.params["w"] -= grad_w * self.lr / (np.sqrt(a[0]) + self.epsilon) 
 
-            layer.params["w"] -= grad_b * self.lr / (np.sqrt(a[1]) + self.epsilon)
+            layer.params["b"] -= grad_b * self.lr / (np.sqrt(a[1]) + self.epsilon)
 
             grad = grad @ layer.params["w"].T

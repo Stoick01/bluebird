@@ -14,9 +14,9 @@ class Linear(Layer):
     output = input @ w + b
     """
 
-    def __init__(self, shape: int) -> None:
-        super().__init__(shape)
-        self.output_size = shape
+    def __init__(self, output_size: int) -> None:
+        super().__init__()
+        self.output_size = output_size
 
     def build(self, input_size):
         self.input_size = input_size

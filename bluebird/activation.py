@@ -16,8 +16,7 @@ class Activation(Layer):
     Applies function to inputs
     """
 
-    def __init__(self, f: F, f_prime: F, shape: int = 0) -> None:
-        super().__init__(0)
+    def __init__(self, f: F, f_prime: F) -> None:
         self.f = f
         self.f_prime = f_prime
 

@@ -6,6 +6,7 @@ from bluebird.nn import NeuralNet
 from bluebird.layers import Linear, Input
 from bluebird.activation import Tanh, Relu
 from bluebird.optimizers import SGD, NestovMomentum, AdaGrad
+from bluebird.data import BatchIterator
 
 def fizz_buzz_encode(x: int) -> List[int]:
     if x % 15 == 0:
@@ -35,15 +36,15 @@ targets = np.array([
 
 net = NeuralNet([
     Input(10),
-    Linear(50),
+    Linear(100),
     Tanh(),
-    Linear(50),
+    Linear(100),
     Tanh(),
     Linear(4),
     Tanh()
 ])
 
-net.build(optimizer=SGD(lr=0.03))
+net.build(optimizer=AdaGrad(lr=0.03), iterator=BatchIterator(batch_size=64))
 
 net.fit(inputs, targets, num_epochs=5000)
 

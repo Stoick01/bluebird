@@ -10,9 +10,7 @@ import numpy as np
 from bluebird.tensor import Tensor
 
 class Layer:
-    def __init__(self, shape: int = 0) -> None:
-        self.shape = shape
-
+    def __init__(self) -> None:
         self.params: Dict[str, Tensor] = {}
         self.grads: Dict[str, Tensor] = {}
 
