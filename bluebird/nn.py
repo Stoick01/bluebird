@@ -30,7 +30,7 @@ class NeuralNet:
 
             if isinstance(layer, Input):
                 layer.build()
-                dimension = layer.input_size
+                dimension = layer.output_size
                 continue
 
             layer.build(dimension)

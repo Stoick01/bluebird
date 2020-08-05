@@ -20,6 +20,10 @@ class Input(Layer):
 
     def forward(self, inputs: Tensor) -> Tensor:
         self.inputs = inputs
+
+        if inputs.shape != self.input_size:
+            raise TypeError("Invalid input shape")
+
         return inputs
 
     def backward(self, output: Tensor) -> Tensor:
