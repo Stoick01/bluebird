@@ -4,7 +4,7 @@ Designed for specifing number of input neurons
 All other preprocessing input layers inherit Input layer
 """
 
-from typing import Dict
+from typing import Dict, Tuple
 
 import numpy as np
 
@@ -21,7 +21,7 @@ class Input(Layer):
     def forward(self, inputs: Tensor) -> Tensor:
         self.inputs = inputs
 
-        if inputs.shape != self.input_size:
+        if inputs.shape[1] != self.input_size:
             raise TypeError("Invalid input shape")
 
         return inputs

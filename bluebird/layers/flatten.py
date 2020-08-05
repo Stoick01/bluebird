@@ -24,7 +24,7 @@ class Flatten(Input):
     def forward(self, inputs: Tensor) -> Tensor:
         self.inputs = inputs
         
-        if inputs.shape != self.input_size:
+        if inputs.shape[1:] != self.input_size:
             raise TypeError("Invalid input shape")
 
         return inputs.flatten()
