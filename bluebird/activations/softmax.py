@@ -12,7 +12,7 @@ from bluebird.layers import Layer
 from .activation import Activation
 
 def softmax(x):
-    exp = np.exp(x)
+    exp = np.exp(x - x.max())
     return exp / (np.sum(exp, axis=0) + 1e-8)
 
 def softmax_prime(x):

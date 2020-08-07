@@ -12,13 +12,12 @@ from bluebird.layers import Layer
 from .activation import Activation
 
 
-def relu(x: Tensor) -> Tensor:
-    x[x < 0] = 0
-    return x
+def relu(x: Tensor, epsilon: float = 0.1) -> Tensor:
+    return np.maximum(epsilon * x, x)
 
-def relu_prime(x: Tensor) -> Tensor:
-    x[x < 0] = 0
-    x[x > 0] = 1
+def relu_prime(x: Tensor, epsilon: float = 0.1) -> Tensor:
+    x = 1.0 * (x > 0)
+    x[x == 0] = epsilon
     return x
 
 class Relu(Activation):

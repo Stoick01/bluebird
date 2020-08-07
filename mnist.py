@@ -22,15 +22,15 @@ X_test = X_test / 255.0
 
 net = NeuralNet([
     bluebird.layers.Flatten(input_size=(28, 28)),
-    bluebird.layers.Dense(100, activation=bluebird.activations.Tanh()),
-    bluebird.layers.Dense(100, activation=bluebird.activations.Tanh()),
-    bluebird.layers.Dense(100, activation=bluebird.activations.Tanh()),
+    bluebird.layers.Dense(200, activation=bluebird.activations.Relu()),
+    bluebird.layers.Dense(200, activation=bluebird.activations.Relu()),
+    bluebird.layers.Dense(200, activation=bluebird.activations.Relu()),
     bluebird.layers.Dense(10, activation=bluebird.activations.Softmax())
 ])
 
-net.build(optimizer=bluebird.optimizers.SGD(lr=0.003), iterator=bluebird.data.BatchIterator(batch_size=64))
+net.build(optimizer=bluebird.optimizers.SGD(lr=0.03), iterator=bluebird.data.BatchIterator(batch_size=32))
 
-net.fit(X_train, y_train, num_epochs=20)
+net.fit(X_train, y_train, num_epochs=100)
 
 print("Pred, True")
 
