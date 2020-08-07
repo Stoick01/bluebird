@@ -22,12 +22,12 @@ class Flatten(Input):
             self.output_size *= i
 
     def forward(self, inputs: Tensor) -> Tensor:
-        self.inputs = inputs
+        self.inputs = inputs.reshape(-1, self.output_size)
         
         if inputs.shape[1:] != self.input_size:
             raise TypeError("Invalid input shape")
 
-        return inputs.flatten()
+        return self.inputs
 
     def backward(self, output: Tensor) -> Tensor:
         self.output = output

@@ -20,8 +20,9 @@ class Dense(Layer):
 
     def build(self, input_size: int) -> None:
         self.layer = Linear(self.output_size)
-        self.input_size = input_size
         self.layer.build(input_size)
+        
+        self.input_size = input_size
         self.params = self.layer.params
 
     def forward(self, inputs: Tensor) -> Tensor:

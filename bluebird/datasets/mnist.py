@@ -9,9 +9,11 @@ import urllib.request as urllib
 import gzip
 import pickle
 
+from typing import Tuple
+
 import numpy as np
 
-def load_data(path="mnist"):
+def load_data(path: str = "mnist", save: bool = False) -> Tuple:
     PROJECT_ROOT_DIR = "."
     DOWNLOAD_ROOT = "http://yann.lecun.com/exdb/mnist/"
     FILENAMES = [
@@ -36,12 +38,13 @@ def load_data(path="mnist"):
                 else:
                     data[filename[0]] = np.frombuffer(f.read(), np.uint8, offset=16).reshape(-1, 28*28)
 
-                np.savetxt(os.path.join(data_path, filename[0] + '.csv'), data[filename[0]].astype(int), fmt='%i', delimiter=',')
+                if save:
+                    np.savetxt(os.path.join(data_path, filename[0] + '.csv'), data[filename[0]], fmt='%i', delimiter=',')
                 
+    data["training_images"] = np.reshape(data["training_images"], (data["training_images"].shape[0], 28, 28))
+
+    data["test_images"] = np.reshape(data["test_images"], (data["test_images"].shape[0], 28, 28))
 
     return (data["training_images"], data["training_labels"]), (data["test_images"], data["test_labels"])
-
-
-                    
 
         

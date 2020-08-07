@@ -16,7 +16,8 @@ def softmax(x):
     return exp / (np.sum(exp, axis=0) + 1e-8)
 
 def softmax_prime(x):
-    return softmax(x) * (1 - softmax(x))
+    f = softmax(x)
+    return f * (1 - f)
 
 class Softmax(Activation):
     def __init__(self):
