@@ -13,6 +13,7 @@ from .layer import Layer
 
 class Input(Layer):
     def __init__(self, input_size: int) -> None:
+        super().__init__()
         self.input_size = input_size
 
     def build(self) -> None:

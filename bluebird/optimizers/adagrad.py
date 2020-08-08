@@ -31,31 +31,11 @@ class AdaGrad(Optimizer):
             self.an = []
             for layer in self.net.get_layers():
                 if isinstance(layer, Input) or isinstance(layer, Activation):
-                    self.an.append(0)
                     continue
+                self.an.append(np.zeros((layer.input_size, layer.output_size)))
+                self.an.append(np.zeros(layer.output_size))
 
-                self.an.append([np.zeros((layer.input_size, layer.output_size)), np.zeros(layer.output_size)])
-
-    def step(self, predicted: Tensor, targets: Tensor) -> None:
-        grad = self.net.loss.grad(predicted, targets)
-
-        for layer, a in zip(self.net.get_layers(), self.an):
-
-            if isinstance(layer, Input):
-                continue
-
-            if isinstance(layer, Activation):
-                grad = layer.backward(grad)
-                continue
-
-            grad_b = np.sum(grad, axis=0)
-            grad_w = layer.inputs.T @ grad
-
-            a[0] += grad_w ** 2
-            a[1] += grad_b ** 2
-
-            layer.params["w"] -= grad_w * self.lr / (np.sqrt(a[0]) + self.epsilon) 
-
-            layer.params["b"] -= grad_b * self.lr / (np.sqrt(a[1]) + self.epsilon)
-
-            grad = layer.backward(grad)
+    def step(self) -> None:       
+        for ((param, grad), a) in zip(self.net.get_params_and_grads(), self.an):
+            a += grad ** 2
+            param -= self.lr * grad / np.sqrt(a + self.epsilon)

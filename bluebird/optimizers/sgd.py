@@ -23,22 +23,6 @@ class SGD(Optimizer):
     def build(self, net: 'NeuralNet') -> None:
         self.net = net
 
-    def step(self, predicted: Tensor, targets: Tensor) -> None:
-        grad = self.net.loss.grad(predicted, targets)
-
-        for layer in self.net.get_layers():
-
-            if isinstance(layer, Input):
-                continue
-
-            if isinstance(layer, Activation):
-                grad = layer.backward(grad)
-                continue
-
-            grad_b = np.sum(grad, axis=0)
-            grad_w = layer.inputs.T @ grad
-
-            layer.params["w"] -= self.lr * grad_w
-            layer.params["b"] -= self.lr * grad_b
-
-            grad = layer.backward(grad)
+    def step(self) -> None:
+        for param, grad in self.net.get_params_and_grads():
+            param -= self.lr * grad

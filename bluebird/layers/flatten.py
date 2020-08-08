@@ -13,13 +13,15 @@ from .input import Input
 
 class Flatten(Input):
     def __init__(self, input_size: Tuple) -> None:
-        self.input_size = input_size
+        super().__init__(input_size)
 
     def build(self) -> None:
         self.output_size = 1
 
         for i in self.input_size:
             self.output_size *= i
+
+        self.backward_shape = (-1,) + self.input_size
 
     def forward(self, inputs: Tensor) -> Tensor:
         self.inputs = inputs.reshape(-1, self.output_size)
@@ -31,4 +33,4 @@ class Flatten(Input):
 
     def backward(self, output: Tensor) -> Tensor:
         self.output = output
-        return output.reshape(self.input_size)
+        return output.reshape(self.backward_shape)

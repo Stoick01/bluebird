@@ -33,4 +33,6 @@ class Linear(Layer):
         return inputs @ self.params["w"] + self.params["b"]
 
     def backward(self, grad: Tensor) -> Tensor:
+        self.grads["b"] = np.sum(grad, axis=0)
+        self.grads["w"] = self.inputs.T @ grad
         return grad @ self.params["w"].T

@@ -24,6 +24,7 @@ class Dense(Layer):
         
         self.input_size = input_size
         self.params = self.layer.params
+        self.grads = self.layer.grads
 
     def forward(self, inputs: Tensor) -> Tensor:
         self.inputs = inputs

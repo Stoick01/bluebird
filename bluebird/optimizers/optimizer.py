@@ -14,7 +14,7 @@ from bluebird.layers import Input
 from bluebird.activations import Activation
 
 class Optimizer:
-    def step(self, predicted: Tensor, targets: Tensor) -> None:
+    def step(self) -> None:
         """
         At each step the neural net is updated
         """

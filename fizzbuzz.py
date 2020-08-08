@@ -36,18 +36,18 @@ targets = np.array([
 
 net = NeuralNet([
     Input(10),
-    Dense(50, activation=Relu()),
-    Dense(50, activation=Relu()),
-    Dense(4, activation=Softmax())
+    Linear(50),
+    Tanh(),
+    Linear(4)
 ])
 
 
-net.build(optimizer=AdaGrad(lr=0.005))
+net.build(optimizer=NestovMomentum(lr=0.001))
 
 net.fit(inputs, targets, num_epochs=5000)
 
 for x in range(1, 101):
-    predicted = net.predict(binary_encode(x))
+    predicted = net.predict(np.array([binary_encode(x)]))
     predicted_idx = np.argmax(predicted)
     actual_idx = np.argmax(fizz_buzz_encode(x))
     labels = [str(x), "fizz", "buzz", "fizzbuzz"]

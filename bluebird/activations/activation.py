@@ -17,6 +17,7 @@ class Activation(Layer):
     """
 
     def __init__(self, f: F, f_prime: F) -> None:
+        super().__init__()
         self.f = f
         self.f_prime = f_prime
 
