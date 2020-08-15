@@ -28,3 +28,6 @@ class Activation(Layer):
 
     def backward(self, grad: Tensor) -> Tensor:
         return self.f_prime(self.inputs) * grad
+
+
+# TO DO: Sigmoid, Softplus, Softsign, SELU, ELU, exponential

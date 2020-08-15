@@ -2,6 +2,8 @@
 Neural Net
 """
 
+# TO DO: Model from multiple models
+
 from typing import Sequence, Iterator, Tuple
 
 from .tensor import Tensor
@@ -10,6 +12,7 @@ from .loss import Loss, MSE
 from .data import DataIterator, BatchIterator
 from .optimizers import Optimizer, SGD
 from .activations import Activation
+from .weight_initializers import WeightInitializer, RandomWeightInitializer
 
 class NeuralNet:
     def __init__(self, layers: Sequence[Layer]) -> None:
@@ -18,7 +21,8 @@ class NeuralNet:
     def build(self, 
             iterator: DataIterator = BatchIterator(),
             loss: Loss = MSE(),
-            optimizer: Optimizer = SGD()) -> None:
+            optimizer: Optimizer = SGD(),
+            weight_initializer: WeightInitializer = RandomWeightInitializer()) -> None:
         self.iterator = iterator
         self.loss = loss
         self.optimizer = optimizer
@@ -33,7 +37,7 @@ class NeuralNet:
                 dimension = layer.output_size
                 continue
 
-            layer.build(dimension)
+            layer.build(dimension, weight_initializer)
             dimension = layer.output_size
 
         self.optimizer.build(self)
@@ -54,6 +58,8 @@ class NeuralNet:
 
     def get_params_and_grads(self) -> Iterator[Tensor]:
         for layer in self.get_layers():
+            if not layer.train:
+                continue
             for name, param in layer.params.items():
                 grad = layer.grads[name]
                 yield param, grad

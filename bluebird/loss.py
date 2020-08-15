@@ -19,3 +19,10 @@ class MSE(Loss):
     
     def grad(self, predicted: Tensor, actual: Tensor) -> float:
         return 2 * (predicted - actual)
+
+# TO DO: Accuracy, BinaryAccuracy, CategoricalAccuracy,
+# BinaryCrossentropy, CategoricalCrossentropy, 
+# SparseCategoricalCrossentropy, 
+# MSE, RMSE, MeanAbsErr, MeanSquaredLogErr
+# ACU, Precision, TruePositive, TrueNegative, FalsePositive,
+# FalseNegative, Hinge, Squared and Categorical Hinge

@@ -9,6 +9,7 @@ import numpy as np
 
 from bluebird.tensor import Tensor
 from bluebird.activations import Activation
+from bluebird.weight_initializers import WeightInitializer
 
 from .layer import Layer
 from .linear import Linear
@@ -18,9 +19,9 @@ class Dense(Layer):
         self.output_size = output_size
         self.hidden = activation
 
-    def build(self, input_size: int) -> None:
+    def build(self, input_size: int, weight_initializer: WeightInitializer) -> None:
         self.layer = Linear(self.output_size)
-        self.layer.build(input_size)
+        self.layer.build(input_size, weight_initializer)
         
         self.input_size = input_size
         self.params = self.layer.params

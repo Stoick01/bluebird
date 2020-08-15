@@ -13,6 +13,8 @@ class Layer:
     def __init__(self) -> None:
         self.params: Dict[str, Tensor] = {}
         self.grads: Dict[str, Tensor] = {}
+        self.train = True
+        self.test = True
 
     def build(self, input_size) -> None:
         """
@@ -31,3 +33,5 @@ class Layer:
         Backpropagates the gradinet through the layer
         """
         raise NotImplementedError
+
+# TO DO: Masking, Lambda, Conv1D, Conv2D, Conv3D

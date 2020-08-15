@@ -28,7 +28,7 @@ net = NeuralNet([
     bluebird.layers.Dense(10, activation=bluebird.activations.Softmax())
 ])
 
-net.build(optimizer=bluebird.optimizers.SGD(lr=0.001))
+net.build(optimizer=bluebird.optimizers.SGD(lr=0.01))
 
 net.fit(X_train, y_train, num_epochs=100)
 

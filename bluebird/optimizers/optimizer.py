@@ -25,3 +25,5 @@ class Optimizer:
         Set aditional parameters needed for step
         """
         raise NotImplementedError
+
+# TO DO: RMSprop, Adam, Adadelta, Adamax, Nadam, Ftrl
