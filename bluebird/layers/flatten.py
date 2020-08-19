@@ -23,7 +23,7 @@ class Flatten(Input):
 
         self.backward_shape = (-1,) + self.input_size
 
-    def forward(self, inputs: Tensor) -> Tensor:
+    def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         self.inputs = inputs.reshape(-1, self.output_size)
         
         if inputs.shape[1:] != self.input_size:

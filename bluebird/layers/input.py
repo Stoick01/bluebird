@@ -19,7 +19,7 @@ class Input(Layer):
     def build(self) -> None:
         self.output_size = self.input_size
 
-    def forward(self, inputs: Tensor) -> Tensor:
+    def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         self.inputs = inputs
 
         if inputs.shape[1] != self.input_size:

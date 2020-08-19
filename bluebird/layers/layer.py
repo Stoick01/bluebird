@@ -22,7 +22,7 @@ class Layer:
         """
         raise NotImplementedError
 
-    def forward(self, inputs: Tensor) -> Tensor:
+    def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """
         Produces output for inputs
         """
@@ -34,4 +34,8 @@ class Layer:
         """
         raise NotImplementedError
 
-# TO DO: Masking, Lambda, Conv1D, Conv2D, Conv3D
+# TO DO: Masking, Lambda, Convolution (1D, 2D, 3D, Seperable, 
+# Depthwise, Transpose), Pooling (Max, Average, GlobalMax, 
+# GlobalAverage), Recurrent (LSTM, GRU, RNN), BatchNormalization,
+#  LayerNormalization, SpatialDropout, GaussianDropout,  
+# 

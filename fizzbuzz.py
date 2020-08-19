@@ -3,7 +3,7 @@ from typing import List
 import numpy as np
 
 from bluebird.nn import NeuralNet
-from bluebird.layers import Linear, Input, Dense
+from bluebird.layers import Linear, Input, Dense, Dropout
 from bluebird.activations import Tanh, Relu, Softmax
 from bluebird.optimizers import SGD, NestovMomentum, AdaGrad
 from bluebird.data import BatchIterator
@@ -36,7 +36,7 @@ targets = np.array([
 
 net = NeuralNet([
     Input(10),
-    Linear(50),
+    Dropout(50, droput_rate=0.2),
     Tanh(),
     Linear(4)
 ])

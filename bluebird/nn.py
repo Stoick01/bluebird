@@ -44,7 +44,7 @@ class NeuralNet:
 
     def forward(self, inputs: Tensor) -> Tensor:
         for layer in self.layers:
-            inputs = layer.forward(inputs)
+            inputs = layer.forward(inputs, training=True)
         return inputs
 
     def backward(self, grad:Tensor) -> Tensor:
@@ -58,14 +58,14 @@ class NeuralNet:
 
     def get_params_and_grads(self) -> Iterator[Tensor]:
         for layer in self.get_layers():
-            if not layer.train:
-                continue
             for name, param in layer.params.items():
                 grad = layer.grads[name]
                 yield param, grad
 
     def predict(self, inputs: Tensor) -> Tensor:
-        return self.forward(inputs)
+        for layer in self.layers:
+            inputs = layer.forward(inputs, training=False)
+        return inputs
 
     def fit(self, 
             inputs: Tensor,

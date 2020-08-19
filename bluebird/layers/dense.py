@@ -27,13 +27,13 @@ class Dense(Layer):
         self.params = self.layer.params
         self.grads = self.layer.grads
 
-    def forward(self, inputs: Tensor) -> Tensor:
+    def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         self.inputs = inputs
 
-        self.outputs = self.layer.forward(inputs)
+        self.outputs = self.layer.forward(inputs, training)
 
         if self.hidden != None:
-            self.outputs = self.hidden.forward(self.outputs)
+            self.outputs = self.hidden.forward(self.outputs, training)
 
         return self.outputs
 

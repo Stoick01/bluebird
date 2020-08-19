@@ -4,6 +4,8 @@ from bluebird.datasets.mnist import load_data
 
 import bluebird
 from bluebird.nn import NeuralNet
+from bluebird.activations import Relu, Softmax
+from bluebird.layers import Flatten, Dropout, Dense
 
 (X_train, y_train), (X_test, y_test) = load_data()
 
@@ -17,18 +19,19 @@ def convert_labels(labels: np.ndarray) -> np.ndarray:
 
 y_train = convert_labels(y_train)
 y_test = convert_labels(y_test)
-# X_train = X_train / 255.0
-# X_test = X_test / 255.0
+X_train = X_train / 255.0
+X_test = X_test / 255.0
 
 net = NeuralNet([
-    bluebird.layers.Flatten(input_size=(28, 28)),
-    bluebird.layers.Dense(100, activation=bluebird.activations.Relu()),
-    bluebird.layers.Dense(100, activation=bluebird.activations.Relu()),
-    bluebird.layers.Dense(100, activation=bluebird.activations.Relu()),
-    bluebird.layers.Dense(10, activation=bluebird.activations.Softmax())
+    Flatten(input_size=(28, 28)),
+    Dropout(50, droput_rate=0.2),
+    Relu(),
+    Dropout(50, droput_rate=0.2),
+    Relu(),
+    Dense(10, activation=Softmax())
 ])
 
-net.build(optimizer=bluebird.optimizers.SGD(lr=0.01))
+net.build(optimizer=bluebird.optimizers.SGD(lr=0.001))
 
 net.fit(X_train, y_train, num_epochs=100)
 

@@ -25,7 +25,7 @@ class Linear(Layer):
         self.params["b"] = weight_initializer.init((self.output_size,))
         
 
-    def forward(self, inputs: Tensor) -> Tensor:
+    def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """
         output = inputs @ w + b
         """

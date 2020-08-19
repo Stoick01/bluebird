@@ -21,7 +21,7 @@ class Activation(Layer):
         self.f = f
         self.f_prime = f_prime
 
-    def forward(self, inputs: Tensor) -> Tensor:
+    def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         self.inputs = inputs
 
         return self.f(inputs)
