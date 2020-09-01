@@ -13,11 +13,10 @@ from .activation import Activation
 
 
 def relu(x: Tensor, epsilon: float = 0.1) -> Tensor:
-    return np.maximum(epsilon * x, x)
+    return np.maximum(x, 0)
 
 def relu_prime(x: Tensor, epsilon: float = 0.1) -> Tensor:
-    x = 1.0 * (x > 0)
-    x[x == 0] = epsilon
+    x[x == 0] = 0
     return x
 
 class Relu(Activation):

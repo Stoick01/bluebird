@@ -4,9 +4,10 @@ import numpy as np
 
 from bluebird.nn import NeuralNet
 from bluebird.layers import Linear, Input, Dense, Dropout
-from bluebird.activations import Tanh, Relu, Softmax
+from bluebird.activations import Tanh, Relu, Softmax, Sigmoid
 from bluebird.optimizers import SGD, NestovMomentum, AdaGrad
 from bluebird.data import BatchIterator
+from bluebird.loss import CrossEntropy
 
 def fizz_buzz_encode(x: int) -> List[int]:
     if x % 15 == 0:
@@ -36,13 +37,13 @@ targets = np.array([
 
 net = NeuralNet([
     Input(10),
-    Dropout(50, droput_rate=0.2),
+    Dense(50, activation=Tanh()),
     Tanh(),
-    Linear(4)
+    Dense(4)
 ])
 
 
-net.build(optimizer=NestovMomentum(lr=0.001))
+net.build(optimizer=SGD(lr=0.001))
 
 net.fit(inputs, targets, num_epochs=5000)
 

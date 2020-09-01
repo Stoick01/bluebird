@@ -79,7 +79,7 @@ class NeuralNet:
 
             for batch in self.iterator(inputs, targets):
                 predicted = self.predict(batch.inputs)
-                epoch_loss += self.loss.loss(predicted, batch.targets) * (len(batch.targets) / n)
+                epoch_loss += self.loss.loss(predicted, batch.targets) 
                 grad = self.loss.grad(predicted, batch.targets)
                 self.backward(grad)
                 self.optimizer.step()

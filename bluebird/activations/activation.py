@@ -9,6 +9,8 @@ import numpy as np
 from bluebird.tensor import Tensor
 from bluebird.layers import Layer
 
+import bluebird.utils as utl
+
 F = Callable[[Tensor], Tensor]
 
 class Activation(Layer):
@@ -24,10 +26,10 @@ class Activation(Layer):
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         self.inputs = inputs
 
-        return self.f(inputs)
+        return utl.scale(self.f(inputs))
 
     def backward(self, grad: Tensor) -> Tensor:
-        return self.f_prime(self.inputs) * grad
+        return utl.scale(self.f_prime(self.inputs) * grad)
 
 
 # TO DO: Sigmoid, Softplus, Softsign, SELU, ELU, exponential

@@ -9,6 +9,8 @@ import numpy as np
 
 from bluebird.tensor import Tensor
 
+import bluebird.utils as utl
+
 from .layer import Layer
 from .linear import Linear
 
@@ -31,4 +33,4 @@ class Dropout(Linear):
                 self.inputs[:, ind] = 0
         else:
             self.inputs = inputs
-        return inputs @ self.params["w"] + self.params["b"]
+        return utl.scale(inputs @ self.params["w"] + self.params["b"])
