@@ -8,12 +8,14 @@ import numpy as np
 from bluebird.tensor import Tensor
 from bluebird.layers import Layer
 
+import bluebird.utils as utl
+
 from .activation import Activation
 
 def softmax(x):
-    exp = np.exp((x-x.mean(axis=-1, keepdims=True)) / np.sqrt(x.var(axis=-1, keepdims=True) + 1e-8))
+    exp = np.exp(x - x.max(axis=-1, keepdims=True))
     sum_exp = exp.sum(axis=-1, keepdims=True)
-    return exp / sum_exp
+    return exp / (sum_exp + 1e-8)
 
 def softmax_prime(x):
     f = softmax(x)

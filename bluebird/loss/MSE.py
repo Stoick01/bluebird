@@ -9,7 +9,7 @@ from .loss import Loss
 
 class MSE(Loss):
     def loss(self, predicted: Tensor, actual: Tensor) -> float:
-        return np.sum((predicted - actual) ** 2) / len(actual)
+        return np.sum((predicted - actual) ** 2)
     
     def grad(self, predicted: Tensor, actual: Tensor) -> float:
         return  (predicted - actual) * 2

@@ -26,10 +26,10 @@ class Activation(Layer):
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         self.inputs = inputs
 
-        return utl.scale(self.f(inputs))
+        return self.f(inputs)
 
     def backward(self, grad: Tensor) -> Tensor:
-        return utl.scale(self.f_prime(self.inputs) * grad)
+        return utl.fix_overflow(self.f_prime(self.inputs) * grad)
 
 
-# TO DO: Sigmoid, Softplus, Softsign, SELU, ELU, exponential
+# TO DO: Softplus, Softsign, SELU, ELU, exponential, leaky Relu

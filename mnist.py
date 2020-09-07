@@ -6,10 +6,10 @@ from bluebird.datasets.mnist import load_data
 
 import bluebird
 from bluebird.nn import NeuralNet
-from bluebird.activations import Relu, Sigmoid, Softmax
-from bluebird.layers import Flatten, Dropout, Dense
+from bluebird.activations import Relu, Sigmoid, Softmax, Tanh
+from bluebird.layers import Flatten, Dropout, Dense, Linear
 from bluebird.data import BatchIterator
-from bluebird.loss import CrossEntropy
+from bluebird.loss import CategoricalCrossEntropy
 
 if os.path.isdir('./mnist'):
     print("Loading data...")
@@ -43,12 +43,13 @@ net = NeuralNet([
     Flatten(input_size=(28, 28)),
     Dense(300, activation=Relu()),
     Dense(100, activation=Relu()),
+    Dense(50, activation=Relu()),
     Dense(10, activation=Softmax())
 ])
 
-net.build(optimizer=bluebird.optimizers.SGD(lr=0.01), loss=CrossEntropy())
+net.build(optimizer=bluebird.optimizers.NestovMomentum(lr=0.003), loss=CategoricalCrossEntropy())
 
-net.fit(X_train, y_train, num_epochs=100)
+net.fit(X_train, y_train, num_epochs=20)
 
 print("Pred, True")
 

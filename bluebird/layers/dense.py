@@ -9,19 +9,24 @@ import numpy as np
 
 from bluebird.tensor import Tensor
 from bluebird.activations import Activation
-from bluebird.weight_initializers import WeightInitializer
+from bluebird.weight_initializers import WeightInitializer, GlorotUniformWeightInitializer, ZerosWeightInitializer
 
 from .layer import Layer
 from .linear import Linear
 
 class Dense(Layer):
-    def __init__(self, output_size: int, activation: Activation = None) -> None:
+    def __init__(self, output_size: int, activation: Activation = None, 
+                 weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
+                 bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:
         self.output_size = output_size
         self.hidden = activation
 
-    def build(self, input_size: int, weight_initializer: WeightInitializer) -> None:
-        self.layer = Linear(self.output_size)
-        self.layer.build(input_size, weight_initializer)
+        self.weight_initializer = weight_initializer
+        self.bias_initializer = bias_initializer
+
+    def build(self, input_size: int) -> None:
+        self.layer = Linear(self.output_size, self.weight_initializer, self.bias_initializer)
+        self.layer.build(input_size)
         
         self.input_size = input_size
         self.params = self.layer.params

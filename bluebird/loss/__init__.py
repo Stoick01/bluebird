@@ -1,3 +1,3 @@
 from .loss import Loss
-from .CrossEntropy import CrossEntropy
+from .CategoricalCrossEntropy import CategoricalCrossEntropy
 from .MSE import MSE

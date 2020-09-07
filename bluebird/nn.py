@@ -4,6 +4,9 @@ Neural Net
 
 # TO DO: Model from multiple models
 
+# import warnings
+# warnings.filterwarnings('ignore')
+
 from typing import Sequence, Iterator, Tuple
 
 from .tensor import Tensor
@@ -14,6 +17,8 @@ from .optimizers import Optimizer, SGD
 from .activations import Activation
 from .weight_initializers import WeightInitializer, RandomWeightInitializer
 
+import bluebird.utils as utl
+
 class NeuralNet:
     def __init__(self, layers: Sequence[Layer]) -> None:
         self.layers = layers
@@ -21,8 +26,7 @@ class NeuralNet:
     def build(self, 
             iterator: DataIterator = BatchIterator(),
             loss: Loss = MSE(),
-            optimizer: Optimizer = SGD(),
-            weight_initializer: WeightInitializer = RandomWeightInitializer()) -> None:
+            optimizer: Optimizer = SGD()) -> None:
         self.iterator = iterator
         self.loss = loss
         self.optimizer = optimizer
@@ -37,7 +41,7 @@ class NeuralNet:
                 dimension = layer.output_size
                 continue
 
-            layer.build(dimension, weight_initializer)
+            layer.build(dimension)
             dimension = layer.output_size
 
         self.optimizer.build(self)
@@ -49,6 +53,7 @@ class NeuralNet:
 
     def backward(self, grad:Tensor) -> Tensor:
         for layer in self.get_layers():
+            grad = utl.grad_clip(grad)
             grad = layer.backward(grad)
         return grad
 
@@ -83,4 +88,5 @@ class NeuralNet:
                 grad = self.loss.grad(predicted, batch.targets)
                 self.backward(grad)
                 self.optimizer.step()
-            print(epoch, epoch_loss)
+                # import ipdb; ipdb.set_trace()
+            print(epoch, epoch_loss/n)

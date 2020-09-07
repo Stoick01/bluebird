@@ -33,4 +33,4 @@ class Dropout(Linear):
                 self.inputs[:, ind] = 0
         else:
             self.inputs = inputs
-        return utl.scale(inputs @ self.params["w"] + self.params["b"])
+        return inputs @ self.params["w"] + self.params["b"]
