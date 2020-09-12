@@ -17,6 +17,7 @@ class WeightInitializer:
         raise NotImplementedError
 
 
+
 class RandomWeightInitializer:
     def init(self, dimension: Tuple) -> Tensor:
         return np.random.randn(*dimension)

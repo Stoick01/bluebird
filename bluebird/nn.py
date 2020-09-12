@@ -17,16 +17,31 @@ from .optimizers import Optimizer, SGD
 from .activations import Activation
 from .weight_initializers import WeightInitializer, RandomWeightInitializer
 
+from .exceptions import TypeException
+
 import bluebird.utils as utl
 
 class NeuralNet:
     def __init__(self, layers: Sequence[Layer]) -> None:
+        if not isinstance(layers, Sequence[Layer]):
+            raise TypeException("layers", "Sequence[Layer]")
+
         self.layers = layers
 
     def build(self, 
             iterator: DataIterator = BatchIterator(),
             loss: Loss = MSE(),
             optimizer: Optimizer = SGD()) -> None:
+
+        if not isinstance(iterator, DataIterator):
+            raise TypeException("iterator", "DataIterator")
+
+        if not isinstance(loss, Loss):
+            raise TypeException("loss", "Loss")
+
+        if not isinstance(optimizer, Optimizer):
+            raise TypeException("optimizer", "Optimizer")
+
         self.iterator = iterator
         self.loss = loss
         self.optimizer = optimizer
@@ -76,6 +91,15 @@ class NeuralNet:
             inputs: Tensor,
             targets: Tensor,
             num_epochs: int = 5000) -> None:
+
+        if not isinstance(inputs, Tensor):
+            raise TypeException("inputs", "Tensor")
+
+        if not isinstance(targets, Tensor):
+            raise TypeException("targets", "Tensor")
+
+        if not isinstance(num_epochs, int):
+            raise TypeException("num_epochs", "int")
 
         n = len(inputs)
 

@@ -5,17 +5,22 @@ Combination of linear and activation layer
 
 from typing import Dict
 
-import numpy as np
+from typing import TYPE_CHECKING
 
-from bluebird.tensor import Tensor
-from bluebird.activations import Activation
-from bluebird.weight_initializers import WeightInitializer, GlorotUniformWeightInitializer, ZerosWeightInitializer
+if TYPE_CHECKING:
+    from bluebird.activations import Activation
+
+import numpy as np
 
 from .layer import Layer
 from .linear import Linear
 
+from bluebird.tensor import Tensor
+from bluebird.weight_initializers import WeightInitializer, GlorotUniformWeightInitializer, ZerosWeightInitializer
+
+
 class Dense(Layer):
-    def __init__(self, output_size: int, activation: Activation = None, 
+    def __init__(self, output_size: int, activation: 'Activation', 
                  weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
                  bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:
         self.output_size = output_size

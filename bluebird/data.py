@@ -17,6 +17,12 @@ class DataIterator:
 
 class BatchIterator(DataIterator):
     def __init__(self, batch_size: int = 32, shuffle: bool = True) -> None:
+        if not isinstance(batch_size, int):
+            raise TypeException("batch_size", "int")
+
+        if not isinstance(shuffle, int):
+            raise TypeException("shuffle", "int")
+
         self.batch_size = batch_size
         self.shuffle = shuffle
 
