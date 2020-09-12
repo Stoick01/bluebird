@@ -18,12 +18,13 @@ from .activations import Activation
 from .weight_initializers import WeightInitializer, RandomWeightInitializer
 
 from .exceptions import TypeException
+from .progress_tracker import ProgressBar
 
 import bluebird.utils as utl
 
 class NeuralNet:
     def __init__(self, layers: Sequence[Layer]) -> None:
-        if not isinstance(layers, Sequence[Layer]):
+        if not isinstance(layers, Sequence):
             raise TypeException("layers", "Sequence[Layer]")
 
         self.layers = layers
@@ -105,12 +106,16 @@ class NeuralNet:
 
         for epoch in range(num_epochs):
             epoch_loss = 0.0
+            items = 0
+
+            bar = ProgressBar(n, num_epochs)
 
             for batch in self.iterator(inputs, targets):
+                items += len(batch.inputs)
                 predicted = self.predict(batch.inputs)
                 epoch_loss += self.loss.loss(predicted, batch.targets) 
                 grad = self.loss.grad(predicted, batch.targets)
                 self.backward(grad)
                 self.optimizer.step()
-                # import ipdb; ipdb.set_trace()
-            print(epoch, epoch_loss/n)
+                bar.print_bar(items, epoch, epoch_loss/items)
+            # print(epoch, epoch_loss/n)
