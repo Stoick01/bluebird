@@ -15,14 +15,29 @@ import numpy as np
 from .layer import Layer
 from .linear import Linear
 
+import bluebird as bb
 from bluebird.tensor import Tensor
 from bluebird.weight_initializers import WeightInitializer, GlorotUniformWeightInitializer, ZerosWeightInitializer
+
+from bluebird.exceptions import TypeException
 
 
 class Dense(Layer):
     def __init__(self, output_size: int, activation: 'Activation', 
                  weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
                  bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:
+        if not isinstance(output_size, int):
+            raise TypeException("output_size", "int")
+
+        # if not isinstance(activation, bb.activations.Activation):
+        #     raise TypeException("activation", "Activation")
+
+        if not isinstance(weight_initializer, WeightInitializer):
+            raise TypeException("weight_initializer", "WeightInitializer")
+
+        if not isinstance(bias_initializer, WeightInitializer):
+            raise TypeException("bias_initializer", "WeightInitializer")
+
         self.output_size = output_size
         self.hidden = activation
 

@@ -18,6 +18,16 @@ class Linear(Layer):
     def __init__(self, output_size: int,
                  weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
                  bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:
+
+        if not isinstance(output_size, int):
+            raise TypeException("output_size", "int")
+
+        if not isinstance(weight_initializer, WeightInitializer):
+            raise TypeException("weight_initializer", "WeightInitializer")
+
+        if not isinstance(bias_initializer, WeightInitializer):
+            raise TypeException("bias_initializer", "WeightInitializer")
+
         super().__init__()
         self.output_size = output_size
 

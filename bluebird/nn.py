@@ -117,5 +117,4 @@ class NeuralNet:
                 grad = self.loss.grad(predicted, batch.targets)
                 self.backward(grad)
                 self.optimizer.step()
-                bar.print_bar(items, epoch, epoch_loss/items)
-            # print(epoch, epoch_loss/n)
+                bar.print_bar(items, epoch+1, epoch_loss/items)

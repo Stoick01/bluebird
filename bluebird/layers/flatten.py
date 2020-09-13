@@ -9,10 +9,15 @@ from typing import Tuple
 import numpy as np
 
 from bluebird.tensor import Tensor
+from bluebird.exceptions import TypeException
+
 from .input import Input
 
 class Flatten(Input):
     def __init__(self, input_size: Tuple) -> None:
+        if not isinstance(input_size, Tuple):
+            raise TypeException("input_size", "Tuple")
+
         super().__init__(input_size)
 
     def build(self) -> None:

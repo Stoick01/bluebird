@@ -8,6 +8,7 @@ from typing import Dict
 import numpy as np
 
 from bluebird.tensor import Tensor
+from bluebird.exceptions import TypeException
 
 import bluebird.utils as utl
 
@@ -15,7 +16,13 @@ from .layer import Layer
 from .linear import Linear
 
 class Dropout(Linear):
-    def __init__(self, output_size: int, droput_rate: int) -> None:
+    def __init__(self, output_size: int, droput_rate: float) -> None:
+        if not isinstance(output_size, int):
+            raise TypeException("output_size", "int")
+
+        if not isinstance(droput_rate, float):
+            raise TypeException("dropout_rate", "float")
+
         super().__init__(output_size)
         self.droput_rate = droput_rate
 

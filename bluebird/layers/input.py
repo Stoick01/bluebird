@@ -9,10 +9,15 @@ from typing import Dict, Tuple
 import numpy as np
 
 from bluebird.tensor import Tensor
+from bluebird.exceptions import TypeException
+
 from .layer import Layer
 
 class Input(Layer):
     def __init__(self, input_size: int) -> None:
+        if not isinstance(input_size, int):
+            raise TypeException("input_size", "int")
+
         super().__init__()
         self.input_size = input_size
 
