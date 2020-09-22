@@ -11,47 +11,74 @@ from .tensor import Tensor
 class WeightInitializer:
     """
     Base class that every weight inititualization inherits
+
+    Args:
+        dimension: dimensions of Tensor that init returns, Type: Tuple
+
+    Example:
+        class CustomWeightInitializer(WeightInitializer):
+            def init(self, dimension: Tuple) -> Tensor:
+                x = .....
+                ....
+                return x
     """
 
     def init(self, dimension: Tuple) -> Tensor:
-        """
-        Function that initializes weights
-
-        dimension - Tuple
-            - shape should be the dimensions of weights or biases in a layer
-
-        returns:
-            - Tensor which shape is identical to the dimension argmuent
-        """
-
         raise NotImplementedError
 
 
 
 class RandomWeightInitializer(WeightInitializer):
     """
-    Initializer random weights
+    Initializes random values for tensor
     """
 
     def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = RandomWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+
         return np.random.randn(*dimension)
 
 class RandomUniformWeightInitializer(WeightInitializer):
     """
-    Initializes uniform weights between -1 and 1
+    Initializes random uniform values between -1 and 1
     """
 
     def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = RandomUniformWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+
         return np.random.uniform(-1, 1, dimension)
        
 
 class GlorotUniformWeightInitializer(WeightInitializer):
     """
-    Uses Glorot uniform initialization, weights are uniform
-    Glorot ensures small variance
+    Uses Glorot weight initialization
+    weights have small variance, with uniform distribution
     """
 
     def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = GlorotUniformWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+
         l = 0
         for d in dimension:
             l += d
@@ -65,6 +92,15 @@ class GlorotNormalWeightInitializer(WeightInitializer):
     """
 
     def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = GlorotNormalWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+
         l = 0
         for d in dimension:
             l += d
@@ -77,14 +113,32 @@ class ZerosWeightInitializer(WeightInitializer):
     """
 
     def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = ZerosWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+        
         return np.zeros(dimension)
 
 class OnesWeightInitializer(WeightInitializer):
     """
-    Initializes a Tensor with every elements value 0
+    Initializes a Tensor with every elements value 1
     """
 
     def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = OnesWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+
         return np.ones(dimension)
 
 

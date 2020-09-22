@@ -4,9 +4,6 @@ Neural Net
 
 # TO DO: Model from multiple models
 
-# import warnings
-# warnings.filterwarnings('ignore')
-
 from typing import Sequence, Iterator, Tuple
 
 from .tensor import Tensor
@@ -23,6 +20,22 @@ from .progress_tracker import ProgressBar
 import bluebird.utils as utl
 
 class NeuralNet:
+    """
+    Neural network, used to create the model for training
+
+    Args:
+        layers: list of layers of the newtwork, Type: Sequence[Layer]
+
+    Example:
+        >>> net = NeuralNet([
+                    Flatten(input_size=(28, 28)),
+                    Dense(300, activation=Relu()),
+                    Dense(100, activation=Relu()),
+                    Dense(50, activation=Relu()),
+                    Dense(10, activation=Softmax())
+                ])
+    """
+
     def __init__(self, layers: Sequence[Layer]) -> None:
         if not isinstance(layers, Sequence):
             raise TypeException("layers", "Sequence[Layer]")
@@ -33,6 +46,24 @@ class NeuralNet:
             iterator: DataIterator = BatchIterator(),
             loss: Loss = MSE(),
             optimizer: Optimizer = SGD()) -> None:
+        """
+        Used to build the model
+
+        Args:
+            iterator: defines the way you want to iteratre over the data,
+                default: BatchIterator() with the batch of 32
+                type: DataIterator
+            loss: defines loss function
+                default: MSE() - mean squared error
+                type: Loss
+            optimizer: defines how the weights should be updated
+                default: SGD() - stohastic gradient descent
+                type: Optimizer
+
+        Example:
+            >>> net.build(optimizer=AdaGrad(lr=0.003), loss=CategoricalCrossEntropy())
+        """
+        
 
         if not isinstance(iterator, DataIterator):
             raise TypeException("iterator", "DataIterator")
@@ -84,6 +115,16 @@ class NeuralNet:
                 yield param, grad
 
     def predict(self, inputs: Tensor) -> Tensor:
+        """
+        Used to predict values after you finished the training
+
+        Args:
+            inputs: values you wish to predict, Type: Tensor
+
+        Example:
+            >>> net.predict(X_test)
+        """
+
         for layer in self.layers:
             inputs = layer.forward(inputs, training=False)
         return inputs
@@ -91,7 +132,19 @@ class NeuralNet:
     def fit(self, 
             inputs: Tensor,
             targets: Tensor,
-            num_epochs: int = 5000) -> None:
+            num_epochs: int) -> None:
+        """
+        Used to train the model
+
+        Args:
+            inputs: values used for training, Type: Tensor
+            targets: tarets, Type: Tensor
+            num_epochs: number of epochs you want to train
+
+        Example:
+            >>> net.fit(X_train, y_train, num_epochs=20)
+        """
+        
 
         if not isinstance(inputs, Tensor):
             raise TypeException("inputs", "Tensor")

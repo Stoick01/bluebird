@@ -15,7 +15,8 @@ F = Callable[[Tensor], Tensor]
 
 class Activation(Layer):
     """
-    Applies function to inputs
+    Represents Activation Layer
+    Applies function when going forward in the network, and it's derivation when going backwards
     """
 
     def __init__(self, f: F, f_prime: F) -> None:
