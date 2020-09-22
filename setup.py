@@ -14,8 +14,8 @@ setup(
     description='Deep learning library',
     long_description=readme,
     author='Gordan Prastalo',
-    author_email='work.gordan.prastalo@gmail.com',
-    url='https://github.com/...',
+    author_email='gordan.prastalo.gp@gmail.com',
+    url='https://github.com/Stoick01/bluebird',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
 )

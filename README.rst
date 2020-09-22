@@ -1,3 +1,3 @@
-BlueBird
+# BlueBird
 
-Deep Learning Library
+Simple deep learning library
