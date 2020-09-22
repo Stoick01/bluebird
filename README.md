@@ -31,7 +31,7 @@ net.fit(X_train, y_train, num_epochs=20)
 
 ## Roadmap
 
-There are a lot of updates planed, you will find comments throughout the library that define what features are I'm planing to add in the future.
+There are a lot of updates planed, you will find comments throughout the library that define what features I'm planing to add in the future.
 
 ## Contribution
 
