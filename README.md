@@ -2,7 +2,7 @@
 
 Simple deep learning library. 
 
-## Ussage
+## Usage
 
 Here is a simple implemetation of a model in bluebird.
 
