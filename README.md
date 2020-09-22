@@ -2,7 +2,7 @@
 
 Simple deep learning library. 
 
-## Usage
+## Ussage
 
 Here is a simple implemetation of a model in bluebird.
 
@@ -28,9 +28,6 @@ net.build(optimizer=SGD(lr=0.003), loss=CategoricalCrossEntropy())
 # train your model
 net.fit(X_train, y_train, num_epochs=20)
 ```
-## Usage
-
-Use it as you wish, I created it to learn, and if it helps someone else, I'll be very happy.
 
 ## Roadmap
 
