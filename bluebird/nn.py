@@ -2,7 +2,7 @@
 Neural Net
 """
 
-# TO DO: Model from multiple models
+# TO DO: Model from multiple models, base model class
 
 from typing import Sequence, Iterator, Tuple
 
@@ -120,6 +120,8 @@ class NeuralNet:
 
         Args:
             inputs: values you wish to predict, Type: Tensor
+
+        Returns: predicted values, Type: Tensor
 
         Example:
             >>> net.predict(X_test)

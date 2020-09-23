@@ -15,8 +15,19 @@ F = Callable[[Tensor], Tensor]
 
 class Activation(Layer):
     """
-    Represents Activation Layer
-    Applies function when going forward in the network, and it's derivation when going backwards
+    Default activation, that all other activations inherit
+
+    Args:
+        f: activation function, Type: F (callable)
+        f_prime: derivation of activation function, Type: F (Callable)
+
+    Example:
+
+       class CustomActivation(Activation):
+            def __init__(self, f: F, f_prime: F) -> None:
+                super().__init__(f, f_prime)
+                ...
+            
     """
 
     def __init__(self, f: F, f_prime: F) -> None:

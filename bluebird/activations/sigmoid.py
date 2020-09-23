@@ -19,5 +19,15 @@ def sigmoid_prime(x: Tensor) -> Tensor:
     return sigmoid(x) * (1 - sigmoid(x))
 
 class Sigmoid(Activation):
+    """
+    Sigmoid activation function
+
+    function:
+        f(x) = 1 / (x + e^x)
+
+    derivation:
+        f'(x) = f(x) * (1 - f(x))
+    """
+
     def __init__(self):
         super().__init__(sigmoid, sigmoid_prime)

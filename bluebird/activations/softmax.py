@@ -22,5 +22,15 @@ def softmax_prime(x):
     return f * (1 - f)
 
 class Softmax(Activation):
+    """
+    Softmax activation function
+
+    function:
+        f(x) = e^x / sum(e^x)
+
+    derivation:
+        f'(x) = f(x) * (1 - f(x))
+    """
+
     def __init__(self):
         super().__init__(softmax, softmax_prime)

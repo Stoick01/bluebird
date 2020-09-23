@@ -14,6 +14,24 @@ from bluebird.exceptions import TypeException
 from .layer import Layer
 
 class Input(Layer):
+    """
+    Simple input layer
+    it just passes the inputed values forward
+    Input (or layer that inherits Input) should be the first layer in network
+
+    Args:
+        input_size: size of inputed tensor, Type: int
+
+    Example:
+
+        >>> input = Input(50)
+        >>> net = NeuralNet([
+                    input,
+                    ...
+                ])
+
+    """
+
     def __init__(self, input_size: int) -> None:
 
         super().__init__()

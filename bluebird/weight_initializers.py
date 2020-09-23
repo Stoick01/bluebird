@@ -12,14 +12,10 @@ class WeightInitializer:
     """
     Base class that every weight inititualization inherits
 
-    Args:
-        dimension: dimensions of Tensor that init returns, Type: Tuple
-
     Example:
         class CustomWeightInitializer(WeightInitializer):
             def init(self, dimension: Tuple) -> Tensor:
-                x = .....
-                ....
+                x = ... x must be a Tensor of dimensions given to the function
                 return x
     """
 

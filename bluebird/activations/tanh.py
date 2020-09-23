@@ -20,5 +20,15 @@ def tanh_prime(x: Tensor) -> Tensor:
     return 1 - y ** 2
 
 class Tanh(Activation):
+    """
+    Tanh activation function
+
+    function:
+        f(x) = (e^x - e^(-x)) / (e^x + e^(-x))
+
+    derivation:
+        f'(x) = 1 - f(x)^2 
+    """
+
     def __init__(self):
         super().__init__(tanh, tanh_prime)

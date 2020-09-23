@@ -35,4 +35,4 @@ There are a lot of updates planed, you will find comments throughout the library
 
 ## Contribution
 
-Feel free to help, I know that there are many thins that need to be optimized and implemented in the future, any help is welcomed.
+Feel free to help, I know that there are many things that need to be optimized and implemented in the future, any help is welcome.

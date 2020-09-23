@@ -23,6 +23,30 @@ from bluebird.exceptions import TypeException
 
 
 class Dense(Layer):
+    """
+    Combination of linear and activation layer
+
+    Args:
+        output_size: number of neurons, Type: int
+        activation: activation function, Type: Activation
+        weight_initializer: defines how weights are initialized
+            type: WeightInitializer
+            default: GlorotUniformWeightInitializer
+        bias_initializer: defines how weights are initialized
+            type: WeightInitializer
+            default: ZerosWeightInitializer
+
+    Example:
+
+        >>> dense = Dense(50, activation=Relu())
+        >>> net = NeuralNet([
+                    ...
+                    dense,
+                    ...
+                ])
+
+    """
+
     def __init__(self, output_size: int, activation: 'Activation', 
                  weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
                  bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:

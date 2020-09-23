@@ -12,7 +12,27 @@ from .layer import Layer
 
 class Linear(Layer):
     """
+    Simple linear layer
     output = input @ w + b
+
+    Args:
+        output_size: number of neurons, Type: int
+        weight_initializer: defines how weights are initialized
+            type: WeightInitializer
+            default: GlorotUniformWeightInitializer
+        bias_initializer: defines how weights are initialized
+            type: WeightInitializer
+            default: ZerosWeightInitializer
+
+    Example:
+
+        >>> linear = Lainear(50)
+        >>> net = NeuralNet([
+                    ...
+                    linear
+                    ...
+                ])
+
     """
 
     def __init__(self, output_size: int,

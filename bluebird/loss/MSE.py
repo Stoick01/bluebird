@@ -8,6 +8,10 @@ from bluebird.tensor import Tensor
 from .loss import Loss
 
 class MSE(Loss):
+    """
+    Mean squared error
+    """
+
     def loss(self, predicted: Tensor, actual: Tensor) -> float:
         return np.sum((predicted - actual) ** 2)
     

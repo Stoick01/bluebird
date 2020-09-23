@@ -21,5 +21,17 @@ def relu_prime(x: Tensor) -> Tensor:
     return x
 
 class Relu(Activation):
+    """
+    Relu activation function
+
+    function:
+        f(x) = 0 if x < 0
+        f(x) = x if x > 0
+
+    derivation:
+        f'(x) = 0 if x < 0
+        f'(x) = 1 if x > 0
+    """
+
     def __init__(self):
         super().__init__(relu, relu_prime)

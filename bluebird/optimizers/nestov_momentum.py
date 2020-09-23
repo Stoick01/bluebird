@@ -17,14 +17,43 @@ from .optimizer import Optimizer
 
 
 class NestovMomentum(Optimizer):
+    """
+    Stohastic Gradient Descent with momentum,
+    Gradient accelerates and converges faster than with regular SGD
+
+
+    Args:
+        lr: learning rate
+            default: 0.001
+            type: float
+
+    Example:
+        
+        >>> optim = NestrovMomentum(lr=0.005)
+        >>> net.build(optimizer=optim, loss=CategoricalCrossEntropy())
+
+    """
+
     def __init__(self,
-                 lr: float = 0.001,
-                 b: float = 0.8) -> None:
+                 lr: float = 0.001) -> None:
         self.lr = lr
-        self.b = b
         self.vs = None
 
     def build(self, net: 'NeuralNet') -> None:
+        """
+        Called before training, optimizer needs the model to be able to iterate over params
+        It also creates momentum vecotors
+
+        Args:
+            net: your model, Type: NeuralNet
+
+        Example:
+            
+            >>> optim = NestrovMomentum(lr=0.005)
+            >>> optim.build(net)
+
+        """
+
         self.net = net
 
         if self.vs == None:
@@ -37,6 +66,16 @@ class NestovMomentum(Optimizer):
                 self.vs.append(np.zeros(layer.output_size))
 
     def step(self) -> None:
+        """
+        Run training step
+
+        Example:
+            
+            >>> optim = NestrovMomentum(lr=0.005)
+            >>> optim.step()
+
+        """
+        
         for ((param, grad), v) in zip(self.net.get_params_and_grads(), self.vs):
             v = param * v - self.lr * grad
             param += v

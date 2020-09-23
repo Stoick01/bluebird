@@ -14,6 +14,24 @@ from bluebird.exceptions import TypeException
 from .input import Input
 
 class Flatten(Input):
+    """
+    Type of input layer
+    It transforms n*m matrix into a list
+    It should be the first layer in a network
+
+    Args:
+        input_size: dimensions of a n*m matrix, Type: Tuple
+
+    Example:
+
+        >>> input = Flatten((5, 10))
+        >>> net = NeuralNet([
+                    input,
+                    ...
+                ])
+
+    """
+
     def __init__(self, input_size: Tuple) -> None:
         if not isinstance(input_size, Tuple):
             raise TypeException("input_size", "Tuple")

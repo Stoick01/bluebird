@@ -16,6 +16,26 @@ from .layer import Layer
 from .linear import Linear
 
 class Dropout(Linear):
+    """
+    It ignores some of inouts and scales other ones,
+    Usefull to escape overfitting
+
+    Args:
+        output_size: number of neurons, Type: int
+        dropout_rate: percent of inputs the network ignores, Type: float
+            (1:=100%)
+
+    Example:
+
+        >>> dropout = Dropout(50, dropout_rate=0.02)
+        >>> net = NeuralNet([
+                    ...
+                    dropout
+                    ...
+                ])
+
+    """
+
     def __init__(self, output_size: int, droput_rate: float) -> None:
         if not isinstance(output_size, int):
             raise TypeException("output_size", "int")
