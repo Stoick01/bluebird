@@ -17,7 +17,7 @@ from .linear import Linear
 
 import bluebird as bb
 from bluebird.tensor import Tensor
-from bluebird.weight_initializers import WeightInitializer, GlorotUniformWeightInitializer, ZerosWeightInitializer
+from bluebird.weight_initializers import WeightInitializer, HeWeightInitializer, ZerosWeightInitializer
 
 from bluebird.exceptions import TypeException
 
@@ -31,7 +31,7 @@ class Dense(Layer):
         activation: activation function, Type: Activation
         weight_initializer: defines how weights are initialized
             type: WeightInitializer
-            default: GlorotUniformWeightInitializer
+            default: HeWeightInitializer
         bias_initializer: defines how weights are initialized
             type: WeightInitializer
             default: ZerosWeightInitializer
@@ -48,7 +48,7 @@ class Dense(Layer):
     """
 
     def __init__(self, output_size: int, activation: 'Activation', 
-                 weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
+                 weight_initializer: WeightInitializer = HeWeightInitializer(),
                  bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:
         if not isinstance(output_size, int):
             raise TypeException("output_size", "int")

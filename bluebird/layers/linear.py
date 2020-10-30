@@ -5,7 +5,7 @@ Basic linear layer
 import numpy as np
 
 from bluebird.tensor import Tensor
-from bluebird.weight_initializers import WeightInitializer, ZerosWeightInitializer, GlorotUniformWeightInitializer
+from bluebird.weight_initializers import WeightInitializer, ZerosWeightInitializer, HeWeightInitializer
 import bluebird.utils as utl
 
 from .layer import Layer
@@ -19,7 +19,7 @@ class Linear(Layer):
         output_size: number of neurons, Type: int
         weight_initializer: defines how weights are initialized
             type: WeightInitializer
-            default: GlorotUniformWeightInitializer
+            default: HeWeightInitializer
         bias_initializer: defines how weights are initialized
             type: WeightInitializer
             default: ZerosWeightInitializer
@@ -36,7 +36,7 @@ class Linear(Layer):
     """
 
     def __init__(self, output_size: int,
-                 weight_initializer: WeightInitializer = GlorotUniformWeightInitializer(),
+                 weight_initializer: WeightInitializer = HeWeightInitializer(),
                  bias_initializer: WeightInitializer = ZerosWeightInitializer()) -> None:
 
         if not isinstance(output_size, int):

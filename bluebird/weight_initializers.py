@@ -59,9 +59,9 @@ class RandomUniformWeightInitializer(WeightInitializer):
         return np.random.uniform(-1, 1, dimension)
        
 
-class GlorotUniformWeightInitializer(WeightInitializer):
+class XavierUniformWeightInitializer(WeightInitializer):
     """
-    Uses Glorot weight initialization
+    Uses Xavier weight initialization
     weights have small variance, with uniform distribution
     """
 
@@ -71,7 +71,7 @@ class GlorotUniformWeightInitializer(WeightInitializer):
             dimension: dimensions of Tensor that init returns, Type: Tuple
 
         Example:
-            >>> weight_init = GlorotUniformWeightInitializer()
+            >>> weight_init = XavierUniformWeightInitializer()
             >>> w = weight_init.init((10, 20))
         """
 
@@ -81,10 +81,10 @@ class GlorotUniformWeightInitializer(WeightInitializer):
         sd = np.sqrt(6.0 / l)
         return np.random.uniform(-sd, sd, dimension)
 
-class GlorotNormalWeightInitializer(WeightInitializer):
+class XavierNormalWeightInitializer(WeightInitializer):
     """
-    Uses Glorot uniform initialization, weights are normaly distributed
-    Glorot ensures small variance
+    Uses Xavier uniform initialization, weights are normaly distributed
+    Xavier ensures small variance
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -93,7 +93,7 @@ class GlorotNormalWeightInitializer(WeightInitializer):
             dimension: dimensions of Tensor that init returns, Type: Tuple
 
         Example:
-            >>> weight_init = GlorotNormalWeightInitializer()
+            >>> weight_init = XavierNormalWeightInitializer()
             >>> w = weight_init.init((10, 20))
         """
 
@@ -138,4 +138,18 @@ class OnesWeightInitializer(WeightInitializer):
         return np.ones(dimension)
 
 
-# TO DO: He
+class HeWeightInitializer(WeightInitializer):
+    """
+    He initializer, initializes weights with small
+    """
+
+    def init(self, dimension: Tuple) -> Tensor:
+        """
+        Args:
+            dimension: dimensions of Tensor that init returns, Type: Tuple
+
+        Example:
+            >>> weight_init = HeWeightInitializer()
+            >>> w = weight_init.init((10, 20))
+        """
+        return np.random.randn(dimension[0], dimension[1]) * np.sqrt(2.0 / dimension[0])
