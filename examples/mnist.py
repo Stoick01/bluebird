@@ -14,20 +14,7 @@ from bluebird.layers import Flatten, Dropout, Dense, Linear
 from bluebird.data import BatchIterator
 from bluebird.loss import CategoricalCrossEntropy
 
-if os.path.isdir('./mnist'):
-    print("Loading data...")
-    y_train = np.loadtxt(open('./mnist/training_labels.csv', 'rb'), delimiter=",")
-    y_train = y_train.astype("int")
-    y_test = np.loadtxt(open('./mnist/test_labels.csv', 'rb'), delimiter=",")
-    y_test = y_test.astype("int")
-
-    X_train = np.loadtxt(open('./mnist/training_images.csv', 'rb'), delimiter=",")
-    X_train = X_train.reshape(-1, 28, 28)
-
-    X_test = np.loadtxt(open('./mnist/test_images.csv', 'rb'), delimiter=",")
-    X_test = X_test.reshape(-1, 28, 28)
-else:
-    (X_train, y_train), (X_test, y_test) = load_data()
+(X_train, y_train), (X_test, y_test) = load_data()
 
 def convert_labels(labels: np.ndarray) -> np.ndarray:
     ar = np.zeros((labels.shape[0], 10))
