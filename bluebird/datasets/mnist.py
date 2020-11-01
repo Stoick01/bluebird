@@ -26,7 +26,8 @@ def load_data(path: str = "mnist", save: bool = False) -> Tuple:
     data = {}
 
     data_path = os.path.join(PROJECT_ROOT_DIR, path)
-    os.makedirs(data_path, exist_ok=True)
+    if save:
+        os.makedirs(data_path, exist_ok=True)
 
     for filename in FILENAMES:
         url = DOWNLOAD_ROOT + filename[1]

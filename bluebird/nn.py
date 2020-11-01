@@ -159,10 +159,9 @@ class NeuralNet:
 
         n = len(inputs)
 
+        epoch_loss = 0.0
+        items = 0
         for epoch in range(num_epochs):
-            epoch_loss = 0.0
-            items = 0
-
             bar = ProgressBar(n, num_epochs)
 
             for batch in self.iterator(inputs, targets):
@@ -172,4 +171,4 @@ class NeuralNet:
                 grad = self.loss.grad(predicted, batch.targets)
                 self.backward(grad)
                 self.optimizer.step()
-                bar.print_bar(items, epoch+1, epoch_loss/items)
+                bar.print_bar(items - n*epoch, epoch+1, epoch_loss/items)

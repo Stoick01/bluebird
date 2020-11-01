@@ -11,7 +11,6 @@ import bluebird
 from bluebird.nn import NeuralNet
 from bluebird.activations import Relu, Sigmoid, Softmax, Tanh
 from bluebird.layers import Flatten, Dropout, Dense, Linear
-from bluebird.data import BatchIterator
 from bluebird.loss import CategoricalCrossEntropy
 
 (X_train, y_train), (X_test, y_test) = load_data()
@@ -37,7 +36,7 @@ net = NeuralNet([
     Dense(10, activation=Softmax())
 ])
 
-net.build(optimizer=bluebird.optimizers.NestovMomentum(lr=0.003), loss=CategoricalCrossEntropy())
+net.build(optimizer=bluebird.optimizers.Adam(lr=0.00001), loss=CategoricalCrossEntropy())
 
 net.fit(X_train, y_train, num_epochs=20)
 

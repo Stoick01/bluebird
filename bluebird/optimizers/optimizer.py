@@ -42,4 +42,4 @@ class Optimizer:
         """
         raise NotImplementedError
 
-# TO DO: RMSprop, Adam, Adadelta, Adamax, Nadam, Ftrl
+# TO DO: RMSprop, Adadelta, Adamax, Nadam, Ftrl

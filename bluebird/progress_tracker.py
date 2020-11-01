@@ -42,6 +42,6 @@ class ProgressBar():
         else:
             bar = '=' * filled_length + '-' * (50 - filled_length)
 
-        print(f'Epoch: {epoch:{self.length}}/{self.num_epochs} |{bar}| {percent}% loss: {loss:.4f}', end="\r")
-        if iteration == self.total:
+        print(f'Epoch: {epoch:{self.length}}/{self.num_epochs} |{bar}| {percent:>6}% loss: {loss:.4f}', end="\r")
+        if filled_length == 50:
             print()
