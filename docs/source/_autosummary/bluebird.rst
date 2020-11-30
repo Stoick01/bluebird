@@ -39,7 +39,6 @@
    bluebird.optimizers
    bluebird.progress_tracker
    bluebird.regularizators
-   bluebird.specifNet
    bluebird.tensor
    bluebird.utils
    bluebird.weight_initializers
