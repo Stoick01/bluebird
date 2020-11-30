@@ -26,10 +26,6 @@ pyparsing==2.4.7
 pytz==2020.4
 recommonmark==0.6.0
 requests==2.25.0
-rinoh-typeface-dejavuserif==0.1.2
-rinoh-typeface-texgyrecursor==0.1.1
-rinoh-typeface-texgyreheros==0.1.1
-rinoh-typeface-texgyrepagella==0.1.1
 rinohtype>=0.4.2
 six==1.15.0
 snowballstemmer==2.0.0
