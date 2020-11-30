@@ -1,5 +1,8 @@
 """
 Neural Net
+==========
+
+Default class for creating feed forward neural networs
 """
 
 # TO DO: Model from multiple models, base model class
@@ -19,9 +22,9 @@ from .progress_tracker import ProgressBar
 
 import bluebird.utils as utl
 
-class NeuralNet:
+class NeuralNet():
     """
-    Neural network, used to create the model for training
+    Creates a neural network model
 
     Args:
         layers: list of layers of the newtwork, Type: Sequence[Layer]
@@ -129,6 +132,7 @@ class NeuralNet:
 
         for layer in self.layers:
             inputs = layer.forward(inputs, training=False)
+        import ipdb; ipdb.set_trace()
         return inputs
 
     def fit(self, 

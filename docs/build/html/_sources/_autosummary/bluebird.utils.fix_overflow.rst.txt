@@ -1,0 +1,6 @@
+bluebird.utils.fix\_overflow
+============================
+
+.. currentmodule:: bluebird.utils
+
+.. autofunction:: fix_overflow

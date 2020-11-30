@@ -32,7 +32,6 @@ class Linear(Layer):
                     linear
                     ...
                 ])
-
     """
 
     def __init__(self, output_size: int,

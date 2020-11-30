@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bluebird.progress_tracker.ProgressBar &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bluebird.regularizators" href="bluebird.regularizators.html" />
+    <link rel="prev" title="bluebird.progress_tracker" href="bluebird.progress_tracker.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bluebird-progress-tracker-progressbar">
+<h1>bluebird.progress_tracker.ProgressBar<a class="headerlink" href="#bluebird-progress-tracker-progressbar" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="bluebird.progress_tracker.ProgressBar">
+<em class="property">class </em><code class="sig-prename descclassname">bluebird.progress_tracker.</code><code class="sig-name descname">ProgressBar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.progress_tracker.ProgressBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple progress bar, used for visual representation durign training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total</strong> – total number of iteration per epoch, Type: int</p></li>
+<li><p><strong>num_epochs</strong> – total number of epochs, Type: int</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pb</span> <span class="o">=</span> <span class="n">ProgressBar</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="bluebird.progress_tracker.ProgressBar.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">total</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.progress_tracker.ProgressBar.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.progress_tracker.ProgressBar.__init__" title="bluebird.progress_tracker.ProgressBar.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(total, num_epochs)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.progress_tracker.ProgressBar.print_bar" title="bluebird.progress_tracker.ProgressBar.print_bar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_bar</span></code></a>(iteration, epoch, loss)</p></td>
+<td><p>Used to print each iteration of progress bar</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="bluebird.progress_tracker.ProgressBar.print_bar">
+<code class="sig-name descname">print_bar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iteration</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">epoch</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">loss</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.progress_tracker.ProgressBar.print_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to print each iteration of progress bar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iteration</strong> – current iteration, Type: int</p></li>
+<li><p><strong>epoch</strong> – current epoch, Type: int</p></li>
+<li><p><strong>loss</strong> – current loss, Type: float</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pb</span> <span class="o">=</span> <span class="n">ProgressBar</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pb</span><span class="o">.</span><span class="n">print_bar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.976</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Output Example:</dt><dd><p>Epoch:  1/20 <a href="#id1"><span class="problematic" id="id2">|===========...................|</span></a> 25.5% loss: 0.976</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">bluebird.activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">bluebird.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">bluebird.datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">bluebird.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">bluebird.layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.loss.html">bluebird.loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.metrics.html">bluebird.metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.nn.html">bluebird.nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.optimizers.html">bluebird.optimizers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bluebird.progress_tracker.html">bluebird.progress_tracker</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">bluebird.progress_tracker.ProgressBar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.regularizators.html">bluebird.regularizators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.specifNet.html">bluebird.specifNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.tensor.html">bluebird.tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.utils.html">bluebird.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.weight_initializers.html">bluebird.weight_initializers</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="bluebird.html">bluebird</a><ul>
+  <li><a href="bluebird.progress_tracker.html">bluebird.progress_tracker</a><ul>
+      <li>Previous: <a href="bluebird.progress_tracker.html" title="previous chapter">bluebird.progress_tracker</a></li>
+      <li>Next: <a href="bluebird.regularizators.html" title="next chapter">bluebird.regularizators</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/bluebird.progress_tracker.ProgressBar.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bluebird.nn.NeuralNet &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bluebird.optimizers" href="bluebird.optimizers.html" />
+    <link rel="prev" title="bluebird.nn" href="bluebird.nn.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bluebird-nn-neuralnet">
+<h1>bluebird.nn.NeuralNet<a class="headerlink" href="#bluebird-nn-neuralnet" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="bluebird.nn.NeuralNet">
+<em class="property">class </em><code class="sig-prename descclassname">bluebird.nn.</code><code class="sig-name descname">NeuralNet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers</span><span class="p">:</span> <span class="n">Sequence<span class="p">[</span><a class="reference internal" href="bluebird.layers.layer.Layer.html#bluebird.layers.layer.Layer" title="bluebird.layers.layer.Layer">bluebird.layers.layer.Layer</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.nn.NeuralNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates a neural network model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>layers</strong> – list of layers of the newtwork, Type: Sequence[Layer]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">([</span>
+<span class="go">            Flatten(input_size=(28, 28)),</span>
+<span class="go">            Dense(300, activation=Relu()),</span>
+<span class="go">            Dense(100, activation=Relu()),</span>
+<span class="go">            Dense(50, activation=Relu()),</span>
+<span class="go">            Dense(10, activation=Softmax())</span>
+<span class="go">        ])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="bluebird.nn.NeuralNet.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers</span><span class="p">:</span> <span class="n">Sequence<span class="p">[</span><a class="reference internal" href="bluebird.layers.layer.Layer.html#bluebird.layers.layer.Layer" title="bluebird.layers.layer.Layer">bluebird.layers.layer.Layer</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.NeuralNet.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.nn.NeuralNet.__init__" title="bluebird.nn.NeuralNet.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(layers)</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code>(grad)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.nn.NeuralNet.build" title="bluebird.nn.NeuralNet.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>([iterator, loss, optimizer])</p></td>
+<td><p>Used to build the model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.nn.NeuralNet.fit" title="bluebird.nn.NeuralNet.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(inputs, targets, num_epochs)</p></td>
+<td><p>Used to train the model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code>(inputs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_layers</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params_and_grads</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.nn.NeuralNet.predict" title="bluebird.nn.NeuralNet.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(inputs)</p></td>
+<td><p>Used to predict values after you finished the training</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="bluebird.nn.NeuralNet.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">iterator: bluebird.data.DataIterator = &lt;bluebird.data.BatchIterator object&gt;</em>, <em class="sig-param">loss: bluebird.loss.loss.Loss = &lt;bluebird.loss.MSE.MSE object&gt;</em>, <em class="sig-param">optimizer: bluebird.optimizers.optimizer.Optimizer = &lt;bluebird.optimizers.sgd.SGD object&gt;</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.NeuralNet.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to build the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iterator</strong> – defines the way you want to iteratre over the data,
+default: BatchIterator() with the batch of 32
+type: DataIterator</p></li>
+<li><p><strong>loss</strong> – defines loss function
+default: MSE() - mean squared error
+type: Loss</p></li>
+<li><p><strong>optimizer</strong> – defines how the weights should be updated
+default: SGD() - stohastic gradient descent
+type: Optimizer</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">AdaGrad</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.003</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="n">CategoricalCrossEntropy</span><span class="p">())</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.nn.NeuralNet.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">targets</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.NeuralNet.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to train the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – values used for training, Type: Tensor</p></li>
+<li><p><strong>targets</strong> – tarets, Type: Tensor</p></li>
+<li><p><strong>num_epochs</strong> – number of epochs you want to train</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.nn.NeuralNet.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.nn.NeuralNet.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to predict values after you finished the training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – values you wish to predict, Type: Tensor</p>
+</dd>
+</dl>
+<p>Returns: predicted values, Type: Tensor</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">bluebird.activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">bluebird.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">bluebird.datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">bluebird.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">bluebird.layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.loss.html">bluebird.loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.metrics.html">bluebird.metrics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bluebird.nn.html">bluebird.nn</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.nn.html#neural-net">Neural Net</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bluebird.nn.NeuralNet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.optimizers.html">bluebird.optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.progress_tracker.html">bluebird.progress_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.regularizators.html">bluebird.regularizators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.specifNet.html">bluebird.specifNet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.tensor.html">bluebird.tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.utils.html">bluebird.utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.weight_initializers.html">bluebird.weight_initializers</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="bluebird.html">bluebird</a><ul>
+  <li><a href="bluebird.nn.html">bluebird.nn</a><ul>
+      <li>Previous: <a href="bluebird.nn.html" title="previous chapter">bluebird.nn</a></li>
+      <li>Next: <a href="bluebird.optimizers.html" title="next chapter">bluebird.optimizers</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/bluebird.nn.NeuralNet.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
