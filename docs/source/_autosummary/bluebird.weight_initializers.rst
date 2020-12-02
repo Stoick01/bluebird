@@ -1,14 +1,10 @@
-bluebird.weight\_initializers
-=============================
+weight\_initializers
+====================
 
 .. automodule:: bluebird.weight_initializers
   
    
-   
-   
 
-   
-   
    
 
    
@@ -33,6 +29,4 @@ bluebird.weight\_initializers
    
    
    
-
-
 

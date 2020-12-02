@@ -1,23 +1,19 @@
-bluebird.activations.relu
-=========================
+relu
+====
 
 .. automodule:: bluebird.activations.relu
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      relu
-      relu_prime
-   
-   
+      
+         relu
+         relu_prime
+      
 
    
    
@@ -34,6 +30,4 @@ bluebird.activations.relu
    
    
    
-
-
 

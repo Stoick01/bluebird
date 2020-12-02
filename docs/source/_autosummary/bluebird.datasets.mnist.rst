@@ -1,22 +1,18 @@
-bluebird.datasets.mnist
-=======================
+mnist
+=====
 
 .. automodule:: bluebird.datasets.mnist
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      load_data
-   
-   
+      
+         load_data
+      
 
    
    
@@ -25,6 +21,4 @@ bluebird.datasets.mnist
    
    
    
-
-
 

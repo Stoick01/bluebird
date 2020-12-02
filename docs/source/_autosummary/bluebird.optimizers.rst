@@ -1,10 +1,10 @@
-bluebird.optimizers
-===================
+optimizers
+==========
 
 .. automodule:: bluebird.optimizers
   
    
-   
+
    
 
    
@@ -14,11 +14,6 @@ bluebird.optimizers
    
    
    
-
-   
-   
-   
-
 
 
 .. rubric:: Modules
@@ -28,9 +23,10 @@ bluebird.optimizers
    :template: custom-module-template.rst                 
    :recursive:
 
-   bluebird.optimizers.adagrad
-   bluebird.optimizers.adam
-   bluebird.optimizers.nestov_momentum
-   bluebird.optimizers.optimizer
-   bluebird.optimizers.sgd
-
+   
+      bluebird.optimizers.adagrad
+      bluebird.optimizers.adam
+      bluebird.optimizers.nestov_momentum
+      bluebird.optimizers.optimizer
+      bluebird.optimizers.sgd
+   

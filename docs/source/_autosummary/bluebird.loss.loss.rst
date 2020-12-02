@@ -1,14 +1,10 @@
-bluebird.loss.loss
-==================
+loss
+====
 
 .. automodule:: bluebird.loss.loss
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.loss.loss
    
    
    
-
-
 

@@ -1,5 +1,5 @@
-bluebird.layers.flatten.Flatten
-===============================
+Flatten
+=======
 
 .. currentmodule:: bluebird.layers.flatten
 

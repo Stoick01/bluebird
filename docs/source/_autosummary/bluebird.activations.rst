@@ -1,10 +1,10 @@
-bluebird.activations
-====================
+activations
+===========
 
 .. automodule:: bluebird.activations
   
    
-   
+
    
 
    
@@ -14,11 +14,6 @@ bluebird.activations
    
    
    
-
-   
-   
-   
-
 
 
 .. rubric:: Modules
@@ -28,9 +23,10 @@ bluebird.activations
    :template: custom-module-template.rst                 
    :recursive:
 
-   bluebird.activations.activation
-   bluebird.activations.relu
-   bluebird.activations.sigmoid
-   bluebird.activations.softmax
-   bluebird.activations.tanh
-
+   
+      bluebird.activations.activation
+      bluebird.activations.relu
+      bluebird.activations.sigmoid
+      bluebird.activations.softmax
+      bluebird.activations.tanh
+   

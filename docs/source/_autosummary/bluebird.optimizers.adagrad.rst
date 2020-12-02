@@ -1,14 +1,10 @@
-bluebird.optimizers.adagrad
-===========================
+adagrad
+=======
 
 .. automodule:: bluebird.optimizers.adagrad
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.optimizers.adagrad
    
    
    
-
-
 

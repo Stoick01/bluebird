@@ -1,14 +1,10 @@
-bluebird.layers.layer
-=====================
+layer
+=====
 
 .. automodule:: bluebird.layers.layer
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.layers.layer
    
    
    
-
-
 

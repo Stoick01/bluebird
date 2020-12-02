@@ -1,14 +1,10 @@
-bluebird.layers.input
-=====================
+input
+=====
 
 .. automodule:: bluebird.layers.input
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.layers.input
    
    
    
-
-
 

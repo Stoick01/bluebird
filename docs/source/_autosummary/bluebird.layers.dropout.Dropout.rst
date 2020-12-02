@@ -1,5 +1,5 @@
-bluebird.layers.dropout.Dropout
-===============================
+Dropout
+=======
 
 .. currentmodule:: bluebird.layers.dropout
 

@@ -1,22 +1,18 @@
-bluebird.metrics
-================
+metrics
+=======
 
 .. automodule:: bluebird.metrics
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      accuracy
-   
-   
+      
+         accuracy
+      
 
    
    
@@ -25,6 +21,4 @@ bluebird.metrics
    
    
    
-
-
 

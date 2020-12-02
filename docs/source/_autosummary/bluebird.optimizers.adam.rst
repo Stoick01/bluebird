@@ -1,14 +1,10 @@
-bluebird.optimizers.adam
-========================
+adam
+====
 
 .. automodule:: bluebird.optimizers.adam
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.optimizers.adam
    
    
    
-
-
 

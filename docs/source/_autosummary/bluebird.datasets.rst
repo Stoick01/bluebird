@@ -1,10 +1,10 @@
-bluebird.datasets
-=================
+datasets
+========
 
 .. automodule:: bluebird.datasets
   
    
-   
+
    
 
    
@@ -14,11 +14,6 @@ bluebird.datasets
    
    
    
-
-   
-   
-   
-
 
 
 .. rubric:: Modules
@@ -28,5 +23,6 @@ bluebird.datasets
    :template: custom-module-template.rst                 
    :recursive:
 
-   bluebird.datasets.mnist
-
+   
+      bluebird.datasets.mnist
+   

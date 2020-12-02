@@ -1,10 +1,10 @@
-bluebird.regularizators
-=======================
+regularizators
+==============
 
 .. automodule:: bluebird.regularizators
   
    
-   
+
    
 
    
@@ -14,10 +14,4 @@ bluebird.regularizators
    
    
    
-
-   
-   
-   
-
-
 

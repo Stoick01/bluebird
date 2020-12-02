@@ -1,14 +1,10 @@
-bluebird.exceptions
-===================
+exceptions
+==========
 
 .. automodule:: bluebird.exceptions
   
    
-   
-   
 
-   
-   
    
 
    
@@ -25,6 +21,4 @@ bluebird.exceptions
       TypeException
    
    
-
-
 

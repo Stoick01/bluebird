@@ -1,14 +1,10 @@
-bluebird.layers.dropout
-=======================
+dropout
+=======
 
 .. automodule:: bluebird.layers.dropout
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.layers.dropout
    
    
    
-
-
 

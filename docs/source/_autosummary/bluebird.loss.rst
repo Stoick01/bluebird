@@ -1,10 +1,10 @@
-bluebird.loss
-=============
+loss
+====
 
 .. automodule:: bluebird.loss
   
    
-   
+
    
 
    
@@ -14,11 +14,6 @@ bluebird.loss
    
    
    
-
-   
-   
-   
-
 
 
 .. rubric:: Modules
@@ -28,7 +23,8 @@ bluebird.loss
    :template: custom-module-template.rst                 
    :recursive:
 
-   bluebird.loss.CategoricalCrossEntropy
-   bluebird.loss.MSE
-   bluebird.loss.loss
-
+   
+      bluebird.loss.CategoricalCrossEntropy
+      bluebird.loss.MSE
+      bluebird.loss.loss
+   

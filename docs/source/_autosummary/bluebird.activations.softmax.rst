@@ -1,23 +1,19 @@
-bluebird.activations.softmax
-============================
+softmax
+=======
 
 .. automodule:: bluebird.activations.softmax
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      softmax
-      softmax_prime
-   
-   
+      
+         softmax
+         softmax_prime
+      
 
    
    
@@ -34,6 +30,4 @@ bluebird.activations.softmax
    
    
    
-
-
 

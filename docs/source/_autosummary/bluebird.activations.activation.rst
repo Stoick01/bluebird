@@ -1,14 +1,10 @@
-bluebird.activations.activation
-===============================
+activation
+==========
 
 .. automodule:: bluebird.activations.activation
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.activations.activation
    
    
    
-
-
 

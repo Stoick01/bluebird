@@ -1,14 +1,10 @@
-bluebird.optimizers.nestov\_momentum
-====================================
+nestov\_momentum
+================
 
 .. automodule:: bluebird.optimizers.nestov_momentum
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.optimizers.nestov\_momentum
    
    
    
-
-
 

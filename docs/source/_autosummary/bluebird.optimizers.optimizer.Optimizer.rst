@@ -1,5 +1,5 @@
-bluebird.optimizers.optimizer.Optimizer
-=======================================
+Optimizer
+=========
 
 .. currentmodule:: bluebird.optimizers.optimizer
 

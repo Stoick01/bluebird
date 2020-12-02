@@ -1,10 +1,10 @@
-bluebird.tensor
-===============
+tensor
+======
 
 .. automodule:: bluebird.tensor
   
    
-   
+
    
 
    
@@ -14,10 +14,4 @@ bluebird.tensor
    
    
    
-
-   
-   
-   
-
-
 

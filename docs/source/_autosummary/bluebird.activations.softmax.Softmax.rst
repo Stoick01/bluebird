@@ -1,5 +1,5 @@
-bluebird.activations.softmax.Softmax
-====================================
+Softmax
+=======
 
 .. currentmodule:: bluebird.activations.softmax
 

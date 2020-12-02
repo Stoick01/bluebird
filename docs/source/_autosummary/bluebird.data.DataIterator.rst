@@ -1,5 +1,5 @@
-bluebird.data.DataIterator
-==========================
+DataIterator
+============
 
 .. currentmodule:: bluebird.data
 

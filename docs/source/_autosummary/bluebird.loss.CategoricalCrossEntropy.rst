@@ -1,10 +1,10 @@
-bluebird.loss.CategoricalCrossEntropy
-=====================================
+CategoricalCrossEntropy
+=======================
 
 .. automodule:: bluebird.loss.CategoricalCrossEntropy
   
    
-   
+
    
 
    
@@ -14,10 +14,4 @@ bluebird.loss.CategoricalCrossEntropy
    
    
    
-
-   
-   
-   
-
-
 

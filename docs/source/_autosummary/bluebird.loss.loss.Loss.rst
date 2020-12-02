@@ -1,5 +1,5 @@
-bluebird.loss.loss.Loss
-=======================
+Loss
+====
 
 .. currentmodule:: bluebird.loss.loss
 

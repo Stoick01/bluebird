@@ -1,5 +1,5 @@
-bluebird.activations.relu.Relu
-==============================
+Relu
+====
 
 .. currentmodule:: bluebird.activations.relu
 

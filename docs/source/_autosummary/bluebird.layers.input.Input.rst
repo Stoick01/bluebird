@@ -1,5 +1,5 @@
-bluebird.layers.input.Input
-===========================
+Input
+=====
 
 .. currentmodule:: bluebird.layers.input
 

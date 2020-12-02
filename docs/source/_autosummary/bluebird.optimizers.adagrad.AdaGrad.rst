@@ -1,5 +1,5 @@
-bluebird.optimizers.adagrad.AdaGrad
-===================================
+AdaGrad
+=======
 
 .. currentmodule:: bluebird.optimizers.adagrad
 

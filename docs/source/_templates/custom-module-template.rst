@@ -1,4 +1,4 @@
-{{ fullname | escape | underline}}
+{{ name | escape | underline}}
 
 .. automodule:: {{ fullname }}
   
@@ -8,11 +8,11 @@
 
    .. autosummary::
       :toctree:                                         
-   {% for item in attributes %}
-      {{ item }}
-   {%- endfor %}
-   {% endif %}
-   {% endblock %}
+      {% for item in attributes %}
+         {{ item }}
+      {%- endfor %}
+      {% endif %}
+      {% endblock %}
 
    {% block functions %}
    {% if functions %}
@@ -20,11 +20,11 @@
 
    .. autosummary::
       :toctree:                                          
-   {% for item in functions %}
-      {{ item }}
-   {%- endfor %}
-   {% endif %}
-   {% endblock %}
+      {% for item in functions %}
+         {{ item }}
+      {%- endfor %}
+      {% endif %}
+      {% endblock %}
 
    {% block classes %}
    {% if classes %}
@@ -59,8 +59,9 @@
    :toctree:
    :template: custom-module-template.rst                 
    :recursive:
-{% for item in modules %}
-   {{ item }}
-{%- endfor %}
-{% endif %}
+
+   {% for item in modules %}
+      {{ item }}
+   {%- endfor %}
+   {% endif %}
 {% endblock %}

@@ -1,10 +1,10 @@
-bluebird.layers
-===============
+layers
+======
 
 .. automodule:: bluebird.layers
   
    
-   
+
    
 
    
@@ -14,11 +14,6 @@ bluebird.layers
    
    
    
-
-   
-   
-   
-
 
 
 .. rubric:: Modules
@@ -28,10 +23,11 @@ bluebird.layers
    :template: custom-module-template.rst                 
    :recursive:
 
-   bluebird.layers.dense
-   bluebird.layers.dropout
-   bluebird.layers.flatten
-   bluebird.layers.input
-   bluebird.layers.layer
-   bluebird.layers.linear
-
+   
+      bluebird.layers.dense
+      bluebird.layers.dropout
+      bluebird.layers.flatten
+      bluebird.layers.input
+      bluebird.layers.layer
+      bluebird.layers.linear
+   

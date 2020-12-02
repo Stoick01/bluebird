@@ -1,14 +1,10 @@
-bluebird.layers.flatten
-=======================
+flatten
+=======
 
 .. automodule:: bluebird.layers.flatten
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.layers.flatten
    
    
    
-
-
 

@@ -4,6 +4,12 @@ Simple deep learning library.
 
 ## Usage
 
+Install:
+
+```
+pip install bluebird-stoick01
+```
+
 Here is a simple implemetation of a model in bluebird.
 
 ```

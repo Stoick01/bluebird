@@ -1,5 +1,5 @@
-bluebird.weight\_initializers.XavierNormalWeightInitializer
-===========================================================
+XavierNormalWeightInitializer
+=============================
 
 .. currentmodule:: bluebird.weight_initializers
 

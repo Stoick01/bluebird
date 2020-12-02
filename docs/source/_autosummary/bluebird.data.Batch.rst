@@ -1,5 +1,5 @@
-bluebird.data.Batch
-===================
+Batch
+=====
 
 .. currentmodule:: bluebird.data
 

@@ -1,4 +1,7 @@
 """
+Weight initializers
+===================
+
 Set of classes for weight inititalization
 """
 

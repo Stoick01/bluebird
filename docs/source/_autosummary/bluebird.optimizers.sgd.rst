@@ -1,14 +1,10 @@
-bluebird.optimizers.sgd
-=======================
+sgd
+===
 
 .. automodule:: bluebird.optimizers.sgd
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.optimizers.sgd
    
    
    
-
-
 

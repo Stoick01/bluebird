@@ -1,14 +1,10 @@
-bluebird.layers.linear
-======================
+linear
+======
 
 .. automodule:: bluebird.layers.linear
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.layers.linear
    
    
    
-
-
 

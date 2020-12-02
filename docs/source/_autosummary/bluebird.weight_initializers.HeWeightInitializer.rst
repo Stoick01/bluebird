@@ -1,5 +1,5 @@
-bluebird.weight\_initializers.HeWeightInitializer
-=================================================
+HeWeightInitializer
+===================
 
 .. currentmodule:: bluebird.weight_initializers
 

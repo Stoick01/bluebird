@@ -1,14 +1,10 @@
-bluebird.data
-=============
+data
+====
 
 .. automodule:: bluebird.data
   
    
-   
-   
 
-   
-   
    
 
    
@@ -28,6 +24,4 @@ bluebird.data
    
    
    
-
-
 

@@ -1,5 +1,5 @@
-bluebird.data.BatchIterator
-===========================
+BatchIterator
+=============
 
 .. currentmodule:: bluebird.data
 

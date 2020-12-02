@@ -1,5 +1,5 @@
-bluebird.activations.activation.Activation
-==========================================
+Activation
+==========
 
 .. currentmodule:: bluebird.activations.activation
 

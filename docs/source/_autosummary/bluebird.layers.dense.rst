@@ -1,14 +1,10 @@
-bluebird.layers.dense
-=====================
+dense
+=====
 
 .. automodule:: bluebird.layers.dense
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.layers.dense
    
    
    
-
-
 

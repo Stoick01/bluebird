@@ -1,24 +1,20 @@
-bluebird.utils
-==============
+utils
+=====
 
 .. automodule:: bluebird.utils
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      clip
-      fix_overflow
-      grad_clip
-   
-   
+      
+         clip
+         fix_overflow
+         grad_clip
+      
 
    
    
@@ -27,6 +23,4 @@ bluebird.utils
    
    
    
-
-
 

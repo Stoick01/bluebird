@@ -1,23 +1,19 @@
-bluebird.activations.tanh
-=========================
+tanh
+====
 
 .. automodule:: bluebird.activations.tanh
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      tanh
-      tanh_prime
-   
-   
+      
+         tanh
+         tanh_prime
+      
 
    
    
@@ -34,6 +30,4 @@ bluebird.activations.tanh
    
    
    
-
-
 

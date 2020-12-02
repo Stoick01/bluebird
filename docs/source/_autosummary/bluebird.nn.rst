@@ -1,14 +1,10 @@
-bluebird.nn
-===========
+nn
+==
 
 .. automodule:: bluebird.nn
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.nn
    
    
    
-
-
 

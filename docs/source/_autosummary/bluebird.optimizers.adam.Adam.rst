@@ -1,5 +1,5 @@
-bluebird.optimizers.adam.Adam
-=============================
+Adam
+====
 
 .. currentmodule:: bluebird.optimizers.adam
 

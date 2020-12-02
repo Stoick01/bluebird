@@ -1,23 +1,19 @@
-bluebird.activations.sigmoid
-============================
+sigmoid
+=======
 
 .. automodule:: bluebird.activations.sigmoid
   
    
-   
-   
 
-   
    
    .. rubric:: Functions
 
    .. autosummary::
       :toctree:                                          
-   
-      sigmoid
-      sigmoid_prime
-   
-   
+      
+         sigmoid
+         sigmoid_prime
+      
 
    
    
@@ -34,6 +30,4 @@ bluebird.activations.sigmoid
    
    
    
-
-
 

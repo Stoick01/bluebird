@@ -1,14 +1,10 @@
-bluebird.progress\_tracker
-==========================
+progress\_tracker
+=================
 
 .. automodule:: bluebird.progress_tracker
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.progress\_tracker
    
    
    
-
-
 

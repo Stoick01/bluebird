@@ -1,5 +1,5 @@
-bluebird.activations.sigmoid.Sigmoid
-====================================
+Sigmoid
+=======
 
 .. currentmodule:: bluebird.activations.sigmoid
 

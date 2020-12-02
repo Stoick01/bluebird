@@ -1,5 +1,5 @@
-bluebird.layers.linear.Linear
-=============================
+Linear
+======
 
 .. currentmodule:: bluebird.layers.linear
 

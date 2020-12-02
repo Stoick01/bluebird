@@ -1,5 +1,5 @@
-bluebird.nn.NeuralNet
-=====================
+NeuralNet
+=========
 
 .. currentmodule:: bluebird.nn
 

@@ -1,5 +1,5 @@
-bluebird.layers.dense.Dense
-===========================
+Dense
+=====
 
 .. currentmodule:: bluebird.layers.dense
 

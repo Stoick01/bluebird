@@ -1,14 +1,10 @@
-bluebird.optimizers.optimizer
-=============================
+optimizer
+=========
 
 .. automodule:: bluebird.optimizers.optimizer
   
    
-   
-   
 
-   
-   
    
 
    
@@ -26,6 +22,4 @@ bluebird.optimizers.optimizer
    
    
    
-
-
 
