@@ -1,5 +1,8 @@
 """
 Utility functions
+=================
+
+Small utility functions.
 """
 
 import numpy as np
@@ -9,26 +12,36 @@ from .tensor import Tensor
 
 def fix_overflow(x:Tensor) -> Tensor:
     """
-    Ensures to fix infinite and not a number values
+    Ensures to fix infinite and not a number values.
+
+    Example::
+
+        x = fix_overflow(x)
     
     Args:
-        x: Tensor with nan and inf values, Type: Tensor
+        x (Tensor): Tensor with nan and inf values
 
-    Example:
-        >>> x = fix_overflow(x)
+    Returns:
+        Tensor: Tensor without inf and nan values
+
     """
 
     return np.nan_to_num(x)
 
 def clip(x:Tensor) -> Tensor:
     """
-    Clips very small values from tensor
+    Clips very small values from tensor, used in cross entropy.
+
+    Example::
+
+        x = clip(x)
 
     Args:
         x: Type: Tensor
 
-    Example:
-        >>> x = clip(x)
+    Returns:
+        Tensor: Cliped Tensor
+        
     """
     x[x>0.9999999] = 0.9999999
     x[x<1e-7] = 1e-7
@@ -36,13 +49,17 @@ def clip(x:Tensor) -> Tensor:
 
 def grad_clip(x:Tensor) -> Tensor:
     """
-    Clips too big and too small gradients
+    Clips too big and too small gradients.
+
+    Example::
+    
+        grad = grad_clip(grad)
 
     Args:
-        x: Gradient with too large or small values, Type: Tensor
+        x(Tensor): Gradient with too large or small values
 
-    Example:
-        >>> grad = grad_clip(grad)
+    Returns:
+        Tensor: Cliped Gradient
     """
     x[x>5] = 5
     x[x<-5] = -5
