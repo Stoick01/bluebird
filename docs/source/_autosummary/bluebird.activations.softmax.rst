@@ -4,7 +4,10 @@ softmax
 .. automodule:: bluebird.activations.softmax
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -13,6 +16,7 @@ softmax
       
          softmax
          softmax_prime
+      
       
 
    
@@ -30,4 +34,6 @@ softmax
    
    
    
+
+
 

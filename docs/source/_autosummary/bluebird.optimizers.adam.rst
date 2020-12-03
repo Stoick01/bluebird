@@ -4,8 +4,12 @@ adam
 .. automodule:: bluebird.optimizers.adam
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ adam
    
    
    
+
+
 

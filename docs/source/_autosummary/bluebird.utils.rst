@@ -4,7 +4,10 @@ utils
 .. automodule:: bluebird.utils
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -15,6 +18,7 @@ utils
          fix_overflow
          grad_clip
       
+      
 
    
    
@@ -23,4 +27,6 @@ utils
    
    
    
+
+
 

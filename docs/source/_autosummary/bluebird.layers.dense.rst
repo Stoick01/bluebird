@@ -4,8 +4,12 @@ dense
 .. automodule:: bluebird.layers.dense
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ dense
    
    
    
+
+
 

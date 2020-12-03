@@ -4,8 +4,12 @@ flatten
 .. automodule:: bluebird.layers.flatten
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ flatten
    
    
    
+
+
 

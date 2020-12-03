@@ -4,7 +4,10 @@ mnist
 .. automodule:: bluebird.datasets.mnist
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -13,6 +16,7 @@ mnist
       
          load_data
       
+      
 
    
    
@@ -21,4 +25,6 @@ mnist
    
    
    
+
+
 

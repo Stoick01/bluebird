@@ -4,16 +4,21 @@ optimizers
 .. automodule:: bluebird.optimizers
   
    
-
    
-
-   
-   
-   
+      
 
    
    
+      
+
    
+   
+   
+
+   
+   
+   
+
 
 
 .. rubric:: Modules

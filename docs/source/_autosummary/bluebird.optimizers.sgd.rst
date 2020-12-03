@@ -4,8 +4,12 @@ sgd
 .. automodule:: bluebird.optimizers.sgd
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ sgd
    
    
    
+
+
 

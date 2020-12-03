@@ -4,7 +4,10 @@ metrics
 .. automodule:: bluebird.metrics
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -13,6 +16,7 @@ metrics
       
          accuracy
       
+      
 
    
    
@@ -21,4 +25,6 @@ metrics
    
    
    
+
+
 

@@ -4,16 +4,21 @@ loss
 .. automodule:: bluebird.loss
   
    
-
    
-
-   
-   
-   
+      
 
    
    
+      
+
    
+   
+   
+
+   
+   
+   
+
 
 
 .. rubric:: Modules

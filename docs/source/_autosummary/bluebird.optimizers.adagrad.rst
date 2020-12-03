@@ -4,8 +4,12 @@ adagrad
 .. automodule:: bluebird.optimizers.adagrad
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ adagrad
    
    
    
+
+
 

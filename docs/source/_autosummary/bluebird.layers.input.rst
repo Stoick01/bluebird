@@ -4,8 +4,12 @@ input
 .. automodule:: bluebird.layers.input
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ input
    
    
    
+
+
 

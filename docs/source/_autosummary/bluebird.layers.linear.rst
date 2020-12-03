@@ -4,8 +4,12 @@ linear
 .. automodule:: bluebird.layers.linear
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ linear
    
    
    
+
+
 

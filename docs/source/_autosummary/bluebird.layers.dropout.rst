@@ -4,8 +4,12 @@ dropout
 .. automodule:: bluebird.layers.dropout
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -22,4 +26,6 @@ dropout
    
    
    
+
+
 

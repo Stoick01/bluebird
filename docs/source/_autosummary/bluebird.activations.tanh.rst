@@ -4,7 +4,10 @@ tanh
 .. automodule:: bluebird.activations.tanh
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -13,6 +16,7 @@ tanh
       
          tanh
          tanh_prime
+      
       
 
    
@@ -30,4 +34,6 @@ tanh
    
    
    
+
+
 

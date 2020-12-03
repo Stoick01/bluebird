@@ -4,7 +4,10 @@ relu
 .. automodule:: bluebird.activations.relu
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -13,6 +16,7 @@ relu
       
          relu
          relu_prime
+      
       
 
    
@@ -30,4 +34,6 @@ relu
    
    
    
+
+
 

@@ -4,8 +4,12 @@ exceptions
 .. automodule:: bluebird.exceptions
   
    
+   
+      
 
    
+   
+      
 
    
    
@@ -21,4 +25,6 @@ exceptions
       TypeException
    
    
+
+
 

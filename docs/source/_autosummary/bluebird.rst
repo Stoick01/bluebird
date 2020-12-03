@@ -4,16 +4,21 @@
 .. automodule:: bluebird
   
    
-
    
-
-   
-   
-   
+      
 
    
    
+      
+
    
+   
+   
+
+   
+   
+   
+
 
 
 .. rubric:: Modules

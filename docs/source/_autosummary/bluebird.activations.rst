@@ -4,16 +4,21 @@ activations
 .. automodule:: bluebird.activations
   
    
-
    
-
-   
-   
-   
+      
 
    
    
+      
+
    
+   
+   
+
+   
+   
+   
+
 
 
 .. rubric:: Modules

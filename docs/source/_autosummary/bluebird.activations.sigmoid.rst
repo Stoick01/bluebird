@@ -4,7 +4,10 @@ sigmoid
 .. automodule:: bluebird.activations.sigmoid
   
    
+   
+      
 
+   
    
    .. rubric:: Functions
 
@@ -13,6 +16,7 @@ sigmoid
       
          sigmoid
          sigmoid_prime
+      
       
 
    
@@ -30,4 +34,6 @@ sigmoid
    
    
    
+
+
 

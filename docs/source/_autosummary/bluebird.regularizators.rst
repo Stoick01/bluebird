@@ -4,14 +4,20 @@ regularizators
 .. automodule:: bluebird.regularizators
   
    
-
    
-
-   
-   
-   
+      
 
    
    
+      
+
    
+   
+   
+
+   
+   
+   
+
+
 

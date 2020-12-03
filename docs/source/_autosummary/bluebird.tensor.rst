@@ -4,14 +4,20 @@ tensor
 .. automodule:: bluebird.tensor
   
    
-
    
-
-   
-   
-   
+      
 
    
    
+      
+
    
+   
+   
+
+   
+   
+   
+
+
 
