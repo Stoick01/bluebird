@@ -38,6 +38,7 @@ class WeightInitializer:
 
         Raises:
             NotImplementedError
+
         """
         raise NotImplementedError
 
@@ -51,6 +52,7 @@ class RandomWeightInitializer(WeightInitializer):
 
         weight_init = RandomWeightInitializer()
         w = weight_init.init((10, 20))
+
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -75,6 +77,7 @@ class RandomUniformWeightInitializer(WeightInitializer):
         
         weight_init = RandomUniformWeightInitializer()
         w = weight_init.init((10, 20))
+
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -101,6 +104,7 @@ class XavierUniformWeightInitializer(WeightInitializer):
 
         weight_init = XavierUniformWeightInitializer()
         w = weight_init.init((10, 20))
+        
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -130,6 +134,7 @@ class XavierNormalWeightInitializer(WeightInitializer):
 
         weight_init = XavierNormalWeightInitializer()
         w = weight_init.init((10, 20))
+
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -158,6 +163,7 @@ class ZerosWeightInitializer(WeightInitializer):
 
         weight_init = ZerosWeightInitializer()
         w = weight_init.init((10, 20))
+
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -182,6 +188,7 @@ class OnesWeightInitializer(WeightInitializer):
 
         weight_init = OnesWeightInitializer()
         w = weight_init.init((10, 20))
+
     """
 
     def init(self, dimension: Tuple) -> Tensor:
@@ -207,6 +214,7 @@ class HeWeightInitializer(WeightInitializer):
         
         weight_init = HeWeightInitializer()
         w = weight_init.init((10, 20))
+
     """
 
     def init(self, dimension: Tuple) -> Tensor:

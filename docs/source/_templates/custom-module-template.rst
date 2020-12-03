@@ -60,8 +60,8 @@
    :template: custom-module-template.rst                 
    :recursive:
 
-   {% for item in modules %}
-      {{ item }}
+   {% for name in modules %}
+      {{ name }}
    {%- endfor %}
    {% endif %}
 {% endblock %}

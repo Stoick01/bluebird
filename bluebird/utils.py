@@ -60,6 +60,7 @@ def grad_clip(x:Tensor) -> Tensor:
 
     Returns:
         Tensor: Cliped Gradient
+        
     """
     x[x>5] = 5
     x[x<-5] = -5

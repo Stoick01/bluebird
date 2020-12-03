@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../'))
 
 #----sphinx-themes-----
 # from jupyter_sphinx_theme import *
@@ -65,3 +65,5 @@ html_static_path = ['_static']
 html_context = {
     'css_files': ['_static/custom.css'],
 }
+
+add_module_names = False
