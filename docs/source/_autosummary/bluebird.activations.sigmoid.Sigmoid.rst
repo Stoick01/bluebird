@@ -1,4 +1,4 @@
-Sigmoid
+﻿Sigmoid
 =======
 
 .. currentmodule:: bluebird.activations.sigmoid

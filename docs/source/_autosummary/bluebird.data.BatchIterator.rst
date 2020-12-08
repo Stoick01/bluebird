@@ -1,4 +1,4 @@
-BatchIterator
+﻿BatchIterator
 =============
 
 .. currentmodule:: bluebird.data

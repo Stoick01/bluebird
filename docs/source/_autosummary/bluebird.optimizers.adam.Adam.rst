@@ -1,4 +1,4 @@
-Adam
+﻿Adam
 ====
 
 .. currentmodule:: bluebird.optimizers.adam

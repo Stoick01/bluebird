@@ -1,4 +1,4 @@
-Linear
+﻿Linear
 ======
 
 .. currentmodule:: bluebird.layers.linear

@@ -16,9 +16,11 @@ class TypeException(TypeError):
     """
     def __init__(self, *args):
         """
+        Initializes the object.
+
         Args:
-        args[0]: name of variable, Type: String
-        args[1]: type that variable should be, Type: String
+            args[0] (:obj:`str`): name of variable
+            args[1] (:obj:`str`): expected type
         """
         if len(args) == 2:
             self.message = f"{args[0]} should be a {args[1]}"
