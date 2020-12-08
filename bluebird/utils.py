@@ -19,10 +19,10 @@ def fix_overflow(x:Tensor) -> Tensor:
         x = fix_overflow(x)
     
     Args:
-        x (Tensor): Tensor with nan and inf values
+        x (:obj:`Tensor`): Tensor with nan and inf values
 
     Returns:
-        Tensor: Tensor without inf and nan values
+        :obj:`Tensor`: Tensor without inf and nan values
 
     """
 
@@ -37,10 +37,10 @@ def clip(x:Tensor) -> Tensor:
         x = clip(x)
 
     Args:
-        x: Type: Tensor
+        x (:obj:`Tensor`): Tensor with too small values
 
     Returns:
-        Tensor: Cliped Tensor
+        :obj:`Tensor`: Cliped Tensor
         
     """
     x[x>0.9999999] = 0.9999999
@@ -56,10 +56,10 @@ def grad_clip(x:Tensor) -> Tensor:
         grad = grad_clip(grad)
 
     Args:
-        x(Tensor): Gradient with too large or small values
+        x(:obj:`Tensor`): Gradient with too large or small values
 
     Returns:
-        Tensor: Cliped Gradient
+        :obj:`Tensor`: Cliped Gradient
         
     """
     x[x>5] = 5

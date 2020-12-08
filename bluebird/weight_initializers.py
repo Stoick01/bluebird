@@ -34,7 +34,7 @@ class WeightInitializer:
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output), when implemented
+            :obj:`Tensor`: Tensor with dimensions of (input, output), when implemented
 
         Raises:
             NotImplementedError
@@ -63,7 +63,7 @@ class RandomWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
 
@@ -88,7 +88,7 @@ class RandomUniformWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
 
@@ -115,7 +115,7 @@ class XavierUniformWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
 
@@ -145,7 +145,7 @@ class XavierNormalWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
 
@@ -174,7 +174,7 @@ class ZerosWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
         
@@ -199,7 +199,7 @@ class OnesWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
 
@@ -225,7 +225,7 @@ class HeWeightInitializer(WeightInitializer):
             dimension (Tuple): dimensions of weights in a network (input, output)
 
         Returns:
-            Tensor: Tensor with dimensions of (input, output)
+            :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
         return np.random.randn(dimension[0], dimension[1]) * np.sqrt(2.0 / dimension[0])

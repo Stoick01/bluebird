@@ -66,11 +66,11 @@ class NeuralNet():
         Defines aditional parameters and initializes the weights.
 
         Args:
-            iterator (DataIterator): defines the way you want to iteratre over the data,
+            iterator (:obj:`DataIterator`, otpional): defines the way you want to iteratre over the data,
                 Defaults to BatchIterator(32)
-            loss (Loss): defines loss function
+            loss (:obj:`Loss`, otpional): defines loss function
                 Defaults to MSE()
-            optimizer (Optimizer): defines how the weights should be updated
+            optimizer (:obj:`Optimizer`, optional): defines how the weights should be updated
                 Defaults to SGD()
 
         """
@@ -109,10 +109,10 @@ class NeuralNet():
         Forward propagates through the network.
 
         Args:
-            inputs (Tensor): Network input
+            inputs (:obj:`Tensor`): Network input
 
         Returns:
-            Tensor: Network output
+            :obj:`Tensor`: Network output
 
         """
 
@@ -125,10 +125,10 @@ class NeuralNet():
         Backward propagates through the network.
 
         Args:
-            inputs (Tensor): Gradient that you get from the loss function
+            inputs (:obj:`Tensor`): Gradient that you get from the loss function
 
         Returns:
-            Tensor: Gradient from the first layer
+            :obj:`Tensor`: Gradient from the first layer
 
         """
 
@@ -142,7 +142,7 @@ class NeuralNet():
         Returns reversed layers.
 
         Returns:
-            Iterator[Tensor]: List of layer objects
+            Iterator[:obj:`Tensor`]: List of layer objects
 
         """
 
@@ -154,7 +154,7 @@ class NeuralNet():
         Returns parameters and gradients for each layer.
 
         Returns:
-            Iterator[Tensor]: List of parameter, gradient pairs
+            Iterator[:obj:`Tensor`]: List of parameter, gradient pairs
 
         """
 
@@ -168,10 +168,10 @@ class NeuralNet():
         Used to predict values after you finished the training.
 
         Args:
-            inputs (Tensor): values you wish to predict
+            inputs (:obj:`Tensor`): values you wish to predict
 
         Returns: 
-            Tensor: Predicted values
+            :obj:`Tensor`: Predicted values
         
         """
 
@@ -188,8 +188,8 @@ class NeuralNet():
         Used to train the model.
 
         Args:
-            inputs (Tensor): values used for training
-            targets (Tensor): tarets
+            inputs (:obj:`Tensor`): values used for training
+            targets (:obj:`Tensor`): tarets
             num_epochs (int): number of epochs you want to train
             
         """

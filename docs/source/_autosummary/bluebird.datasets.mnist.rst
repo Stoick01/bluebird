@@ -1,4 +1,4 @@
-mnist
+﻿mnist
 =====
 
 .. automodule:: bluebird.datasets.mnist

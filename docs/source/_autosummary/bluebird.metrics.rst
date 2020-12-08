@@ -1,4 +1,4 @@
-metrics
+﻿metrics
 =======
 
 .. automodule:: bluebird.metrics
