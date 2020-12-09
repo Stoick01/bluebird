@@ -1,5 +1,8 @@
 """
 Stohastic Gradient Descent
+==========================
+
+Basic stohastic gradient descent, updates weights based on learning rate.
 """
 
 from typing import TYPE_CHECKING
@@ -20,32 +23,30 @@ class SGD(Optimizer):
     """
     Stohastic Gradient Descent
 
-    Args:
-        lr: learning rate
-            default: 0.001
-            type: float
-
     Example:
         
-        >>> optim = SGD(lr=0.005)
-        >>> net.build(optimizer=optim, loss=CategoricalCrossEntropy())
+        optim = SGD(lr=0.005)
+        net.build(optimizer=optim)
 
     """
 
     def __init__(self, lr: float = 0.001) -> None:
+        """
+        Initializes the object.
+
+        Args:
+            lr (float, optional): learning rate, defaults to 0.001
+        """
         self.lr = lr
 
     def build(self, net: 'NeuralNet') -> None:
         """
-        Called before training, optimizer needs the model to be able to iterate over params
+        Called before training, optimizer needs the model to be able to iterate over params.
+
+        This function is called douring build in your model.
 
         Args:
-            net: your model, Type: NeuralNet
-
-        Example:
-            
-            >>> optim = SGD(lr=0.005)
-            >>> optim.build(net)
+            net (:obj:`NeuralNet`): your model
 
         """
 
@@ -53,13 +54,10 @@ class SGD(Optimizer):
 
     def step(self) -> None:
         """
-        Run training step
+        Traning step.
 
-        Example:
-            
-            >>> optim = SGD(lr=0.005)
-            >>> optim.step()
-
+        This function is run during each of your training steps, it updates the model
+        
         """
         
         for param, grad in self.net.get_params_and_grads():

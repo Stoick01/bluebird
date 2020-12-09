@@ -1,5 +1,9 @@
 """
-Base optimizer arhitecture
+Optimizer
+=========
+
+Base optimizer class that all other optimizers inherit.
+
 """
 
 from typing import TYPE_CHECKING
@@ -15,11 +19,12 @@ from bluebird.activations import Activation
 
 class Optimizer:
     """
-    Default optimizer class that all other optimizers inherit
+    Base optimizer class that all other optimizers inherit
 
-    Example:
+    Example::
+
         class CustomOptimizer(Optimizer):
-            def step(self, net: 'NeuralNet') -> None:
+            def build(self, net: 'NeuralNet') -> None:
                 self.net = net
                 
                 ... Any aditional variables you wish to initialize
@@ -32,13 +37,22 @@ class Optimizer:
 
     def step(self) -> None:
         """
-        At each step the neural net is updated
+        At each step the neural net is updated.
+
+        Raises:
+            NotImplementedError
+
         """
+
         raise NotImplementedError
 
     def build(self, net: 'NeuralNet') -> None:
         """
-        Set aditional parameters needed for step
+        Set aditional parameters needed for step.
+
+        Raises:
+            NotImplementedError
+
         """
         raise NotImplementedError
 
