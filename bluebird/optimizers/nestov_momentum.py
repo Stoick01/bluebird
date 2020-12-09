@@ -1,5 +1,9 @@
 """
 Nestov momentum
+===============
+
+Nestrov momentum is a type of accelerated gradient descent, it converges faster and reduces oscilation.
+
 """
 
 from typing import TYPE_CHECKING
@@ -18,39 +22,37 @@ from .optimizer import Optimizer
 
 class NestovMomentum(Optimizer):
     """
+    Nestrov momentum.
+
     Stohastic Gradient Descent with momentum,
-    Gradient accelerates and converges faster than with regular SGD
+    Gradient accelerates and converges faster than with regular SGD.
 
-
-    Args:
-        lr: learning rate
-            default: 0.001
-            type: float
-
-    Example:
+    Example::
         
-        >>> optim = NestrovMomentum(lr=0.005)
-        >>> net.build(optimizer=optim, loss=CategoricalCrossEntropy())
+        optim = NestrovMomentum(lr=0.005)
+        net.build(optimizer=optim)
 
     """
 
     def __init__(self,
                  lr: float = 0.001) -> None:
+        """
+        Initializes the object.
+
+        Args:
+            lr (float, optional): learning rate, defaults to 0.001
+        """
         self.lr = lr
         self.vs = None
 
     def build(self, net: 'NeuralNet') -> None:
         """
-        Called before training, optimizer needs the model to be able to iterate over params
-        It also creates momentum vecotors
+        Called before training, optimizer needs the model to be able to iterate over params.
+
+        This function is called douring build in your model.
 
         Args:
-            net: your model, Type: NeuralNet
-
-        Example:
-            
-            >>> optim = NestrovMomentum(lr=0.005)
-            >>> optim.build(net)
+            net (:obj:`NeuralNet`): your model
 
         """
 
@@ -67,13 +69,10 @@ class NestovMomentum(Optimizer):
 
     def step(self) -> None:
         """
-        Run training step
+        Traning step.
 
-        Example:
-            
-            >>> optim = NestrovMomentum(lr=0.005)
-            >>> optim.step()
-
+        This function is run during each of your training steps, it updates the model
+        
         """
         
         for ((param, grad), v) in zip(self.net.get_params_and_grads(), self.vs):
