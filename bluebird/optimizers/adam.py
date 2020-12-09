@@ -1,6 +1,9 @@
 """
 Adam optimizer
 ==============
+
+Like Adaptive gradient, Adam (Adaptive Moment Estimator), also has adaptive learning rate.
+
 """
 
 from typing import TYPE_CHECKING
@@ -19,31 +22,12 @@ from .optimizer import Optimizer
 
 class Adam(Optimizer):
     """
-    Adam
+    Adam optimizer.
 
+    Example::
 
-    Args:
-        lr: learning rate
-            default: 0.001
-            type: float
-        b1: used to decay the running average of the gradient
-            default: 0.9
-            type: float
-        b2: used to decay the running average of the squared gradient
-            default: 0.999
-            type: float
-        t: time step, best to leave at zero
-            default: 0
-            type: int
-        epsilon: small value to scape the division by zero, best to leave it alone
-            default: 1e-8
-            type: float
-
-    Example:
-        
-        >>> optim = Adam(lr=0.005)
-        >>> net.build(optimizer=optim, loss=CategoricalCrossEntropy())
-
+        optim = Adam(lr=0.005)
+        net.build(optimizer=optim)
     """
 
     def __init__(self,
@@ -52,6 +36,16 @@ class Adam(Optimizer):
                  b2: float = 0.999,
                  t: int = 0,
                  epsilon: float = 1e-8) -> None:
+        """
+        Initializes the object.
+
+        Args:
+            lr (float, optional): learning rate, defaults to 0.001
+            b1 (float, optional): used to decay the running average of the gradient, defaults to 0.9
+            b2 (float, optional): used to decay the running average of the squared gradient, defaults to 0.999
+            t (int, otpional): time step, best to leave at zero, defaults to 0
+            epsilon (float, optional): small value to scape the division by zero, best to leave it alone, defaults to 1e-8
+        """
         self.lr = lr
         self.b1 = b1
         self.b2 = b2
@@ -62,15 +56,12 @@ class Adam(Optimizer):
 
     def build(self, net: 'NeuralNet') -> None:
         """
-        Called before training, optimizer needs the model to be able to iterate over params
+        Called before training, optimizer needs the model to be able to iterate over params.
+
+        This function is called douring build in your model.
 
         Args:
-            net: your model, Type: NeuralNet
-
-        Example:
-            
-            >>> optim = Adam(lr=0.005)
-            >>> optim.build(net)
+            net (:obj:`NeuralNet`): your model
 
         """
 
@@ -89,13 +80,10 @@ class Adam(Optimizer):
 
     def step(self) -> None:
         """
-        Run training step
+        Traning step.
 
-        Example:
-            
-            >>> optim = Adam(lr=0.005)
-            >>> optim.step()
-
+        This function is run during each of your training steps, it updates the model
+        
         """
 
         self.t += 1
