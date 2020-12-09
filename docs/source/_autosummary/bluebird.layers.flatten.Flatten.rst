@@ -1,4 +1,4 @@
-﻿Flatten
+Flatten
 =======
 
 .. currentmodule:: bluebird.layers.flatten

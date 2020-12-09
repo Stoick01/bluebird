@@ -1,4 +1,4 @@
-﻿XavierUniformWeightInitializer
+XavierUniformWeightInitializer
 ==============================
 
 .. currentmodule:: bluebird.weight_initializers

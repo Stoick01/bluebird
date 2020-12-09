@@ -1,4 +1,4 @@
-﻿Batch
+Batch
 =====
 
 .. currentmodule:: bluebird.data

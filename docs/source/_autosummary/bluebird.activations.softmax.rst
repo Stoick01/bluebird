@@ -1,4 +1,4 @@
-﻿softmax
+softmax
 =======
 
 .. automodule:: bluebird.activations.softmax

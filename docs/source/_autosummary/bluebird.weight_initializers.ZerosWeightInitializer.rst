@@ -1,4 +1,4 @@
-﻿ZerosWeightInitializer
+ZerosWeightInitializer
 ======================
 
 .. currentmodule:: bluebird.weight_initializers

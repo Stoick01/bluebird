@@ -1,4 +1,4 @@
-﻿Dropout
+Dropout
 =======
 
 .. currentmodule:: bluebird.layers.dropout

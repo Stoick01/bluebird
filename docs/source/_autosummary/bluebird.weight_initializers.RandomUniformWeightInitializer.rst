@@ -1,4 +1,4 @@
-﻿RandomUniformWeightInitializer
+RandomUniformWeightInitializer
 ==============================
 
 .. currentmodule:: bluebird.weight_initializers

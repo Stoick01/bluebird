@@ -1,4 +1,4 @@
-﻿XavierNormalWeightInitializer
+XavierNormalWeightInitializer
 =============================
 
 .. currentmodule:: bluebird.weight_initializers

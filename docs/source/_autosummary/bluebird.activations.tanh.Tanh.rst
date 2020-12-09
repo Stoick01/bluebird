@@ -1,4 +1,4 @@
-﻿Tanh
+Tanh
 ====
 
 .. currentmodule:: bluebird.activations.tanh

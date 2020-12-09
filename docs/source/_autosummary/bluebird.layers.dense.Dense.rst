@@ -1,4 +1,4 @@
-﻿Dense
+Dense
 =====
 
 .. currentmodule:: bluebird.layers.dense

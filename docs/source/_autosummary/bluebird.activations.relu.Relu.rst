@@ -1,4 +1,4 @@
-﻿Relu
+Relu
 ====
 
 .. currentmodule:: bluebird.activations.relu

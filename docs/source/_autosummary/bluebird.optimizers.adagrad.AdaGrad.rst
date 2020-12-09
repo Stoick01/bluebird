@@ -1,4 +1,4 @@
-﻿AdaGrad
+AdaGrad
 =======
 
 .. currentmodule:: bluebird.optimizers.adagrad

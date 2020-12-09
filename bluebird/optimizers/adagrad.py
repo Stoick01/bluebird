@@ -1,5 +1,8 @@
 """
-Adaptive gradient
+Adaptive gradient descent
+=========================
+
+Unlike other optimizers, learning rate adapts to the data, it's well suited for sparse data.
 """
 
 from typing import TYPE_CHECKING
@@ -18,42 +21,37 @@ from .optimizer import Optimizer
 
 class AdaGrad(Optimizer):
     """
-    Adaptive gradient descent
+    Adaptive gradient descent.
 
+    Example::
 
-    Args:
-        lr: learning rate
-            default: 0.001
-            type: float
-        epsilon: small value to scape the division by zero, best to leave it alone
-            default: 1e-8
-            type: float
-
-    Example:
-        
-        >>> optim = AdaGrad(lr=0.005)
-        >>> net.build(optimizer=optim, loss=CategoricalCrossEntropy())
+        optim = AdaGrad(lr=0.005)
+        net.build(optimizer=optim, loss=CategoricalCrossEntropy())
 
     """
 
     def __init__(self,
                  lr: float = 0.001,
                  epsilon: float = 1e-8) -> None:
+        """
+        Initializes the object.
+
+        Args:
+            lr (float, optional): learning rate, defaults to 0.001
+            epsilon (float, otpional): small value to prevent division by zero, best not to touch it, defaults to 1e-8
+        """
         self.lr = lr
         self.epsilon = epsilon
         self.an = None
 
     def build(self, net: 'NeuralNet') -> None:
         """
-        Called before training, optimizer needs the model to be able to iterate over params
+        Called before training, optimizer needs the model to be able to iterate over params.
+
+        This function is called douring build in your model.
 
         Args:
-            net: your model, Type: NeuralNet
-
-        Example:
-            
-            >>> optim = AdaGrad(lr=0.005)
-            >>> optim.build(net)
+            net (:obj:`NeuralNet`): your model
 
         """
 
@@ -69,13 +67,10 @@ class AdaGrad(Optimizer):
 
     def step(self) -> None:
         """
-        Run training step
+        Traning step.
 
-        Example:
-            
-            >>> optim = AdaGrad(lr=0.005)
-            >>> optim.step()
-
+        This function is run during each of your training steps, it updates the model
+        
         """
               
         for ((param, grad), a) in zip(self.net.get_params_and_grads(), self.an):

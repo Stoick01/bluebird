@@ -1,4 +1,4 @@
-﻿ProgressBar
+ProgressBar
 ===========
 
 .. currentmodule:: bluebird.progress_tracker

@@ -1,4 +1,4 @@
-﻿NeuralNet
+NeuralNet
 =========
 
 .. currentmodule:: bluebird.nn

@@ -1,4 +1,4 @@
-﻿NestovMomentum
+NestovMomentum
 ==============
 
 .. currentmodule:: bluebird.optimizers.nestov_momentum

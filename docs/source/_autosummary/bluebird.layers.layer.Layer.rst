@@ -1,4 +1,4 @@
-﻿Layer
+Layer
 =====
 
 .. currentmodule:: bluebird.layers.layer
