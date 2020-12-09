@@ -1,5 +1,8 @@
 """
-Basic loss function defenition
+Loss
+====
+
+Base loss class that all other losses inherit.
 """
 
 import numpy as np
@@ -8,9 +11,10 @@ from bluebird.tensor import Tensor
 
 class Loss:
     """
-    Default loss class that all other losses inherit
+    Base loss class that all other losses inherit.
 
-    Example:
+    Example::
+
         class CustomLoss(Loss):
             def loss(self, predicted: Tensor, actual: Tensor) -> float:
                 ... loss function
@@ -21,9 +25,33 @@ class Loss:
     """
 
     def loss(self, predicted: Tensor, actual: Tensor) -> float:
+        """
+        Calculates the loss function.
+
+        Args:
+            predicted (:obj:`Tensor`): models output
+            actual (:obj:`Tensor`): expected output
+
+        Raises:
+            NotImplementedError
+
+        """
+
         raise NotImplementedError
     
     def grad(self, predicted: Tensor, actual: Tensor) -> float:
+        """
+        Calculates the loss function.
+
+        Args:
+            predicted (:obj:`Tensor`): models output
+            actual (:obj:`Tensor`): expected output
+
+        Raises:
+            NotImplementedError
+
+        """
+
         raise NotImplementedError
 
 

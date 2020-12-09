@@ -177,7 +177,6 @@ class NeuralNet():
 
         for layer in self.layers:
             inputs = layer.forward(inputs, training=False)
-        import ipdb; ipdb.set_trace()
         return inputs
 
     def fit(self, 

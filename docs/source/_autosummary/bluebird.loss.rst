@@ -1,4 +1,4 @@
-loss
+﻿loss
 ====
 
 .. automodule:: bluebird.loss
@@ -29,7 +29,7 @@ loss
    :recursive:
 
    
-      bluebird.loss.CategoricalCrossEntropy
-      bluebird.loss.MSE
+      bluebird.loss.categorical_cross_entropy
       bluebird.loss.loss
+      bluebird.loss.mse
    
