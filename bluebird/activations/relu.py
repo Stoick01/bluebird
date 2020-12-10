@@ -1,5 +1,8 @@
 """
-Relu activation function
+Relu
+====
+
+Relu (Rectified Linear Unit).
 """
 
 from typing import Callable
@@ -13,24 +16,62 @@ from .activation import Activation
 
 
 def relu(x: Tensor) -> Tensor:
+    """
+    Relu activation function.
+
+    function:
+        f(x) = 0 if x < 0
+
+        f(x) = x if x > 0
+
+    Args:
+        x (:obj:`Tensor`): input to the function
+
+    Returns:
+        :obj:`Tensor`: f(x), applies activation function
+    """
+
     return np.maximum(x, 0.0)
 
 def relu_prime(x: Tensor) -> Tensor:
+    """
+    Derivation of the relu activation function.
+
+    derivation:
+        f'(x) = 0 if x < 0
+
+        f'(x) = 1 if x > 0
+
+    Args:
+        x (:obj:`Tensor`): input to the function
+
+    Returns:
+        :obj:`Tensor`: f'(x), applies derivation of activation function
+    """
+
     x[x < 0] = 0
     x[x > 0] = 1
     return x
 
 class Relu(Activation):
     """
-    Relu activation function
+    Relu activation function as object.
 
-    function:
-        f(x) = 0 if x < 0
-        f(x) = x if x > 0
+    Inherits all of its atributes from base Activation class.
 
-    derivation:
-        f'(x) = 0 if x < 0
-        f'(x) = 1 if x > 0
+    Only functions are specified, which you can see in previous page.
+
+    It is important to note that relu activation works only with small variances,
+    so weights should be initializes with a weight initializes that does that.
+
+    Example::
+
+        relu = Relu()
+        net = NeuralNet([
+                ...
+                relu,
+                ...
+            ])
     """
 
     def __init__(self):
