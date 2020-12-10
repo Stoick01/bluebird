@@ -1,6 +1,6 @@
 """
-Lyer
-====
+Layer
+=====
 
 All other layers and activations inherit base Layer class.
 """
@@ -13,7 +13,7 @@ from bluebird.tensor import Tensor
 
 class Layer:
     """
-    Default layer, that all other layers and activations inherit
+    Default layer, that all other layers and activations inherit.
 
     Example::
 
@@ -39,20 +39,46 @@ class Layer:
 
     def build(self, input_size) -> None:
         """
-        Used to finalize building layers
+        Used to finalize building layers.
+
+        Important to note, you should set the input_size for the layer in here.
+
+        Args:
+            input_size (int): output size from previous layer
+
+        Raises:
+            NotImplementedError
         """
+
         raise NotImplementedError
 
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """
-        Produces output for inputs
+        Called each time the data passes throughout the nework.
+
+        Args:
+            inputs (:obj:`Tensor`): output from the previous layer
+            training (bool, optional): set to true during training, and is false when network predicts
+
+        Raises:
+            NotImplementedError
+        
         """
+
         raise NotImplementedError
 
     def backward(self, grad: Tensor) -> Tensor:
         """
-        Backpropagates the gradinet through the layer
+        Used to calculate the gradients of weights and biases.
+
+        Args:
+            grad (:obj:`Tensor`): gradient from previous layer or loss function.
+
+        Raises:
+            NotImplementedError
+
         """
+
         raise NotImplementedError
 
 # TO DO: Masking, Lambda, Convolution (1D, 2D, 3D, Seperable, 

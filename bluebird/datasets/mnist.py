@@ -1,7 +1,10 @@
 """
 MNIST dataset
-60 000 28*28 grayscale images of 10 digits
-10 000 test set of images
+=============
+
+Contains 60 000 training images, and 10 000 test images.
+Images are of numbers from 0 to 9 (10 classes total).
+Dimensions of each image are 28*28.
 """
 
 import os
@@ -14,6 +17,17 @@ from typing import Tuple
 import numpy as np
 
 def load_data(path: str = "mnist", save: bool = False) -> Tuple:
+    """
+    Downloads and returns mnist data.
+
+    Args:
+        path (:obj:`str`, optional): path where you want to save downloaded data, defaults to 'mnist'
+        save (bool, optional): true if you want to save the data, false otherwise, defualts to False
+
+    Returns:
+        Tuple: training_images, training_labels, test_images, test_labels
+        
+    """
     PROJECT_ROOT_DIR = "."
     DOWNLOAD_ROOT = "http://yann.lecun.com/exdb/mnist/"
     FILENAMES = [
