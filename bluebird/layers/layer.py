@@ -1,6 +1,8 @@
 """
-Basic layer arhitecture
-All other layers and activations inherit this basic arhitecture
+Lyer
+====
+
+All other layers and activations inherit base Layer class.
 """
 
 from typing import Dict
@@ -13,7 +15,7 @@ class Layer:
     """
     Default layer, that all other layers and activations inherit
 
-    Example:
+    Example::
 
        class CustomLayer(Layer):
             def build(self, input_size) -> None:

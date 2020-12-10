@@ -24,7 +24,6 @@ class Flatten(Input):
 
         input = Flatten((5, 10))
         net = NeuralNet([
-                ...
                 input,
                 ...
             ])
@@ -49,7 +48,7 @@ class Flatten(Input):
         """
         Called by the model, before its training step.
 
-        Prepares the input size for next layer
+        Prepares the input size for next layer.
 
         """
 
@@ -85,7 +84,7 @@ class Flatten(Input):
         Reshapes Tensor back to (n, m).
 
         Args:
-            grad (:obj:`Tensor`): gradient from previous layer or loss function.
+            grad (:obj:`Tensor`): gradient from previous layer.
 
         Returns:
             :obj:`Tensor`: reshaped Tensor (n. m)
