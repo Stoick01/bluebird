@@ -42,6 +42,7 @@ class Layer:
         Used to finalize building layers.
 
         Important to note, you should set the input_size for the layer in here.
+        Does not apply to the activation functions, you don't need implement it in them.
 
         Args:
             input_size (int): output size from previous layer
