@@ -1,6 +1,8 @@
 """
-Droput layer,
-randomly sets input units to 0
+Droput layer
+============
+
+Droput layer disables random inputs during training.
 """
 
 from typing import Dict
@@ -17,26 +19,34 @@ from .linear import Linear
 
 class Dropout(Linear):
     """
-    It ignores some of inouts and scales other ones,
-    Usefull to escape overfitting
+    Dropout ignores some of the inputs and scales other ones.
+    Usefull to escape overfitting.
 
-    Args:
-        output_size: number of neurons, Type: int
-        dropout_rate: percent of inputs the network ignores, Type: float
-            (1:=100%)
+    Inherits Linear layer, and changes only constructor and forward method.
 
-    Example:
+    Backward is the same as in Linear.
 
-        >>> dropout = Dropout(50, dropout_rate=0.02)
-        >>> net = NeuralNet([
-                    ...
-                    dropout
-                    ...
-                ])
+    Example::
+
+        dropout = Dropout(50, dropout_rate=0.02)
+        net = NeuralNet([
+                ...
+                dropout
+                ...
+            ])
 
     """
 
     def __init__(self, output_size: int, droput_rate: float) -> None:
+        """
+        Initializes the object.
+
+        Args:
+            output_size (int): dimension of the output 
+            dropout_rate (float): percent of inputs the network ignores (1:=100%)
+
+        """
+
         if not isinstance(output_size, int):
             raise TypeException("output_size", "int")
 
@@ -48,8 +58,19 @@ class Dropout(Linear):
 
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """
-        output = inputs @ w + b
+        Called each time the data passes throughout the nework.
+
+        It only disables inputs during training, otherwise it acts like regular Linear layer.
+
+        Args:
+            inputs (:obj:`Tensor`): output from the previous layer
+            training (bool, optional): set to true during training, and is false when network predicts
+
+        Returns:
+            :obj:`Tensor`: processed input data
+        
         """
+
         if training:
             self.inputs = inputs / (1 - self.droput_rate)
             indices = np.random.choice(np.arange(self.inputs.shape[1]), 

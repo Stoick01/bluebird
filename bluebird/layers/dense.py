@@ -108,6 +108,7 @@ class Dense(Layer):
             :obj:`Tensor`: processed input data
         
         """
+        
         self.inputs = inputs
 
         self.outputs = self.layer.forward(inputs, training)
@@ -126,7 +127,9 @@ class Dense(Layer):
 
         Returns:
             :obj:`Tensor`: Gradient
+
         """
+
         self.grad = grad
 
         if self.hidden != None:
