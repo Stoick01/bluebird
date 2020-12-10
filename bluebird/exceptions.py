@@ -11,9 +11,11 @@ class TypeException(TypeError):
     """
     Handels the type missmatch, prints variable and the type it should be.
 
-    Example:
-        >>> raise TypeException("input", "Tensor")
+    Example::
+
+        raise TypeException("input", "Tensor")
     """
+    
     def __init__(self, *args):
         """
         Initializes the object.
@@ -22,6 +24,7 @@ class TypeException(TypeError):
             args[0] (:obj:`str`): name of variable
             args[1] (:obj:`str`): expected type
         """
+
         if len(args) == 2:
             self.message = f"{args[0]} should be a {args[1]}"
         else:
