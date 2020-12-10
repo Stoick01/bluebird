@@ -80,7 +80,7 @@ class Dense(Layer):
 
     def build(self, input_size: int) -> None:
         """
-        Called by the model, during its training step.
+        Called by the model, before its training step.
 
         It sets the input size and initializes the weights.
 
@@ -108,7 +108,7 @@ class Dense(Layer):
             :obj:`Tensor`: processed input data
         
         """
-        
+
         self.inputs = inputs
 
         self.outputs = self.layer.forward(inputs, training)
