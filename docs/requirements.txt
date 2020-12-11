@@ -57,10 +57,6 @@ recommonmark==0.4.0
 requests==2.25.0
 requests-toolbelt==0.9.1
 rfc3986==1.4.0
-rinoh-typeface-dejavuserif==0.1.2
-rinoh-typeface-texgyrecursor==0.1.1
-rinoh-typeface-texgyreheros==0.1.1
-rinoh-typeface-texgyrepagella==0.1.1
 SecretStorage==3.3.0
 six==1.15.0
 snowballstemmer==2.0.0
@@ -71,7 +67,6 @@ sphinxcontrib-htmlhelp==1.0.3
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
-rinohtype==0.4.2
 testpath==0.4.4
 tornado==6.1
 tqdm==4.54.0
