@@ -1,6 +1,6 @@
-bluebird.activations.sigmoid.sigmoid
-====================================
+﻿sigmoid
+=======
 
 .. currentmodule:: bluebird.activations.sigmoid
 
-.. autofunction:: sigmoid
+.. autofunction:: sigmoid                  

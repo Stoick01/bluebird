@@ -1,4 +1,4 @@
-SGD
+﻿SGD
 ===
 
 .. currentmodule:: bluebird.optimizers.sgd

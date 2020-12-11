@@ -1,6 +1,6 @@
-bluebird.activations.softmax.softmax
-====================================
+﻿softmax
+=======
 
 .. currentmodule:: bluebird.activations.softmax
 
-.. autofunction:: softmax
+.. autofunction:: softmax                  

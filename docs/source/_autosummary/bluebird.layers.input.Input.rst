@@ -1,4 +1,4 @@
-Input
+﻿Input
 =====
 
 .. currentmodule:: bluebird.layers.input

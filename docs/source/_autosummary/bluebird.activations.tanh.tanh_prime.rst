@@ -1,6 +1,6 @@
-bluebird.activations.tanh.tanh\_prime
-=====================================
+﻿tanh\_prime
+===========
 
 .. currentmodule:: bluebird.activations.tanh
 
-.. autofunction:: tanh_prime
+.. autofunction:: tanh_prime                  

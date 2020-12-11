@@ -1,6 +1,83 @@
 Welcome to BlueBird's documentation!
 ====================================
 
+BlueBird is a small deep learning library.
+It was developed to help me (the author) learn better about deep learning.
+
+I thought that it was a cool project so I decided to share it with others.
+
+Down bellow you will find installation instruction and a basic tutorial.
+
+Note: This documentation was generated automatically so there may be some bugs and it's not easy to navigate.
+
+Install Guide
+=============
+
+BlueBird can be downloaded with pip (make sure you set up virtual environment).
+If you want to use the latest version, get it from `github <https://github.com/Stoick01/bluebird>`_.
+
+``pip install bluebird-stoick01``
+
+
+Quick Start
+===========
+
+Simple module looks like this:
+
+.. code-block:: python
+
+   from bluebird.nn import NeuralNet
+   from bluebird.activations import Relu
+   from bluebird.layers import Input, Linear
+
+   # create the module
+   net = NeuralNet([
+      Input(10), # input layer
+      Linear(50),  # hidden layer
+      Relu(), # activation function
+      Linear(10) # output layer
+   ])
+
+   # build the module
+   net.build()
+
+   # train your model
+   net.fit(X_train, y_train, num_epochs=20)
+
+
+Let's explain this a bit:
+   #. Imports: From nn you need to import your model. We also import activation functions (Relu in this example)
+      and layers (Input and Linear)
+   #. Then we create the model. The model accepts a list of layers where the first layer has to be of the input type.
+      After that you can put layers in any order. You have to define how many neurons each layer has, except the input,
+      where you define number of inputs.
+   #. After you have created your model, you can build, during this step you can define optimizer and loss functions,
+      which you can find in ``bluebird.optimizer`` and ``bluebird.loss``
+   #. Final step is to train your model. Where you pass it your data and define number of epochs.
+
+Layers and Activations
+----------------------
+
+You can find all the layers and activations in ``bluebird.layers`` and ``bluebird.activations``.
+
+Every layer and activation is explained in the mode detail on it's own page, but in general:
+   * All models begin with input type layer
+   * All other layers must have defined number of neurons, aka the output dimension, (input in handled during build faze of the module)
+   * Activations only need to be initialized
+
+Building the model
+------------------
+
+After creation each model must be built. This is a crucial step, where all the weights in layers are initialized and each layer is built.
+
+You can also pass the loss function and optimizer which can be found in ``bluebird.loss`` and ``bluebird.optimizer``
+
+
+Contribution Guide
+==================
+
+I don't expect anyone to contribute but just in case you want to, contact me, or open an issue on github before committing anything.
+
 .. autosummary::
    :toctree: _autosummary
    :template: custom-module-template.rst

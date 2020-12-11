@@ -1,6 +1,6 @@
-bluebird.utils.clip
-===================
+﻿clip
+====
 
 .. currentmodule:: bluebird.utils
 
-.. autofunction:: clip
+.. autofunction:: clip                  

@@ -1,4 +1,4 @@
-﻿loss
+loss
 ====
 
 .. automodule:: bluebird.loss

@@ -1,6 +1,6 @@
-bluebird.activations.tanh.tanh
-==============================
+﻿tanh
+====
 
 .. currentmodule:: bluebird.activations.tanh
 
-.. autofunction:: tanh
+.. autofunction:: tanh                  

@@ -1,6 +1,6 @@
-bluebird.activations.relu.relu
-==============================
+﻿relu
+====
 
 .. currentmodule:: bluebird.activations.relu
 
-.. autofunction:: relu
+.. autofunction:: relu                  

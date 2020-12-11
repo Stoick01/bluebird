@@ -1,4 +1,4 @@
-MSE
+﻿MSE
 ===
 
 .. currentmodule:: bluebird.loss.mse

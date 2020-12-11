@@ -1,4 +1,4 @@
-utils
+﻿utils
 =====
 
 .. automodule:: bluebird.utils
@@ -12,7 +12,8 @@ utils
    .. rubric:: Functions
 
    .. autosummary::
-      :toctree:                                          
+      :toctree:
+      :template: custom-function-template.rst                                          
       
          clip
          fix_overflow

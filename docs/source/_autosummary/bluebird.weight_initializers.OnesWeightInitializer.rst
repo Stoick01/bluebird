@@ -1,4 +1,4 @@
-OnesWeightInitializer
+﻿OnesWeightInitializer
 =====================
 
 .. currentmodule:: bluebird.weight_initializers

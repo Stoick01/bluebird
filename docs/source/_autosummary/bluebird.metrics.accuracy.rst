@@ -1,6 +1,6 @@
-bluebird.metrics.accuracy
-=========================
+﻿accuracy
+========
 
 .. currentmodule:: bluebird.metrics
 
-.. autofunction:: accuracy
+.. autofunction:: accuracy                  

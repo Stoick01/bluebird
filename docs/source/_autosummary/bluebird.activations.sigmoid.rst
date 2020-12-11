@@ -1,4 +1,4 @@
-sigmoid
+﻿sigmoid
 =======
 
 .. automodule:: bluebird.activations.sigmoid
@@ -12,7 +12,8 @@ sigmoid
    .. rubric:: Functions
 
    .. autosummary::
-      :toctree:                                          
+      :toctree:
+      :template: custom-function-template.rst                                          
       
          sigmoid
          sigmoid_prime

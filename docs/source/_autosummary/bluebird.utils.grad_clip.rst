@@ -1,6 +1,6 @@
-bluebird.utils.grad\_clip
-=========================
+﻿grad\_clip
+==========
 
 .. currentmodule:: bluebird.utils
 
-.. autofunction:: grad_clip
+.. autofunction:: grad_clip                  

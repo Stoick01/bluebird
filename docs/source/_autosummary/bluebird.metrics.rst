@@ -1,4 +1,4 @@
-metrics
+﻿metrics
 =======
 
 .. automodule:: bluebird.metrics
@@ -12,7 +12,8 @@ metrics
    .. rubric:: Functions
 
    .. autosummary::
-      :toctree:                                          
+      :toctree:
+      :template: custom-function-template.rst                                          
       
          accuracy
       

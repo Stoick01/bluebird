@@ -1,4 +1,4 @@
-CategoricalCrossEntropy
+﻿CategoricalCrossEntropy
 =======================
 
 .. currentmodule:: bluebird.loss.categorical_cross_entropy

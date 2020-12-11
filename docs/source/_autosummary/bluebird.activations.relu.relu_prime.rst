@@ -1,6 +1,6 @@
-bluebird.activations.relu.relu\_prime
-=====================================
+﻿relu\_prime
+===========
 
 .. currentmodule:: bluebird.activations.relu
 
-.. autofunction:: relu_prime
+.. autofunction:: relu_prime                  

@@ -1,4 +1,4 @@
-mnist
+﻿mnist
 =====
 
 .. automodule:: bluebird.datasets.mnist
@@ -12,7 +12,8 @@ mnist
    .. rubric:: Functions
 
    .. autosummary::
-      :toctree:                                          
+      :toctree:
+      :template: custom-function-template.rst                                          
       
          load_data
       
