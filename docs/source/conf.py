@@ -63,9 +63,13 @@ html_theme = 'alabaster'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_context = {
-    'css_files': ['_static/custom.css'],
-    'js_files': ['_static/custom.js'],
-}
-
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'                           
+                                                                                 
+if on_rtd:         
+    html_context = {                                                             
+        'css_files': [                                                           
+            'https://media.readthedocs.org/css/sphinx_rtd_theme.css',         
+            'https://media.readthedocs.org/css/readthedocs-doc-embed.css'       
+        ],
+    }
 add_module_names = False
