@@ -64,8 +64,8 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 html_context = {
-    'css_files': ['_static/custom.css'],
-    'js_files': ['_static/custom.js'],
+    'css_files': ['_static/css/custom.css'],
+    'js_files': ['_static/js/custom.js'],
 }
 
 add_module_names = False
