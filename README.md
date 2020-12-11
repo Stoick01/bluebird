@@ -35,6 +35,8 @@ net.build(optimizer=SGD(lr=0.003), loss=CategoricalCrossEntropy())
 net.fit(X_train, y_train, num_epochs=20)
 ```
 
+For more info checkout the [docs](https://bluebird.readthedocs.io/en/latest/)
+
 ## Roadmap
 
 There are a lot of updates planed, you will find comments throughout the library that define what features I'm planing to add in the future.

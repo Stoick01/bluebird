@@ -61,7 +61,7 @@ rinoh-typeface-dejavuserif==0.1.2
 rinoh-typeface-texgyrecursor==0.1.1
 rinoh-typeface-texgyreheros==0.1.1
 rinoh-typeface-texgyrepagella==0.1.1
-rinohtype==0.4.2
+rinohtype>=0.4.2
 SecretStorage==3.3.0
 six==1.15.0
 snowballstemmer==2.0.0
