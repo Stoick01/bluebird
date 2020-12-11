@@ -1,3 +1,4 @@
-.injected {
-    display: hidden;
+div.injected {
+    display: none;
+    height: 0;
 }
