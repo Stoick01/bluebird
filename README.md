@@ -35,7 +35,7 @@ net.build(optimizer=SGD(lr=0.003), loss=CategoricalCrossEntropy())
 net.fit(X_train, y_train, num_epochs=20)
 ```
 
-For more info checkout the [docs](https://bluebird.readthedocs.io/en/latest/)
+For more info checkout the [docs](https://bluebird.readthedocs.io/en/latest/index.html)
 
 ## Roadmap
 
