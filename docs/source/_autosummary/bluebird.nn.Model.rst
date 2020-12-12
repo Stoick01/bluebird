@@ -1,4 +1,4 @@
-Model
+﻿Model
 =====
 
 .. currentmodule:: bluebird.nn
@@ -23,7 +23,9 @@ Model
       ~Model.forward
       ~Model.get_layers
       ~Model.get_params_and_grads
+      ~Model.load
       ~Model.predict
+      ~Model.save
       ~Model.step
    
    
