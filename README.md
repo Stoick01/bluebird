@@ -16,7 +16,6 @@ Here is a simple implemetation of a model in bluebird.
 from bluebird.nn import NeuralNet
 from bluebird.activations import Relu, Softmax
 from bluebird.layers import Input, Dense
-from bluebird.data import BatchIterator
 from bluebird.loss import CategoricalCrossEntropy
 from bluebird.optimizers import SGD
 

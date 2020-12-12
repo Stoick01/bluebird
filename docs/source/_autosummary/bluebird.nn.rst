@@ -1,4 +1,4 @@
-nn
+﻿nn
 ==
 
 .. automodule:: bluebird.nn
@@ -19,6 +19,7 @@ nn
       :toctree:                                          
       :template: custom-class-template.rst               
    
+      Model
       NeuralNet
    
    

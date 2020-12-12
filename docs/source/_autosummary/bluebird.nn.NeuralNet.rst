@@ -1,4 +1,4 @@
-﻿NeuralNet
+NeuralNet
 =========
 
 .. currentmodule:: bluebird.nn
@@ -24,6 +24,7 @@
       ~NeuralNet.get_layers
       ~NeuralNet.get_params_and_grads
       ~NeuralNet.predict
+      ~NeuralNet.step
    
    
 

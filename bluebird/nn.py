@@ -22,26 +22,31 @@ from .progress_tracker import ProgressBar
 
 import bluebird.utils as utl
 
-class NeuralNet():
+
+class Model():
     """
-    Creates a neural network model.
+    Base model class.
+
+    All other models inherit from it.
 
     Example::
-        
-        net = NeuralNet([
-                Flatten(input_size=(28, 28)),
-                Dense(300, activation=Relu()),
-                Dense(100, activation=Relu()),
-                Dense(50, activation=Relu()),
-                Dense(10, activation=Softmax())
-            ])
-        net.build(optimizer=AdaGrad(lr=0.003), loss=CategoricalCrossEntropy())
 
-        net.fit(X_train, y_train, num_epochs=20)
+        class CustomModel(Model):
+            def __init__(self, layers: Sequence[Layer]):
+                super.__init__()
 
-        net.predict(X_test)
+            def build(self, 
+                    iterator: DataIterator = BatchIterator(),
+                    loss: Loss = MSE(),
+                    optimizer: Optimizer = SGD()) -> None:
+                super.build()
 
+            def step(self, batch) -> float:
+                ...
+
+                return self.loss.loss(predicted, batch.targets) 
     """
+
 
     def __init__(self, layers: Sequence[Layer]) -> None:
         """
@@ -120,6 +125,7 @@ class NeuralNet():
             inputs = layer.forward(inputs, training=True)
         return inputs
 
+
     def backward(self, grad:Tensor) -> Tensor:
         """
         Backward propagates through the network.
@@ -149,20 +155,6 @@ class NeuralNet():
         for layer in reversed(self.layers):
             yield layer
 
-    def get_params_and_grads(self) -> Iterator[Tensor]:
-        """
-        Returns parameters and gradients for each layer.
-
-        Returns:
-            Iterator[:obj:`Tensor`]: List of parameter, gradient pairs
-
-        """
-
-        for layer in self.get_layers():
-            for name, param in layer.params.items():
-                grad = layer.grads[name]
-                yield param, grad
-
     def predict(self, inputs: Tensor) -> Tensor:
         """
         Used to predict values after you finished the training.
@@ -178,6 +170,39 @@ class NeuralNet():
         for layer in self.layers:
             inputs = layer.forward(inputs, training=False)
         return inputs
+
+    def get_params_and_grads(self) -> Iterator[Tensor]:
+        """
+        Returns parameters and gradients for each layer.
+
+        Returns:
+            Iterator[:obj:`Tensor`]: List of parameter, gradient pairs
+
+        """
+
+        for layer in self.get_layers():
+            for name, param in layer.params.items():
+                grad = layer.grads[name]
+                yield param, grad
+
+    def step(self, batch) -> float:
+        """
+        Step function is called during each training step.
+
+        It calculates the loss and updates weights and biases.
+
+        You must return loss.
+
+        Args:
+            batch (:obj:`Batch`): recives batch object, each batch object has inputs and targets
+
+        Raises:
+            NotImplementedError
+
+        """
+
+        raise NotImplementedError
+
 
     def fit(self, 
             inputs: Tensor,
@@ -212,9 +237,54 @@ class NeuralNet():
 
             for batch in self.iterator(inputs, targets):
                 items += len(batch.inputs)
-                predicted = self.predict(batch.inputs)
-                epoch_loss += self.loss.loss(predicted, batch.targets) 
-                grad = self.loss.grad(predicted, batch.targets)
-                self.backward(grad)
-                self.optimizer.step()
+                epoch_loss += self.step(batch)
                 bar.print_bar(items - n*epoch, epoch+1, epoch_loss/items)
+
+
+
+class NeuralNet(Model):
+    """
+    Creates a neural network model.
+
+    Example::
+        
+        net = NeuralNet([
+                Flatten(input_size=(28, 28)),
+                Dense(300, activation=Relu()),
+                Dense(100, activation=Relu()),
+                Dense(50, activation=Relu()),
+                Dense(10, activation=Softmax())
+            ])
+        net.build(optimizer=AdaGrad(lr=0.003), loss=CategoricalCrossEntropy())
+
+        net.fit(X_train, y_train, num_epochs=20)
+
+        net.predict(X_test)
+
+    """
+
+
+    def step(self, batch) -> float:
+        """
+        Step function is called during each training step.
+
+        It calculates the loss and updates weights and biases.
+
+        Args:
+            batch (:obj:`Batch`): recives batch object, each batch object has inputs and targets
+
+        Returns:
+            float: returns calculated loss
+
+        """
+        predicted = self.predict(batch.inputs)
+
+        loss = self.loss.loss(predicted, batch.targets) 
+        grad = self.loss.grad(predicted, batch.targets)
+
+        self.backward(grad)
+        self.optimizer.step()
+
+        return loss
+
+                
