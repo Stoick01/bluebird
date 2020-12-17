@@ -259,7 +259,6 @@ class Model():
                 'layerName': [
                     {
                         name: 'paramName',
-                        dimension: '10x20', # for example
                         value: '0.5888 2.59874.......'
                     },
                     ....
@@ -314,7 +313,12 @@ class Model():
             path (:obj:`str`): path to the file where the model is saved
 
         """
-        pass
+        with open(path) as f:
+            data = json.load(f)
+            for loaded, layer in zip(data['layers'], self.layers):
+                for key, value in loaded.items():
+                    for param in value:
+                        layer.params[param['name']] = param['value']
 
 
 class NeuralNet(Model):
