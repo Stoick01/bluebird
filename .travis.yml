@@ -1,22 +1,4 @@
 language: python
-deploy:
-  provider: pypi
-  username: "__token__"
-  server: https://upload.pypi.org/legacy/
-  password: 
-    secure: $PYPI_TOKEN
-  distributions: "sdist bdist_wheel"
-  on:
-    branch: master
-    condition: $TRAVIS_PYTHON_VERSION = "3.6"
-
-
-sudo: required
-
-services:
-  - docker
-
-language: python
 python:
   - '3.6'
 
@@ -29,8 +11,10 @@ jobs:
       deploy:
         provider: pypi
         username: '__token__'
-        password: $PYPI_TOKEN
+        password: 
+          secret: $PYPI_TOKEN
         on:
+          tags: true
           branch: master
 
 stages:
