@@ -1,5 +1,4 @@
 language: python
-install: pip install keyring==21.4.0
 deploy:
   provider: pypi
   username: __token__
