@@ -1,6 +1,20 @@
 language: python
+python:
+- '2.7'
+- '3.4'
+install:
+- pip install -q -r requirements-dev.txt .
+script:
+- coverage run --source "$(basename "$PWD")" setup.py test
+notifications:
+  email: false
 deploy:
   provider: pypi
-  username: "__token__"
+  user: stoick01
   password:
-    secure: "cFr/EJY6p41+auu93E1GKKlkxPIIqkWI78/9W61dZntQI6E0fMrmf1SWCUlzBlbROzvWgNE3IJ3AioyKp81p7L0Q1yY0BP5jlJ9tG6MkbXAIQrKqS08YLwF2N/5MgNS25OgZrR1StkyC00kLYdVN2kLBoyLAJP3Fr+XcX8o9cuTXibyd64aqfFBBLMWMeHhqIpuaWgck7JohCw+wXl5NVhfQDHK3pP+QcbCUVKa21BUOHdvuBe9nOPVZ3BOnTxyyOfHne0Lx7u0xwpAn2YFQdMadCkqqu536c/ep+0Lv72ZGKzOStbtW/GUmss9MKH7M0kL0HmwpxOpbHd+32Wbm3zzJLJ6tF2XmfYFt9IZhRzdmTsg+4BLv4G+5lNxFiAAN5kd0G3wroP9P2g9D2Merf1+YzlvmAFHxsP06SNWAGOzohVwmBmoUKlXPWzIrpjGro8KVbqW+VUBaNjJZs7nxWKA1eprcZ2Btwo18kqZ98ty0TsEi/7TiMgpZ3MM9ItzkfiFFcMkWcHA7czuOtYPccQBhIs9RKXTmfb0YGA1I2ynBvif51gPppWQjO+Q5MjYM5x812aUOpWL0DQVjdPYRX6s0ldZSMhYjvAI87bxFbODWW6YXX9a1rC3PlHRHuwTNQI8P+LTyYd1UOdPUhyk71IW/LVCbDg0pteLKpsIKhJw="
+    secure: lSOlMSj4k9I6AO4TeD13iFDEUy/wz5alG/vlb9VyJY5DwJN5afXuAipgyS02Rln+c8unjkOFg9YnzlRIIxJvUYOPjTlocw8D2amLt9miw4Fttf0lsL6s5grB2sZ3FQCbuH4mrmDLHqK5HYHrE9QzhkUqxjl1vW/fzWoRvqQBfb2bkYVofmPmftiUbqlVjYK/Ycxi/UEqFrGrmVuXVVVLxogSiYSR+/LFQx1PhbVcuA/Nx3bvRAtdA+ZMqpZSRDl4O/5UCrhMO/lp9pA4HA8J1XBARtc3PtBscP2KhYpK5cHr9mG2pgY+yJrWDiMvHZAhUcd+650hg2OiTAsV6xCO12ONvpesPmK/B5I57jnpXsDspOHXQbv0Sc6zQmPS8FqNgyXhkYkZrnBSyw5Jde3qAMO47k9MnCUqcx/HQSzS8y5NoVRcLX3Wg9DrNYz+1w3ZY7PHRgqiarqG9P7D9RyLOJz28vXu0VwbrpKumD/9d76mznhRLR1JeRtZ48AD9hnZ9aem/zgatrA7/L6p6l/eHU73MxKFbEJ1B36I1F/dtF7kLrPHBSrcLszxcl481edLDddWZjWYyR1/NOxgnzsvEQBM233EoecFSLzCov5hdc1SPTEFr3RuxlnZBYgftH0Qmjy90cweOqEQkm7WNRJ0BZwPo5v0SImCfbYiuUGGoRQ=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: Stoick01/bluebird
+  skip_cleanup: 'true'
