@@ -1,7 +1,7 @@
 language: python
 deploy:
   provider: pypi
-  username: __token__
+  username: "__token__"
   server: https://upload.pypi.org/legacy/
   password: $PYPI_TOKEN
   distributions: "sdist bdist_wheel"
