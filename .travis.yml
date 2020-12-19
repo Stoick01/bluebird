@@ -2,9 +2,5 @@ language: python
 deploy:
   provider: pypi
   username: "__token__"
-  server: https://upload.pypi.org/legacy/
-  distributions: "sdist bdist_wheel"
-  on:
-    branch: master
   password:
     secure: "cFr/EJY6p41+auu93E1GKKlkxPIIqkWI78/9W61dZntQI6E0fMrmf1SWCUlzBlbROzvWgNE3IJ3AioyKp81p7L0Q1yY0BP5jlJ9tG6MkbXAIQrKqS08YLwF2N/5MgNS25OgZrR1StkyC00kLYdVN2kLBoyLAJP3Fr+XcX8o9cuTXibyd64aqfFBBLMWMeHhqIpuaWgck7JohCw+wXl5NVhfQDHK3pP+QcbCUVKa21BUOHdvuBe9nOPVZ3BOnTxyyOfHne0Lx7u0xwpAn2YFQdMadCkqqu536c/ep+0Lv72ZGKzOStbtW/GUmss9MKH7M0kL0HmwpxOpbHd+32Wbm3zzJLJ6tF2XmfYFt9IZhRzdmTsg+4BLv4G+5lNxFiAAN5kd0G3wroP9P2g9D2Merf1+YzlvmAFHxsP06SNWAGOzohVwmBmoUKlXPWzIrpjGro8KVbqW+VUBaNjJZs7nxWKA1eprcZ2Btwo18kqZ98ty0TsEi/7TiMgpZ3MM9ItzkfiFFcMkWcHA7czuOtYPccQBhIs9RKXTmfb0YGA1I2ynBvif51gPppWQjO+Q5MjYM5x812aUOpWL0DQVjdPYRX6s0ldZSMhYjvAI87bxFbODWW6YXX9a1rC3PlHRHuwTNQI8P+LTyYd1UOdPUhyk71IW/LVCbDg0pteLKpsIKhJw="
