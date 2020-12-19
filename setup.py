@@ -18,7 +18,7 @@ setup(
     author_email='gordan.prastalo.gp@gmail.com',
     url='https://github.com/Stoick01/bluebird',
     license='MIT',
-    packages=find_packages(exclude=('tests', 'docs')),
+    packages=find_packages(exclude=('tests', 'docs', 'examples')),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
