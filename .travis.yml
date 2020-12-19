@@ -2,7 +2,7 @@ deploy:
   provider: pypi
   username: __token__
   server: https://upload.pypi.org/legacy/
-  password: $PIPY_TOKEN
+  password: $PYPI_TOKEN
   distributions: "sdist bdist_wheel"
   on:
     branch: master
