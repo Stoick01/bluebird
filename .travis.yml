@@ -1,9 +1,9 @@
 language: python
 deploy:
   provider: pypi
-  username: stoick01
-  password: 
-    secure: $PIPY_TOKEN
+  username: __token__
+  repository: https://upload.pypi.org/legacy/
+  password: $PIPY_TOKEN
   distributions: "sdist bdist_wheel"
   on:
     branch: master
