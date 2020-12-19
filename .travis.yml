@@ -1,21 +1,10 @@
 language: python
-python:
-  - '3.6'
-
-install:
-  - pip install -r requirements.txt
-
-jobs:
-  include:
-    - stage: deploy
-      deploy:
-        provider: pypi
-        username: '__token__'
-        password: 
-          secret: $PYPI_TOKEN
-        on:
-          tags: true
-          branch: master
-
-stages:
-  - deploy
+deploy:
+  provider: pypi
+  username: __token__
+  server: https://upload.pypi.org/legacy/
+  distributions: sdist bdist_wheel
+  on:
+    branch: master
+  password:
+    secure: Du3zulsg6blNoYNeOsdkgDwOn9UfDVZo+fg6u+e3AmIcevM4/dKTXvvMxUUVXnCT3zcpH/gjGSOfqhDf1RcoLZ0S1eaY0HcjQyJ3jIcULTUgpnmF1y01Irr0ng5he7NFfrMn5n10LrYyBkwGMgkgQ/jw6Z04kBs2qse6jCsPFA/xiOaBxFZeHWrvih4bcJhhkuH+hXLUj9yYiLriFT879Xlm+oR3d7VbJ7jd6YdC1G7/DmGQGjbZodcp6zG5uuSdZ6xrUHn9MIQCxPAcKU6xOrgrggWBucxJCxMniR3X0buniRX4ibWyX3EGJUtFqaNg1I7hFMJxtP1Hm9dFzBCjisboD+Sr4VGrJ2jMb4kAHhD/bygEt8GnSqtuPQGXUb3+65R9+N1/OqYK712J2J+7uj537Jl42POHdM2wIVCZXBTPNe3+5FnUS8gmzmO8TLp+PQR+ue15sk7kSopziytJqngvgZqNNNdC1S3Hk6MKtQ9+Oz0PAFS9sautesawEg+oneEZGWLiB0/8yJr/3tmdo3GbYrHvWeWQr8nvOD/QGW14K6FN5EG1MIMgh1KWMLx6lccbxodpwCOtt1O7NTZT/F9gYqv5Wpt4CO+2+FxpwegcMv50lQSE07q7VgUwbtJC08ww2o1LTLMVBvDONjMmyAGSHILyA9onJzYGaZUxKQE=
