@@ -3,6 +3,7 @@ python:
 - '3.6'
 install:
 - pip install -q -r requirements.txt .
+- pip install coverage
 script:
 - coverage run --source "$(basename "$PWD")" setup.py test
 notifications:
