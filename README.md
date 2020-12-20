@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/Stoick01/bluebird.svg?branch=master)](https://travis-ci.com/Stoick01/bluebird)
 [![Documentation Status](https://readthedocs.org/projects/bluebird/badge/?version=latest)](https://bluebird.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://badge.fury.io/py/bluebird-stoick01.svg)](https://badge.fury.io/py/bluebird-stoick01)
 
 Simple deep learning library. 
 
