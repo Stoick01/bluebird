@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='bluebird-stoick01',
-    version='0.0.3',
+    version='0.0.4',
     description='Deep learning library',
     long_description_content_type='text/markdown',
     long_description=readme,
