@@ -4,6 +4,8 @@ python:
 install:
 - pip install -q -r requirements.txt .
 - pip install coverage
+script:
+- coverage run --source "$(basename "$PWD")" setup.py
 notifications:
   email: false
 deploy:
