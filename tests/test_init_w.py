@@ -19,7 +19,6 @@ class TestWeight(unittest.TestCase):
         """
 
         init = RandomWeightInitializer()
-        init.init(5)
 
         self.assertEqual(init.init((5, 5)).shape, (5, 5))
 
