@@ -62,8 +62,8 @@ class AdaGrad(Optimizer):
             for layer in self.net.get_layers():
                 if isinstance(layer, Input) or isinstance(layer, Activation):
                     continue
-                self.an.append(np.zeros((layer.input_size, layer.output_size)))
-                self.an.append(np.zeros(layer.output_size))
+                self.an.append(np.zeros(layer.params['w'].shape))
+                self.an.append(np.zeros(layer.params['b'].shape))
 
     def step(self) -> None:
         """

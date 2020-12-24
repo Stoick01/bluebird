@@ -73,10 +73,10 @@ class Adam(Optimizer):
             for layer in self.net.get_layers():
                 if isinstance(layer, Input) or isinstance(layer, Activation):
                     continue
-                self.mn.append(np.zeros((layer.input_size, layer.output_size)))
-                self.mn.append(np.zeros(layer.output_size))
-                self.vn.append(np.zeros((layer.input_size, layer.output_size)))
-                self.vn.append(np.zeros(layer.output_size))
+                self.mn.append(np.zeros(layer.params['w'].shape))
+                self.mn.append(np.zeros(layer.params['b'].shape))
+                self.vn.append(np.zeros(layer.params['w'].shape))
+                self.vn.append(np.zeros(layer.params['b'].shape))
 
     def step(self) -> None:
         """

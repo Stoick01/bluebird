@@ -10,7 +10,7 @@ from bluebird.datasets.mnist import load_data
 import bluebird
 from bluebird.nn import NeuralNet
 from bluebird.activations import Relu, Sigmoid, Softmax, Tanh
-from bluebird.layers import Flatten, Dropout, Dense, Linear
+from bluebird.layers import Flatten, Dropout, Dense, Linear, BatchNormalization
 from bluebird.loss import CategoricalCrossEntropy
 from bluebird.metrics import accuracy
 
@@ -32,14 +32,16 @@ X_test = X_test / 255.0
 net = NeuralNet([
     Flatten(input_size=(28, 28)),
     Dense(300, activation=Relu()),
+    BatchNormalization(),
     Dense(100, activation=Relu()),
+    BatchNormalization(),
     Dense(50, activation=Relu()),
     Dense(10, activation=Softmax())
 ])
 
-net.build(optimizer=bluebird.optimizers.Adam(lr=0.00001), loss=CategoricalCrossEntropy())
+net.build(optimizer=bluebird.optimizers.Adam(lr=0.0001), loss=CategoricalCrossEntropy())
 
-net.fit(X_train, y_train, num_epochs=20)
+net.fit(X_train, y_train, num_epochs=5)
 
 print("Pred, True")
 

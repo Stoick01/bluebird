@@ -12,3 +12,4 @@ from .linear import Linear
 from .dense import Dense
 from .flatten import Flatten
 from .dropout import Dropout
+from.batchnormalization import BatchNormalization

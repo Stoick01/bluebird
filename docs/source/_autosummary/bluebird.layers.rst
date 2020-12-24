@@ -1,4 +1,4 @@
-layers
+﻿layers
 ======
 
 .. automodule:: bluebird.layers
@@ -29,6 +29,7 @@ layers
    :recursive:
 
    
+      bluebird.layers.batchnormalization
       bluebird.layers.dense
       bluebird.layers.dropout
       bluebird.layers.flatten

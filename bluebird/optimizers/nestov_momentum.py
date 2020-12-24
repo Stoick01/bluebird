@@ -64,8 +64,8 @@ class NestovMomentum(Optimizer):
                 if isinstance(layer, Input) or isinstance(layer, Activation):
                     continue
 
-                self.vs.append(np.zeros((layer.input_size, layer.output_size)))
-                self.vs.append(np.zeros(layer.output_size))
+                self.vs.append(np.zeros(layer.params['w'].shape))
+                self.vs.append(np.zeros(layer.params['b'].shape))
 
     def step(self) -> None:
         """

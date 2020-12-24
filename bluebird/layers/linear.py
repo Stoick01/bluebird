@@ -59,7 +59,7 @@ class Linear(Layer):
         self.weight_initializer = weight_initializer
         self.bias_initializer = bias_initializer
 
-    def build(self, input_size: int):
+    def build(self, input_size: int) -> None:
         """
         Called by the model, before its training step.
 
@@ -104,6 +104,6 @@ class Linear(Layer):
 
         """
 
-        self.grads["b"] = utl.fix_overflow(np.sum(grad, axis=0))
-        self.grads["w"] = utl.fix_overflow(self.inputs.T @ grad)
+        self.grads["b"] = np.sum(grad, axis=0)
+        self.grads["w"] = self.inputs.T @ grad
         return utl.fix_overflow(grad @ self.params["w"].T)
