@@ -18,6 +18,8 @@ class BatchNormalization(Layer):
     """
     Normalizes the data and applies linear transformation.
 
+    Gamma and beta are reprisented with weights and biases foe ease of implementation with optimizers.
+    
     input = (input - mean) / variance
     output = input * weights + bias
 
