@@ -11,7 +11,7 @@ class TestWeight(unittest.TestCase):
             init = WeightInitializer()
             init.init((2, 2))
         
-        self.assertEqual(context.exception.__class__, NotImplementedError)
+        self.assertEqual(context.exception.__class__, NotImplementedError, "Should raise not implemented on init()")
 
     def test_random_init(self):
         """
@@ -20,7 +20,7 @@ class TestWeight(unittest.TestCase):
 
         init = RandomWeightInitializer()
 
-        self.assertEqual(init.init((5, 5)).shape, (5, 5))
+        self.assertEqual(init.init((5, 5)).shape, (5, 5), "Should have dimensions of (5, 5)")
 
     def test_random_uniform(self):
         """
@@ -29,31 +29,15 @@ class TestWeight(unittest.TestCase):
 
         init = RandomUniformWeightInitializer()
 
-        self.assertEqual(init.init((5, 5)).shape, (5, 5))
-        self.assertLessEqual(init.init((5, 5)).max(), 1)
-        self.assertGreaterEqual(init.init((5, 5)).min(), -1)
+        self.assertEqual(init.init((5, 5)).shape, (5, 5), "Should have dimensions of (5, 5)")
+        self.assertLessEqual(init.init((5, 5)).max(), 1, "Should be 1")
+        self.assertGreaterEqual(init.init((5, 5)).min(), -1, "Should be -1")
 
+    def test_xavier_uniform(self):
+        """Tests initialization of xavier uniform weights"""
 
-# class GlorotUniformWeightInitializer:
-#     def init(self, dimension: Tuple) -> Tensor:
-#         l = 0
-#         for d in dimension:
-#             l += d
-#         sd = np.sqrt(6.0 / l)
-#         return np.random.uniform(-sd, sd, dimension)
+        init = XavierUniformWeightInitializer()
+        init = init.init((5, 5))
 
-# class GlorotNormalWeightInitializer:
-#     def init(self, dimension: Tuple) -> Tensor:
-#         l = 0
-#         for d in dimension:
-#             l += d
-#         sd = np.sqrt(2.0 / l)
-#         return np.random.normal(0, sd, dimension)
+        self.assertEqual(init.shape, (5, 5), "Should have dimesnions of (5, 5)")
 
-# class ZerosWeightInitializer:
-#     def init(self, dimension: Tuple) -> Tensor:
-#         return np.zeros(dimension)
-
-# class OnesWeightInitializer:
-#     def init(self, dimension: Tuple) -> Tensor:
-#         return np.ones(dimension)

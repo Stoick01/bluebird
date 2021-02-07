@@ -43,7 +43,7 @@ def sigmoid_prime(x: Tensor) -> Tensor:
         :obj:`Tensor`: f'(x), applies derivation of activation function
     """
 
-    return sigmoid(x) * (1 - sigmoid(x))
+    return sigmoid(x) * (sigmoid(x) - 1)
 
 class Sigmoid(Activation):
     """

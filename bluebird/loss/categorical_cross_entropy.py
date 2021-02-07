@@ -39,8 +39,7 @@ class CategoricalCrossEntropy(Loss):
 
         """
 
-        predicted = utl.clip(predicted)
-        return - np.sum(actual * utl.fix_overflow(np.log(predicted)))
+        return - np.sum(actual * np.log(predicted))
             
 
     def grad(self, predicted: Tensor, actual: Tensor) -> float:
@@ -56,5 +55,4 @@ class CategoricalCrossEntropy(Loss):
 
         """
 
-        predicted = utl.clip(predicted)
         return predicted - actual

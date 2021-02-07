@@ -90,7 +90,7 @@ class Linear(Layer):
         """
 
         self.inputs = inputs
-        return utl.fix_overflow(inputs @ self.params["w"] + self.params["b"])
+        return np.dot(inputs, self.params["w"]) + self.params["b"]
 
     def backward(self, grad: Tensor) -> Tensor:
         """
@@ -105,5 +105,6 @@ class Linear(Layer):
         """
 
         self.grads["b"] = np.sum(grad, axis=0)
-        self.grads["w"] = self.inputs.T @ grad
-        return utl.fix_overflow(grad @ self.params["w"].T)
+        self.grads["w"] = np.dot(self.inputs.T, grad)
+        self.grads["in"] = np.dot(grad, self.params["w"].T)
+        return np.dot(grad, self.params["w"].T)

@@ -27,8 +27,8 @@ def softmax(x):
         :obj:`Tensor`: f(x), applies activation function
     """
 
-    exp = np.exp(x - x.max(axis=-1, keepdims=True))
-    sum_exp = exp.sum(axis=-1, keepdims=True)
+    exp = np.exp(x - x.max(axis=1, keepdims=True))
+    sum_exp = exp.sum(axis=1, keepdims=True)
     return exp / (sum_exp + 1e-8)
 
 def softmax_prime(x):
@@ -47,6 +47,11 @@ def softmax_prime(x):
 
     f = softmax(x)
     return f * (1 - f)
+
+    # s = softmax(x)
+
+    # d_s = -s * np.identity(s.size) + s.transpose() @ s
+    # return x @ d_s
 
 class Softmax(Activation):
     """
