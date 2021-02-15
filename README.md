@@ -1,4 +1,4 @@
-# BlueBird <img src="./ico/bluebird.png" alt="logo" style="width:25px;"/>
+# BlueBird ![](./ico/bluebird.png =25x25)
 
 [![Documentation Status](https://readthedocs.org/projects/bluebird/badge/?version=latest)](https://bluebird.readthedocs.io/en/latest/?badge=latest)
 [![Build Status](https://travis-ci.com/Stoick01/bluebird.svg?branch=master)](https://travis-ci.com/Stoick01/bluebird)
