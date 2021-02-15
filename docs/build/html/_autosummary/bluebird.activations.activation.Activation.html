@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activation &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/custom.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="relu" href="bluebird.activations.relu.html" />
+    <link rel="prev" title="activation" href="bluebird.activations.activation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="activation">
+<h1>Activation<a class="headerlink" href="#activation" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="bluebird.activations.activation.Activation">
+<em class="property">class </em><code class="sig-name descname">Activation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">f_prime</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.activations.activation.Activation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bluebird.layers.layer.Layer.html#bluebird.layers.layer.Layer" title="bluebird.layers.layer.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">bluebird.layers.layer.Layer</span></code></a></p>
+<p>Default activation, that all other activations inherit</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomActivation</span><span class="p">(</span><span class="n">Activation</span><span class="p">):</span>
+     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">:</span> <span class="n">F</span><span class="p">,</span> <span class="n">f_prime</span><span class="p">:</span> <span class="n">F</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f_prime</span><span class="p">)</span>
+         <span class="c1"># where f is activation function and f_prime is its derivation</span>
+         <span class="o">...</span>
+
+     <span class="c1"># forward and backward methods should not be touched (unless you know what you are doing)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="bluebird.activations.activation.Activation.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">f_prime</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.activations.activation.Activation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the object.</p>
+<p>Function and it’s derivation are of the type:
+<code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">Callable[[Tensor],</span> <span class="pre">Tensor]</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>F</em><em>[</em><em>Callable</em><em>]</em>) – activation function</p></li>
+<li><p><strong>f_prime</strong> (<em>F</em><em>[</em><em>Callable</em><em>]</em>) – derivation of activation function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.activations.activation.Activation.__init__" title="bluebird.activations.activation.Activation.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(f, f_prime)</p></td>
+<td><p>Initializes the object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.activations.activation.Activation.backward" title="bluebird.activations.activation.Activation.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(grad)</p></td>
+<td><p>Used to calculate the gradients of weights and biases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.activations.activation.Activation.build" title="bluebird.activations.activation.Activation.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>(input_size)</p></td>
+<td><p>Used to finalize building layers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.activations.activation.Activation.forward" title="bluebird.activations.activation.Activation.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(inputs[, training])</p></td>
+<td><p>Called each time the data passes throughout the nework.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="bluebird.activations.activation.Activation.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grad</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.activations.activation.Activation.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to calculate the gradients of weights and biases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>grad</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – gradient from previous layer or loss function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>f_prime(grad), applies deravtion of the activation function to the gradient</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.activations.activation.Activation.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_size</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.activations.activation.Activation.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to finalize building layers.</p>
+<p>Important to note, you should set the input_size for the layer in here.
+Does not apply to the activation functions, you don’t need implement it in them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_size</strong> (<em>int</em>) – output size from previous layer</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.activations.activation.Activation.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">training</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.activations.activation.Activation.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called each time the data passes throughout the nework.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – output from the previous layer</p></li>
+<li><p><strong>training</strong> (<em>bool</em><em>, </em><em>optional</em>) – set to true during training, and is false when network predicts</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>f(inputs), applies the activation function to the data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/bluebird.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="bluebird.activations.html">activations</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.html#id1">Activations</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.activations.activation.html">activation</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bluebird.activations.activation.html#id1">Activation</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">Activation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.relu.html">relu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.sigmoid.html">sigmoid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.softmax.html">softmax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.tanh.html">tanh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.loss.html">loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.metrics.html">metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.nn.html">nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.optimizers.html">optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.progress_tracker.html">progress_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.regularizators.html">regularizators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.tensor.html">tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.weight_initializers.html">weight_initializers</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="bluebird.html">bluebird</a><ul>
+  <li><a href="bluebird.activations.html">activations</a><ul>
+  <li><a href="bluebird.activations.activation.html">activation</a><ul>
+      <li>Previous: <a href="bluebird.activations.activation.html" title="previous chapter">activation</a></li>
+      <li>Next: <a href="bluebird.activations.relu.html" title="next chapter">relu</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/bluebird.activations.activation.Activation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

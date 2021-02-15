@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CategoricalCrossEntropy &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/custom.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="loss" href="bluebird.loss.loss.html" />
+    <link rel="prev" title="categorical_cross_entropy" href="bluebird.loss.categorical_cross_entropy.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="categoricalcrossentropy">
+<h1>CategoricalCrossEntropy<a class="headerlink" href="#categoricalcrossentropy" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy">
+<em class="property">class </em><code class="sig-name descname">CategoricalCrossEntropy</code><a class="headerlink" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bluebird.loss.loss.Loss.html#bluebird.loss.loss.Loss" title="bluebird.loss.loss.Loss"><code class="xref py py-class docutils literal notranslate"><span class="pre">bluebird.loss.loss.Loss</span></code></a></p>
+<p>Categorical cross entropy.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="o">=</span> <span class="n">CategoricalCrossEntropy</span><span class="p">()</span>
+<span class="n">net</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">losss</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.__init__" title="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
+<td><p>Initialize self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.grad" title="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.grad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grad</span></code></a>(predicted, actual)</p></td>
+<td><p>Calculates the loss function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.loss" title="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.loss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loss</span></code></a>(predicted, actual)</p></td>
+<td><p>Calculates the loss function.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.grad">
+<code class="sig-name descname">grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predicted</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">actual</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the loss function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predicted</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – models output</p></li>
+<li><p><strong>actual</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – expected output</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>gradient</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.loss">
+<code class="sig-name descname">loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predicted</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">actual</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the loss function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predicted</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – models output</p></li>
+<li><p><strong>actual</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – expected output</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>loss</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/bluebird.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">layers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bluebird.loss.html">loss</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bluebird.loss.html#id1">Loss</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.loss.categorical_cross_entropy.html">categorical_cross_entropy</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bluebird.loss.categorical_cross_entropy.html#id1">Categorical Cross Entropy</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">CategoricalCrossEntropy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.loss.loss.html">loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.loss.mse.html">mse</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.metrics.html">metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.nn.html">nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.optimizers.html">optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.progress_tracker.html">progress_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.regularizators.html">regularizators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.tensor.html">tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.weight_initializers.html">weight_initializers</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="bluebird.html">bluebird</a><ul>
+  <li><a href="bluebird.loss.html">loss</a><ul>
+  <li><a href="bluebird.loss.categorical_cross_entropy.html">categorical_cross_entropy</a><ul>
+      <li>Previous: <a href="bluebird.loss.categorical_cross_entropy.html" title="previous chapter">categorical_cross_entropy</a></li>
+      <li>Next: <a href="bluebird.loss.loss.html" title="next chapter">loss</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/bluebird.loss.categorical_cross_entropy.CategoricalCrossEntropy.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

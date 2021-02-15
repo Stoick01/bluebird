@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to BlueBird’s documentation! &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/js/custom.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="bluebird" href="_autosummary/bluebird.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-bluebird-s-documentation">
+<h1>Welcome to BlueBird’s documentation!<a class="headerlink" href="#welcome-to-bluebird-s-documentation" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/bluebird.png"><img alt="logo" class="align-left" src="_images/bluebird.png" style="width: 60px; height: 60px;" /></a>
+<p>BlueBird is a small deep learning library.
+It was developed to help me (the author) learn better about deep learning.</p>
+<p>I thought that it was a cool project so I decided to share it with others.</p>
+<p>Down bellow you will find installation instruction and a basic tutorial.</p>
+<p>Note: This documentation was generated automatically so there may be some bugs and it’s not easy to navigate.</p>
+</div>
+<div class="section" id="install-guide">
+<h1>Install Guide<a class="headerlink" href="#install-guide" title="Permalink to this headline">¶</a></h1>
+<p>BlueBird can be downloaded with pip (make sure you set up virtual environment).
+If you want to use the latest version, get it from <a class="reference external" href="https://github.com/Stoick01/bluebird">github</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">bluebird-stoick01</span></code></p>
+</div>
+<div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>Simple module looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bluebird.nn</span> <span class="kn">import</span> <span class="n">NeuralNet</span>
+<span class="kn">from</span> <span class="nn">bluebird.activations</span> <span class="kn">import</span> <span class="n">Relu</span>
+<span class="kn">from</span> <span class="nn">bluebird.layers</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Linear</span>
+
+<span class="c1"># create the module</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">([</span>
+   <span class="n">Input</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="c1"># input layer</span>
+   <span class="n">Linear</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>  <span class="c1"># hidden layer</span>
+   <span class="n">Relu</span><span class="p">(),</span> <span class="c1"># activation function</span>
+   <span class="n">Linear</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># output layer</span>
+<span class="p">])</span>
+
+<span class="c1"># build the module</span>
+<span class="n">net</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="c1"># train your model</span>
+<span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Let’s explain this a bit:</dt><dd><ol class="arabic simple">
+<li><p>Imports: From nn you need to import your model. We also import activation functions (Relu in this example)
+and layers (Input and Linear)</p></li>
+<li><p>Then we create the model. The model accepts a list of layers where the first layer has to be of the input type.
+After that you can put layers in any order. You have to define how many neurons each layer has, except the input,
+where you define number of inputs.</p></li>
+<li><p>After you have created your model, you can build, during this step you can define optimizer and loss functions,
+which you can find in <code class="docutils literal notranslate"><span class="pre">bluebird.optimizer</span></code> and <code class="docutils literal notranslate"><span class="pre">bluebird.loss</span></code></p></li>
+<li><p>Final step is to train your model. Where you pass it your data and define number of epochs.</p></li>
+</ol>
+</dd>
+</dl>
+<div class="section" id="layers-and-activations">
+<h2>Layers and Activations<a class="headerlink" href="#layers-and-activations" title="Permalink to this headline">¶</a></h2>
+<p>You can find all the layers and activations in <code class="docutils literal notranslate"><span class="pre">bluebird.layers</span></code> and <code class="docutils literal notranslate"><span class="pre">bluebird.activations</span></code>.</p>
+<dl class="simple">
+<dt>Every layer and activation is explained in the mode detail on it’s own page, but in general:</dt><dd><ul class="simple">
+<li><p>All models begin with input type layer</p></li>
+<li><p>All other layers must have defined number of neurons, aka the output dimension, (input in handled during build faze of the module)</p></li>
+<li><p>Activations only need to be initialized</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="building-the-model">
+<h2>Building the model<a class="headerlink" href="#building-the-model" title="Permalink to this headline">¶</a></h2>
+<p>After creation each model must be built. This is a crucial step, where all the weights in layers are initialized and each layer is built.</p>
+<p>You can also pass the loss function and optimizer which can be found in <code class="docutils literal notranslate"><span class="pre">bluebird.loss</span></code> and <code class="docutils literal notranslate"><span class="pre">bluebird.optimizer</span></code></p>
+</div>
+</div>
+<div class="section" id="contribution-guide">
+<h1>Contribution Guide<a class="headerlink" href="#contribution-guide" title="Permalink to this headline">¶</a></h1>
+<p>I don’t expect anyone to contribute but just in case you want to, contact me, or open an issue on github before committing anything.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/bluebird.html#module-bluebird" title="bluebird"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bluebird</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/bluebird.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="#">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/bluebird.html">bluebird</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="_autosummary/bluebird.html" title="next chapter">bluebird</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

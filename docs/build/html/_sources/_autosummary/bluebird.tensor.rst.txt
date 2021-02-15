@@ -1,0 +1,23 @@
+tensor
+======
+
+.. automodule:: bluebird.tensor
+  
+   
+   
+      
+
+   
+   
+      
+
+   
+   
+   
+
+   
+   
+   
+
+
+

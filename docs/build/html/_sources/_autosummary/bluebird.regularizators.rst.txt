@@ -1,0 +1,23 @@
+regularizators
+==============
+
+.. automodule:: bluebird.regularizators
+  
+   
+   
+      
+
+   
+   
+      
+
+   
+   
+   
+
+   
+   
+   
+
+
+

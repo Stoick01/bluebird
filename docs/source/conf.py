@@ -67,6 +67,7 @@ html_context = {
     'css_files': ['_static/css/custom.css'],
     'js_files': ['_static/js/custom.js'],
 }
+html_logo = "_static/bluebird.png"
 
 add_module_names = False
 
