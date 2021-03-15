@@ -22,6 +22,8 @@ class Input(Layer):
     """
     Input is the base input type layer, it just passes inputed values to the next layer.
 
+    When used in convolutional neural nettworks, input size reprisents the number of input channels.
+
     Input type layer must be the first layer of the network.
 
     Example::
@@ -39,7 +41,7 @@ class Input(Layer):
         Initializes the object.
 
         Args:
-            input_size (int): size of inputed Tensor
+            input_size (int): size of inputed Tensor (channels for convolution)
 
         """
 

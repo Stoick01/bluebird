@@ -12,4 +12,5 @@ from .linear import Linear
 from .dense import Dense
 from .flatten import Flatten
 from .dropout import Dropout
-from.batchnormalization import BatchNormalization
+from .batchnormalization import BatchNormalization
+from .conv2d import Conv2D
