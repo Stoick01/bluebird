@@ -228,4 +228,8 @@ class HeWeightInitializer(WeightInitializer):
             :obj:`Tensor`: Tensor with dimensions of (input, output)
 
         """
-        return np.random.randn(dimension[0], dimension[1]) * np.sqrt(2.0 / dimension[0])
+        d = 0
+        for i in range(len(dimension)-1):
+            d += dimension[i]
+
+        return np.random.randn(*dimension) * np.sqrt(2.0 / d)

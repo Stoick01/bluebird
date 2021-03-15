@@ -8,7 +8,7 @@ Convolution layers are used to develop convolutional neural netowrks that are mo
 import numpy as np
 
 from bluebird.tensor import Tensor
-from bluebird.weight_initializers import  ZerosWeightInitializer, OnesWeightInitializer
+from bluebird.weight_initializers import  ZerosWeightInitializer, HeWeightInitializer
 import bluebird.utils as utl
 
 from .layer import Layer
@@ -16,8 +16,6 @@ from .layer import Layer
 class Conv2D(Layer):
     """
     Applies a 2D convolution over and input.
-
-    It has 3 dimensions, width, height and depth.
 
     Example::
 
@@ -29,13 +27,13 @@ class Conv2D(Layer):
             ])
     """
 
-    def __init__(self, out_channels, kernel_size=3, stride=1, padding=True):
+    def __init__(self, out_channels: int, kernel_size: int = 3, stride: int = 1, padding: bool = True):
         """
         Initializes the object.
 
         Args:
             out_channels (int): number of output channels
-            kernel_size (int, optional): size of kernel matrix, defaults to 3
+            kernel_size (int, optional): size of the window, defaults to 3
             stride (int, optional): determens how much the filter moves, defaults to 1
             padding (bool, optional): True if you want to add padding to the input image, defualts to True 
         """
@@ -46,7 +44,7 @@ class Conv2D(Layer):
         self.stride = stride
         self.padding = padding
 
-    def build(self, in_channels):
+    def build(self, in_channels: int):
         """
         Builds the layer.
 
@@ -56,10 +54,13 @@ class Conv2D(Layer):
 
         self.in_channels = in_channels
 
-        # self.params["w"] = self.weight_initializer.init((input_size, self.output_size))
-        # self.params["b"] = self.bias_initializer.init((self.output_size,))
+        weight_initializer = HeWeightInitializer()
+        bias_initializer = ZerosWeightInitializer()
 
-    def zero_padding(self, inp):
+        self.params["w"] = weight_initializer.init((self.kernel_size, self.kernel_size, self.in_channels, self.out_channels))
+        self.params["b"] = bias_initializer.init((self.out_channels))
+
+    def zero_padding(self, inp: Tensor) -> Tensor:
         """
         Add zero padding to the input Tensor.
 
@@ -78,7 +79,7 @@ class Conv2D(Layer):
 
         return padded
 
-    def step(self, inp, w, b):
+    def step(self, inp: Tensor, w: Tensor, b: Tensor) -> Tensor:
         """
         Perform single step in convolution.
 
@@ -109,7 +110,7 @@ class Conv2D(Layer):
         new_height = int((height + 2*padding - f)/stride) + 1
         new_width = int((width + 2*padding - f)/stride) + 1
 
-        Z = np.zeros([n, new_height, new_width, out_channels])
+        Z = np.zeros((n, new_height, new_width, out_channels))
 
         padded = inputs
 
@@ -132,7 +133,19 @@ class Conv2D(Layer):
 
                         slic = inp[v_start:v_end, h_start:h_end, :]
 
-                        Z[i, h, w, c] = self.step(slic, self.params['w'][:, :, :, c], self.params['b'][:, :, :, c])
+                        Z[i, h, w, c] = self.step(slic, self.params['w'][:, :, :, c], self.params['b'][c])
 
         return Z
 
+    def backward(self, grad: Tensor) -> Tensor:
+        """
+        Used to calculate the gradients of weights and biases.
+
+        Args:
+            grad (:obj:`Tensor`): gradient from previous layer or loss function.
+
+        Returns:
+            :obj:`Tensor`: Gradient
+
+        """
+        pass
