@@ -58,7 +58,7 @@ class Conv2D(Layer):
         bias_initializer = ZerosWeightInitializer()
 
         self.params["w"] = weight_initializer.init((self.kernel_size, self.kernel_size, self.in_channels, self.out_channels))
-        self.params["b"] = bias_initializer.init((self.out_channels))
+        self.params["b"] = bias_initializer.init((1, 1, 1, self.out_channels))
 
     def zero_padding(self, inp: Tensor) -> Tensor:
         """
@@ -78,6 +78,21 @@ class Conv2D(Layer):
         padded[:, pad_len:-pad_len, pad_len:-pad_len, :] = inp
 
         return padded
+
+    def remove_zero_padding(self, inp: Tensor) -> Tensor:
+        """
+        Add zero padding to the input Tensor.
+
+        Args:
+            inputs (:obj:`Tensor`): input to the layer
+
+        Returns
+            :obj:`Tensor`: padded input
+
+        """
+        pad = self.kernel_size - 1
+        return inp[pad:-pad, pad:-pad, :]
+
 
     def step(self, inp: Tensor, w: Tensor, b: Tensor) -> Tensor:
         """
@@ -117,6 +132,8 @@ class Conv2D(Layer):
         if self.padding:
             padded = self.zero_padding(inputs)
 
+        self.inputs = padded
+
         # batch
         for i in range(n):
             inp = padded[i, :, :, :]
@@ -133,7 +150,7 @@ class Conv2D(Layer):
 
                         slic = inp[v_start:v_end, h_start:h_end, :]
 
-                        Z[i, h, w, c] = self.step(slic, self.params['w'][:, :, :, c], self.params['b'][c])
+                        Z[i, h, w, c] = self.step(slic, self.params['w'][:, :, :, c], self.params['b'][:, :, :, c])
 
         return Z
 
@@ -148,4 +165,36 @@ class Conv2D(Layer):
             :obj:`Tensor`: Gradient
 
         """
-        pass
+        
+        (n, height_prev, width_prev, channels_prev) = self.inputs.shape
+
+        (f, f, channels_prev, channels) = self.params['w'].shape
+
+        (n, height, width, channels) = grad.shape
+
+        self.grads['in'] = np.zeros((n, height_prev, width_prev, channels_prev))
+        self.grads['w'] = np.zeros((f, f, channels_prev, channels))
+        self.grads['b'] = np.zeros((1, 1, 1, channels))
+
+        for i in range(n):
+            a = self.inputs[i]
+            da = self.grads['in'][i]
+
+            for h in range(height):
+                for w in range(width):
+                    for c in range(channels):
+                        v_start = h
+                        v_end = v_start + f
+                        h_start = w
+                        h_end = h_start + f
+
+                        slic = a[v_start:v_end, h_start:h_end, :]
+
+                        da[v_start:v_end, h_start:h_end, :] += self.params['w'][:, :, :, c] * grad[i, h, w, c]
+                        self.grads['w'] += slic * grad[i, h, w, c]
+                        self.grads['b'] += grad[i, h, w, c]
+
+            self.grads['in'][i, :, :, :] = self.remove_zero_padding(da)
+
+        return self.grads['in']
+

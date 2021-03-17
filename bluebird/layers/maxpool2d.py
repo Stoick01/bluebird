@@ -53,6 +53,8 @@ class MaxPool2D(Layer):
         
         """
 
+        self.inputs = inputs
+
         (n, height, width, channels) = inputs.shape
         f = self.kernel_size
         
@@ -76,7 +78,61 @@ class MaxPool2D(Layer):
                         h_end = w * self.stride + f
 
                         slic = inputs[i: v_start:v_end, h_start:h_end, c]
-
+                        
                         Z[i, h, w, c] =  np.max(slic)
 
         return Z
+
+    def create_mask(self, a: Tensor) -> Tensor:
+        """
+        Creates the one hot max mask.
+
+        Args:
+            a (:obj:`Tensor`): tensor you wish to create the mask from
+
+        Returns:
+            :obj:`Tensor`: mask
+        """
+        
+        return a.max() == a
+
+
+    def backward(self, grad: Tensor) -> Tensor:
+        """
+        Used to calculate the gradients of weights and biases.
+
+        Args:
+            grad (:obj:`Tensor`): gradient from previous layer or loss function.
+
+        Returns:
+            :obj:`Tensor`: Gradient
+
+        """
+
+        self.grads['in'] = np.zeors(self.inputs.shape)
+        f = self.kernel_size
+
+        (n, height_prev, width_prev, channels_prev) = self.inputs.shape
+        (n, height, width, channels) = grad.shape
+
+        for i in range(n):
+            a = self.inputs[i]
+            for h in range(height):
+                for w in range(width):
+                    for c in range(channels):
+                        v_start = h
+                        v_end = v_start + f
+                        h_start = w
+                        h_end = h_start + f
+
+                        slic = a[v_start:v_end, h_start:h_end, c]
+                        mask = self.create_mask(slic)
+
+                        self.grads['in'][i, v_start:v_end, h_start:h_end, c] += np.multiply(mask, grad[i, h, w, c])
+
+        return self.grads['in']
+
+
+
+
+
