@@ -52,7 +52,7 @@ def grad_calc_layers(x, y, net, eps=1e-8):
                     cost2 = cost(o2, y)
 
                     approx.append((cost1 - cost2) / (2 * eps))
-
+                    
                 num = np.linalg.norm(approx - grad)
                 denum = np.linalg.norm(approx) + np.linalg.norm(grad)
 

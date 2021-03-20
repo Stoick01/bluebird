@@ -39,7 +39,7 @@ class Conv2D(Layer):
         """
 
         super().__init__()
-        self.out_channels = out_channels
+        self.output_size = out_channels
         self.kernel_size = kernel_size
         self.stride = stride
         self.padding = padding
@@ -52,13 +52,13 @@ class Conv2D(Layer):
             in_channels (int): number of input channels
         """
 
-        self.in_channels = in_channels
+        self.input_size = in_channels
 
         weight_initializer = HeWeightInitializer()
         bias_initializer = ZerosWeightInitializer()
 
-        self.params["w"] = weight_initializer.init((self.kernel_size, self.kernel_size, self.in_channels, self.out_channels))
-        self.params["b"] = bias_initializer.init((1, 1, 1, self.out_channels))
+        self.params["w"] = weight_initializer.init((self.kernel_size, self.kernel_size, self.input_size, self.output_size))
+        self.params["b"] = bias_initializer.init((1, 1, 1, self.output_size))
 
     def zero_padding(self, inp: Tensor) -> Tensor:
         """
@@ -104,7 +104,7 @@ class Conv2D(Layer):
             b (:obj:`Tensor`): bias
         """
 
-        return np.sum(inp @ w + b)
+        return np.sum(inp * w) + b
 
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """
@@ -119,11 +119,15 @@ class Conv2D(Layer):
         
         """
 
+        self.inputs = inputs
+
         (n, height, width, channels) = inputs.shape
         (f, f, channels, out_channels) = self.params['w'].shape
+
+        padding = self.kernel_size - 1
         
-        new_height = int((height + 2*padding - f)/stride) + 1
-        new_width = int((width + 2*padding - f)/stride) + 1
+        new_height = int((height + 2*padding - f)/self.stride) + 1
+        new_width = int((width + 2*padding - f)/self.stride) + 1
 
         Z = np.zeros((n, new_height, new_width, out_channels))
 
@@ -132,7 +136,8 @@ class Conv2D(Layer):
         if self.padding:
             padded = self.zero_padding(inputs)
 
-        self.inputs = padded
+        self.padded = padded
+
 
         # batch
         for i in range(n):
@@ -176,9 +181,11 @@ class Conv2D(Layer):
         self.grads['w'] = np.zeros((f, f, channels_prev, channels))
         self.grads['b'] = np.zeros((1, 1, 1, channels))
 
+        da_pad = np.zeros(self.padded.shape)
+
         for i in range(n):
-            a = self.inputs[i]
-            da = self.grads['in'][i]
+            a = self.padded[i]
+            da = da_pad[i]
 
             for h in range(height):
                 for w in range(width):
@@ -191,8 +198,8 @@ class Conv2D(Layer):
                         slic = a[v_start:v_end, h_start:h_end, :]
 
                         da[v_start:v_end, h_start:h_end, :] += self.params['w'][:, :, :, c] * grad[i, h, w, c]
-                        self.grads['w'] += slic * grad[i, h, w, c]
-                        self.grads['b'] += grad[i, h, w, c]
+                        self.grads['w'][:, :, :, c] += slic * grad[i, h, w, c]
+                        self.grads['b'][:, :, :, c] += grad[i, h, w, c]
 
             self.grads['in'][i, :, :, :] = self.remove_zero_padding(da)
 

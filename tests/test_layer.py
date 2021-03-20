@@ -33,7 +33,7 @@ class TestLayers(unittest.TestCase):
 class TestLinear(unittest.TestCase):
     
     def test_weight_grad(self):
-        """Tests the input grad for linear layer"""
+        """Tests the grad for linear layer"""
 
         net = NeuralNet([
             Input(5),
@@ -41,8 +41,6 @@ class TestLinear(unittest.TestCase):
             Sigmoid()
         ])
         net.build()
-        layer = Linear(1)
-        layer.build(5)
 
         x = np.random.uniform(-1, 1, (1, 5))
         y = np.array([1.0])

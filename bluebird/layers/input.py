@@ -73,9 +73,6 @@ class Input(Layer):
 
         self.inputs = inputs
 
-        if inputs.shape[1] != self.input_size:
-            raise TypeError("Invalid input shape")
-
         return inputs
 
     def backward(self, output: Tensor) -> Tensor:

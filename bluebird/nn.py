@@ -13,7 +13,7 @@ import json
 import numpy as np
 
 from .tensor import Tensor
-from .layers import Layer, Input
+from .layers import Layer, Input, MaxPool2D
 from .loss import Loss, MSE
 from .data import DataIterator, BatchIterator
 from .optimizers import Optimizer, SGD
@@ -105,6 +105,9 @@ class Model():
             if isinstance(layer, Input):
                 layer.build()
                 dimension = layer.output_size
+                continue
+
+            if isinstance(layer, MaxPool2D):
                 continue
 
             layer.build(dimension)

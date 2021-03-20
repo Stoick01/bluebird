@@ -37,8 +37,13 @@ class MaxPool2D(Layer):
             stride (int): defines how much the window moves, defaults to kernel_size
         """
 
+        super().__init__()
         self.kernel_size = kernel_size
         self.stride = stride
+
+        if self.stride == None:
+            self.stride = self.kernel_size
+    
 
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """
@@ -58,11 +63,11 @@ class MaxPool2D(Layer):
         (n, height, width, channels) = inputs.shape
         f = self.kernel_size
         
-        new_height = int((height - f)/stride) + 1
-        new_width = int((width - f)/stride) + 1
+        new_height = int((height - f)/self.stride) + 1
+        new_width = int((width - f)/self.stride) + 1
         out_channels = channels
 
-        Z = np.zeros([n, new_height, new_width, out_channels])
+        Z = np.zeros((n, new_height, new_width, out_channels))
 
         # batch
         for i in range(n):
@@ -77,7 +82,7 @@ class MaxPool2D(Layer):
                         h_start = w * self.stride
                         h_end = w * self.stride + f
 
-                        slic = inputs[i: v_start:v_end, h_start:h_end, c]
+                        slic = inputs[i, v_start:v_end, h_start:h_end, c]
                         
                         Z[i, h, w, c] =  np.max(slic)
 
@@ -109,7 +114,7 @@ class MaxPool2D(Layer):
 
         """
 
-        self.grads['in'] = np.zeors(self.inputs.shape)
+        self.grads['in'] = np.zeros(self.inputs.shape)
         f = self.kernel_size
 
         (n, height_prev, width_prev, channels_prev) = self.inputs.shape

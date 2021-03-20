@@ -14,3 +14,4 @@ from .flatten import Flatten
 from .dropout import Dropout
 from .batchnormalization import BatchNormalization
 from .conv2d import Conv2D
+from .maxpool2d import MaxPool2D
