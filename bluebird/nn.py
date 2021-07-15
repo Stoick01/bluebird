@@ -323,6 +323,68 @@ class Model():
                     for param in value:
                         layer.params[param['name']] = param['value']
 
+    def summary(self, shape: tuple) -> None:
+        """
+        Prints the information about the model (Layes, shapes, params).
+
+        Args:
+            shape (tuple): shape of the input vector
+
+        """
+
+        params = 0
+
+        params_size = 0.0
+
+        inp = np.random.randn(*shape)
+        idx = 1
+        print()
+        print('-'*60)
+        print('{:>20} {:>20} {:>20}'.format('Layer(type)', 'Output Shape', 'Param #'))
+        print('='*60)
+
+        for layer in self.layers:
+            inp = layer.forward(inp)
+            if isinstance(layer, Activation) or isinstance(layer, Input):
+                par = None
+            else:
+                par = layer.get_params()
+
+            num = 0
+            if par != None:
+                for k, v in par.items():
+                    num += v.size
+                    params_size += v.nbytes
+
+            params += num
+            idx += 1
+
+            num = "{:,}".format(num)
+
+            print('{:>20} {:>20} {:>20}'.format(layer.__class__.__name__, str(inp.shape), num))
+
+        print('='*60)
+        m = 'Byte'
+
+        if params_size / 1000 > 0.1:
+            params_size /= 1000
+            m = 'KB'
+
+        if params_size / 1000 > 0.1:
+            params_size /= 1000
+            m = 'MB'
+
+        if params_size / 1000 > 0.1:
+            params_size /= 1000
+            m = 'GB'
+
+        params = "{:,}".format(params)
+        params_size = "{:.2f}".format(params_size)
+
+        print('Total params: ' + params)
+        print('Params size (' + m + '): ' + params_size)
+        print('-'*60)
+
 
 class NeuralNet(Model):
     """

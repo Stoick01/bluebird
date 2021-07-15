@@ -48,7 +48,7 @@ class TestLinear(unittest.TestCase):
         diff = grad_calc_layers(x, y, net)
 
         for key, val in diff.items():
-            assert val < 1e-7, "Gradient of " + key + " not calculated properly"
+            assert val < 1e-6, "Gradient of " + key + " not calculated properly"
 
 
 

@@ -37,6 +37,16 @@ class Layer:
         self.train = True
         self.test = True
 
+    def get_params(self) -> Dict:
+        """
+        Returns params of layer.
+
+        Returns:
+            dict: all params of layer
+        """
+
+        return self.params
+
     def build(self, input_size) -> None:
         """
         Used to finalize building layers.

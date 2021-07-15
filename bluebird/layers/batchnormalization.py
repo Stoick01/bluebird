@@ -42,6 +42,7 @@ class BatchNormalization(Layer):
         
         super().__init__()
         self.eps = eps
+        self.__class__.__name__ = "BatchNorm"
 
 
     def build(self, input_size: int) -> None:

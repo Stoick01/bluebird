@@ -40,4 +40,4 @@ class TestConv2D(unittest.TestCase):
         diff = grad_calc_layers(x, y, net)
 
         for key, val in diff.items():
-            assert val < 1e-7, f"Gradient of {key} not calculated properly"
+            assert val < 1e-6, f"Gradient of {key} not calculated properly"
