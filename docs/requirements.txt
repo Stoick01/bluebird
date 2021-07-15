@@ -22,7 +22,7 @@ ipython==7.16.1
 ipython-genutils==0.2.0
 jedi==0.17.2
 jeepney==0.6.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 jsonschema==3.2.0
 jupyter-client==6.1.7
 jupyter-core==4.7.0
@@ -75,7 +75,7 @@ tornado==6.1
 tqdm==4.54.0
 traitlets==4.3.3
 twine==3.2.0
-urllib3==1.26.2
+urllib3==1.26.3
 wcwidth==0.2.5
 webencodings==0.5.1
 zipp==3.4.0
