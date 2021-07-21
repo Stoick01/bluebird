@@ -1,4 +1,4 @@
-Input
+﻿Input
 =====
 
 .. currentmodule:: bluebird.layers.input
@@ -20,6 +20,7 @@ Input
       ~Input.backward
       ~Input.build
       ~Input.forward
+      ~Input.get_params
    
    
 

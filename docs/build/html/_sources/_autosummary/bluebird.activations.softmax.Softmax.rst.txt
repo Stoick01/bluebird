@@ -1,4 +1,4 @@
-Softmax
+﻿Softmax
 =======
 
 .. currentmodule:: bluebird.activations.softmax
@@ -20,6 +20,7 @@ Softmax
       ~Softmax.backward
       ~Softmax.build
       ~Softmax.forward
+      ~Softmax.get_params
    
    
 

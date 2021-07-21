@@ -82,7 +82,7 @@ class DataLoaderBase(DataIterator):
             Iterator[Batch]: Batches of data
 
         """
-        idxes = range(self.__len__() / self.batch_size)
+        idxes = np.arange(0, self.__len__(), self.batch_size)
 
         if self.shuffle:
             np.random.shuffle(idxes)

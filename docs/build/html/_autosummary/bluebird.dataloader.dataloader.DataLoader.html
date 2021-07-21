@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataLoader &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/custom.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dataloaderbase" href="bluebird.dataloader.dataloaderbase.html" />
+    <link rel="prev" title="dataloader" href="bluebird.dataloader.dataloader.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="dataloader">
+<h1>DataLoader<a class="headerlink" href="#dataloader" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="bluebird.dataloader.dataloader.DataLoader">
+<em class="property">class </em><code class="sig-name descname">DataLoader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">targets</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.dataloader.dataloader.DataLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bluebird.dataloader.dataloaderbase.DataLoaderBase.html#bluebird.dataloader.dataloaderbase.DataLoaderBase" title="bluebird.dataloader.dataloaderbase.DataLoaderBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">bluebird.dataloader.dataloaderbase.DataLoaderBase</span></code></a></p>
+<dl class="py method">
+<dt id="bluebird.dataloader.dataloader.DataLoader.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">targets</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">32</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.dataloader.dataloader.DataLoader.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initalizes the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – inputs (data that passes throughout the network)</p></li>
+<li><p><strong>targets</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – target data</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – length of every batch size, defaults to 32</p></li>
+<li><p><strong>shuffle</strong> (<em>bool</em>) – shuffles data if true, defaults to True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.dataloader.dataloader.DataLoader.__init__" title="bluebird.dataloader.dataloader.DataLoader.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(inputs, targets[, batch_size, shuffle])</p></td>
+<td><p>Initalizes the object.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/bluebird.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bluebird.dataloader.html">dataloader</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bluebird.dataloader.html#dataloaders">DataLoaders</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.dataloader.dataloader.html">dataloader</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bluebird.dataloader.dataloader.html#id1">DataLoader</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">DataLoader</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.dataloader.dataloaderbase.html">dataloaderbase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.dataloader.fileloader.html">fileloader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.loss.html">loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.metrics.html">metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.nn.html">nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.optimizers.html">optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.progress_tracker.html">progress_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.regularizators.html">regularizators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.tensor.html">tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.weight_initializers.html">weight_initializers</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="bluebird.html">bluebird</a><ul>
+  <li><a href="bluebird.dataloader.html">dataloader</a><ul>
+  <li><a href="bluebird.dataloader.dataloader.html">dataloader</a><ul>
+      <li>Previous: <a href="bluebird.dataloader.dataloader.html" title="previous chapter">dataloader</a></li>
+      <li>Next: <a href="bluebird.dataloader.dataloaderbase.html" title="next chapter">dataloaderbase</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/bluebird.dataloader.dataloader.DataLoader.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

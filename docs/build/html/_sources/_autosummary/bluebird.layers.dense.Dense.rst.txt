@@ -1,4 +1,4 @@
-Dense
+﻿Dense
 =====
 
 .. currentmodule:: bluebird.layers.dense
@@ -20,6 +20,7 @@ Dense
       ~Dense.backward
       ~Dense.build
       ~Dense.forward
+      ~Dense.get_params
    
    
 

@@ -7,6 +7,7 @@ Default class for creating feed forward neural networs
 
 # TO DO: Model from multiple models, base model class
 
+from bluebird.dataloader.dataloaderbase import DataLoaderBase
 from typing import Sequence, Iterator, Tuple
 
 import json
@@ -15,15 +16,18 @@ import numpy as np
 from .tensor import Tensor
 from .layers import Layer, Input, MaxPool2D
 from .loss import Loss, MSE
-from .data import DataIterator, BatchIterator
 from .optimizers import Optimizer, SGD
 from .activations import Activation
 from .weight_initializers import WeightInitializer, RandomWeightInitializer
+from .dataloader import DataLoaderBase
+from .data import Batch
 
 from .exceptions import TypeException
 from .progress_tracker import ProgressBar
 
 import bluebird.utils as utl
+
+from bluebird import dataloader
 
 
 class Model():
@@ -64,8 +68,7 @@ class Model():
 
         self.layers = layers
 
-    def build(self, 
-            iterator: DataIterator = BatchIterator(),
+    def build(self,
             loss: Loss = MSE(),
             optimizer: Optimizer = SGD()) -> None:
         """
@@ -74,8 +77,6 @@ class Model():
         Defines aditional parameters and initializes the weights.
 
         Args:
-            iterator (:obj:`DataIterator`, otpional): defines the way you want to iteratre over the data,
-                Defaults to BatchIterator(32)
             loss (:obj:`Loss`, otpional): defines loss function
                 Defaults to MSE()
             optimizer (:obj:`Optimizer`, optional): defines how the weights should be updated
@@ -84,16 +85,12 @@ class Model():
         """
         
 
-        if not isinstance(iterator, DataIterator):
-            raise TypeException("iterator", "DataIterator")
-
         if not isinstance(loss, Loss):
             raise TypeException("loss", "Loss")
 
         if not isinstance(optimizer, Optimizer):
             raise TypeException("optimizer", "Optimizer")
 
-        self.iterator = iterator
         self.loss = loss
         self.optimizer = optimizer
 
@@ -191,7 +188,7 @@ class Model():
                 grad = layer.grads[name]
                 yield param, grad
 
-    def step(self, batch) -> float:
+    def step(self, batch: Batch) -> float:
         """
         Step function is called during each training step.
 
@@ -211,37 +208,29 @@ class Model():
 
 
     def fit(self, 
-            inputs: Tensor,
-            targets: Tensor,
+            loader: DataLoaderBase,
             num_epochs: int) -> None:
         """
         Used to train the model.
 
         Args:
-            inputs (:obj:`Tensor`): values used for training
-            targets (:obj:`Tensor`): tarets
+            loader (:obj:`DataLoaderBase`): data loader type object used to load data for training
             num_epochs (int): number of epochs you want to train
             
         """
         
 
-        if not isinstance(inputs, Tensor):
-            raise TypeException("inputs", "Tensor")
-
-        if not isinstance(targets, Tensor):
-            raise TypeException("targets", "Tensor")
-
         if not isinstance(num_epochs, int):
             raise TypeException("num_epochs", "int")
 
-        n = len(inputs)
+        n = loader.__len__()
 
         epoch_loss = 0.0
         items = 0
         for epoch in range(num_epochs):
             bar = ProgressBar(n, num_epochs)
 
-            for batch in self.iterator(inputs, targets):
+            for batch in loader():
                 items += len(batch.inputs)
                 epoch_loss += self.step(batch)
                 bar.print_bar(items - n*epoch, epoch+1, epoch_loss/items)

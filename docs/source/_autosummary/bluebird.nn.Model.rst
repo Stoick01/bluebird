@@ -1,4 +1,4 @@
-Model
+﻿Model
 =====
 
 .. currentmodule:: bluebird.nn
@@ -27,6 +27,7 @@ Model
       ~Model.predict
       ~Model.save
       ~Model.step
+      ~Model.summary
    
    
 

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MaxPool2D &#8212; BlueBird 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/js/custom.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="loss" href="bluebird.loss.html" />
+    <link rel="prev" title="maxpool2d" href="bluebird.layers.maxpool2d.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="maxpool2d">
+<h1>MaxPool2D<a class="headerlink" href="#maxpool2d" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D">
+<em class="property">class </em><code class="sig-name descname">MaxPool2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kernel_size</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">stride</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="bluebird.layers.layer.Layer.html#bluebird.layers.layer.Layer" title="bluebird.layers.layer.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">bluebird.layers.layer.Layer</span></code></a></p>
+<p>Applies a 2D max pooling.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conv</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">NeuralNet</span><span class="p">([</span>
+        <span class="o">...</span>
+        <span class="n">conv</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kernel_size</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">stride</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initalize the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kernel_size</strong> (<em>int</em>) – size of the window</p></li>
+<li><p><strong>stride</strong> (<em>int</em>) – defines how much the window moves, defaults to kernel_size</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.layers.maxpool2d.MaxPool2D.__init__" title="bluebird.layers.maxpool2d.MaxPool2D.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(kernel_size[, stride])</p></td>
+<td><p>Initalize the object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.layers.maxpool2d.MaxPool2D.backward" title="bluebird.layers.maxpool2d.MaxPool2D.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(grad)</p></td>
+<td><p>Used to calculate the gradients of weights and biases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.layers.maxpool2d.MaxPool2D.build" title="bluebird.layers.maxpool2d.MaxPool2D.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>(input_size)</p></td>
+<td><p>Used to finalize building layers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.layers.maxpool2d.MaxPool2D.create_mask" title="bluebird.layers.maxpool2d.MaxPool2D.create_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_mask</span></code></a>(a)</p></td>
+<td><p>Creates the one hot max mask.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.layers.maxpool2d.MaxPool2D.forward" title="bluebird.layers.maxpool2d.MaxPool2D.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(inputs[, training])</p></td>
+<td><p>Called each time the data passes throughout the nework.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.layers.maxpool2d.MaxPool2D.get_params" title="bluebird.layers.maxpool2d.MaxPool2D.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>Returns params of layer.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D.backward">
+<code class="sig-name descname">backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grad</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D.backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to calculate the gradients of weights and biases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>grad</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – gradient from previous layer or loss function.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Gradient</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_size</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to finalize building layers.</p>
+<p>Important to note, you should set the input_size for the layer in here.
+Does not apply to the activation functions, you don’t need implement it in them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_size</strong> (<em>int</em>) – output size from previous layer</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D.create_mask">
+<code class="sig-name descname">create_mask</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D.create_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the one hot max mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>a</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – tensor you wish to create the mask from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mask</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">training</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called each time the data passes throughout the nework.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – output from the previous layer</p></li>
+<li><p><strong>training</strong> (<em>bool</em><em>, </em><em>optional</em>) – set to true during training, and is false when network predicts</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>processed input data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.layers.maxpool2d.MaxPool2D.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict<a class="headerlink" href="#bluebird.layers.maxpool2d.MaxPool2D.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns params of layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>all params of layer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/bluebird.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html">BlueBird</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.dataloader.html">dataloader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="bluebird.layers.html">layers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.html#id1">Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.batchnormalization.html">batchnormalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.conv2d.html">conv2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.dense.html">dense</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.dropout.html">dropout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.flatten.html">flatten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.input.html">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.layer.html">layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.linear.html">linear</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.layers.maxpool2d.html">maxpool2d</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bluebird.layers.maxpool2d.html#d-max-pooling">2D Max Pooling</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">MaxPool2D</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.loss.html">loss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.metrics.html">metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.nn.html">nn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.optimizers.html">optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.progress_tracker.html">progress_tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.regularizators.html">regularizators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.tensor.html">tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.utils.html">utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.weight_initializers.html">weight_initializers</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="bluebird.html">bluebird</a><ul>
+  <li><a href="bluebird.layers.html">layers</a><ul>
+  <li><a href="bluebird.layers.maxpool2d.html">maxpool2d</a><ul>
+      <li>Previous: <a href="bluebird.layers.maxpool2d.html" title="previous chapter">maxpool2d</a></li>
+      <li>Next: <a href="bluebird.loss.html" title="next chapter">loss</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Gordan Prastalo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/bluebird.layers.maxpool2d.MaxPool2D.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

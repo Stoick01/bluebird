@@ -1,4 +1,4 @@
-NeuralNet
+﻿NeuralNet
 =========
 
 .. currentmodule:: bluebird.nn
@@ -27,6 +27,7 @@ NeuralNet
       ~NeuralNet.predict
       ~NeuralNet.save
       ~NeuralNet.step
+      ~NeuralNet.summary
    
    
 

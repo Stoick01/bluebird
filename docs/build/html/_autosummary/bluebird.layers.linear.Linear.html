@@ -18,7 +18,7 @@
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="loss" href="bluebird.loss.html" />
+    <link rel="next" title="maxpool2d" href="bluebird.layers.maxpool2d.html" />
     <link rel="prev" title="linear" href="bluebird.layers.linear.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -88,6 +88,9 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bluebird.layers.linear.Linear.forward" title="bluebird.layers.linear.Linear.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(inputs[, training])</p></td>
 <td><p>Called each time the data passes throughout the nework.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.layers.linear.Linear.get_params" title="bluebird.layers.linear.Linear.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>Returns params of layer.</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py method">
@@ -139,6 +142,20 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="bluebird.layers.linear.Linear.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict<a class="headerlink" href="#bluebird.layers.linear.Linear.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns params of layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>all params of layer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -167,11 +184,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">activations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.dataloader.html">dataloader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="bluebird.layers.html">layers</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bluebird.layers.html#id1">Layers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.layers.batchnormalization.html">batchnormalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.conv2d.html">conv2d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.layers.dense.html">dense</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.layers.dropout.html">dropout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.layers.flatten.html">flatten</a></li>
@@ -184,6 +203,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.layers.maxpool2d.html">maxpool2d</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.loss.html">loss</a></li>
@@ -207,7 +227,7 @@
   <li><a href="bluebird.layers.html">layers</a><ul>
   <li><a href="bluebird.layers.linear.html">linear</a><ul>
       <li>Previous: <a href="bluebird.layers.linear.html" title="previous chapter">linear</a></li>
-      <li>Next: <a href="bluebird.loss.html" title="next chapter">loss</a></li>
+      <li>Next: <a href="bluebird.layers.maxpool2d.html" title="next chapter">maxpool2d</a></li>
   </ul></li>
   </ul></li>
   </ul></li>

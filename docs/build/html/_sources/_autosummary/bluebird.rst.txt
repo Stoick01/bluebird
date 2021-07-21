@@ -31,6 +31,7 @@
    
       bluebird.activations
       bluebird.data
+      bluebird.dataloader
       bluebird.datasets
       bluebird.exceptions
       bluebird.layers

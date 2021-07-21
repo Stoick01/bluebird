@@ -1,4 +1,4 @@
-Layer
+﻿Layer
 =====
 
 .. currentmodule:: bluebird.layers.layer
@@ -20,6 +20,7 @@ Layer
       ~Layer.backward
       ~Layer.build
       ~Layer.forward
+      ~Layer.get_params
    
    
 

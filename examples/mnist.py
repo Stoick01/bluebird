@@ -14,6 +14,8 @@ from bluebird.layers import Flatten, Dropout, Dense, Linear, BatchNormalization
 from bluebird.loss import CategoricalCrossEntropy
 from bluebird.metrics import accuracy
 
+from bluebird.dataloader import DataLoader
+
 (X_train, y_train), (X_test, y_test) = load_data()
 
 def convert_labels(labels: np.ndarray) -> np.ndarray:
@@ -39,9 +41,11 @@ net = NeuralNet([
     Dense(10, activation=Softmax())
 ])
 
+dl = DataLoader(X_train, y_train)
+
 net.build(optimizer=bluebird.optimizers.Adam(lr=0.0001), loss=CategoricalCrossEntropy())
 
-net.fit(X_train, y_train, num_epochs=5)
+net.fit(dl, num_epochs=5)
 
 print("Pred, True")
 

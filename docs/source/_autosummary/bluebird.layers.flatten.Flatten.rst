@@ -1,4 +1,4 @@
-Flatten
+﻿Flatten
 =======
 
 .. currentmodule:: bluebird.layers.flatten
@@ -20,6 +20,7 @@ Flatten
       ~Flatten.backward
       ~Flatten.build
       ~Flatten.forward
+      ~Flatten.get_params
    
    
 

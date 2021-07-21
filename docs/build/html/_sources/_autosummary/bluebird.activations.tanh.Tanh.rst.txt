@@ -1,4 +1,4 @@
-Tanh
+﻿Tanh
 ====
 
 .. currentmodule:: bluebird.activations.tanh
@@ -20,6 +20,7 @@ Tanh
       ~Tanh.backward
       ~Tanh.build
       ~Tanh.forward
+      ~Tanh.get_params
    
    
 

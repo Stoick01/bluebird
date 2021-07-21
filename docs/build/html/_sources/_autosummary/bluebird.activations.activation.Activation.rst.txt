@@ -1,4 +1,4 @@
-Activation
+﻿Activation
 ==========
 
 .. currentmodule:: bluebird.activations.activation
@@ -20,6 +20,7 @@ Activation
       ~Activation.backward
       ~Activation.build
       ~Activation.forward
+      ~Activation.get_params
    
    
 

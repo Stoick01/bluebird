@@ -40,7 +40,7 @@
 <h1>Activation<a class="headerlink" href="#activation" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="bluebird.activations.activation.Activation">
-<em class="property">class </em><code class="sig-name descname">Activation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">f_prime</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.activations.activation.Activation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Activation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span><span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">f_prime</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span><span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.activations.activation.Activation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="bluebird.layers.layer.Layer.html#bluebird.layers.layer.Layer" title="bluebird.layers.layer.Layer"><code class="xref py py-class docutils literal notranslate"><span class="pre">bluebird.layers.layer.Layer</span></code></a></p>
 <p>Default activation, that all other activations inherit</p>
 <p>Example:</p>
@@ -55,7 +55,7 @@
 </div>
 <dl class="py method">
 <dt id="bluebird.activations.activation.Activation.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">f_prime</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.activations.activation.Activation.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span><span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">f_prime</span><span class="p">:</span> <span class="n">Callable<span class="p">[</span><span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">, </span>numpy.ndarray<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.activations.activation.Activation.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes the object.</p>
 <p>Function and it’s derivation are of the type:
 <code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">Callable[[Tensor],</span> <span class="pre">Tensor]</span></code></p>
@@ -87,6 +87,9 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#bluebird.activations.activation.Activation.forward" title="bluebird.activations.activation.Activation.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(inputs[, training])</p></td>
 <td><p>Called each time the data passes throughout the nework.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.activations.activation.Activation.get_params" title="bluebird.activations.activation.Activation.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>()</p></td>
+<td><p>Returns params of layer.</p></td>
 </tr>
 </tbody>
 </table>
@@ -143,6 +146,20 @@ Does not apply to the activation functions, you don’t need implement it in the
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="bluebird.activations.activation.Activation.get_params">
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict<a class="headerlink" href="#bluebird.activations.activation.Activation.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns params of layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>all params of layer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -185,6 +202,7 @@ Does not apply to the activation functions, you don’t need implement it in the
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.dataloader.html">dataloader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">layers</a></li>

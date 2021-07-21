@@ -1,4 +1,4 @@
-Sigmoid
+﻿Sigmoid
 =======
 
 .. currentmodule:: bluebird.activations.sigmoid
@@ -20,6 +20,7 @@ Sigmoid
       ~Sigmoid.backward
       ~Sigmoid.build
       ~Sigmoid.forward
+      ~Sigmoid.get_params
    
    
 

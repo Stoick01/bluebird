@@ -85,10 +85,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#bluebird.nn.Model.backward" title="bluebird.nn.Model.backward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">backward</span></code></a>(grad)</p></td>
 <td><p>Backward propagates through the network.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.nn.Model.build" title="bluebird.nn.Model.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>([iterator, loss, optimizer])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.nn.Model.build" title="bluebird.nn.Model.build"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build</span></code></a>([loss, optimizer])</p></td>
 <td><p>Used to build the model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.nn.Model.fit" title="bluebird.nn.Model.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(inputs, targets, num_epochs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.nn.Model.fit" title="bluebird.nn.Model.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(loader, num_epochs)</p></td>
 <td><p>Used to train the model.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.nn.Model.forward" title="bluebird.nn.Model.forward"><code class="xref py py-obj docutils literal notranslate"><span class="pre">forward</span></code></a>(inputs)</p></td>
@@ -112,6 +112,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.nn.Model.step" title="bluebird.nn.Model.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code></a>(batch)</p></td>
 <td><p>Step function is called during each training step.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.nn.Model.summary" title="bluebird.nn.Model.summary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></a>(shape)</p></td>
+<td><p>Prints the information about the model (Layes, shapes, params).</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py method">
@@ -133,14 +136,12 @@
 
 <dl class="py method">
 <dt id="bluebird.nn.Model.build">
-<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">iterator: bluebird.data.DataIterator = &lt;bluebird.data.BatchIterator object&gt;</em>, <em class="sig-param">loss: bluebird.loss.loss.Loss = &lt;bluebird.loss.mse.MSE object&gt;</em>, <em class="sig-param">optimizer: bluebird.optimizers.optimizer.Optimizer = &lt;bluebird.optimizers.sgd.SGD object&gt;</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.Model.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">loss: bluebird.loss.loss.Loss = &lt;bluebird.loss.mse.MSE object&gt;</em>, <em class="sig-param">optimizer: bluebird.optimizers.optimizer.Optimizer = &lt;bluebird.optimizers.sgd.SGD object&gt;</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.Model.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Used to build the model.</p>
 <p>Defines aditional parameters and initializes the weights.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>iterator</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">DataIterator</span></code>, otpional) – defines the way you want to iteratre over the data,
-Defaults to BatchIterator(32)</p></li>
 <li><p><strong>loss</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Loss</span></code>, otpional) – defines loss function
 Defaults to MSE()</p></li>
 <li><p><strong>optimizer</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Optimizer</span></code>, optional) – defines how the weights should be updated
@@ -152,13 +153,12 @@ Defaults to SGD()</p></li>
 
 <dl class="py method">
 <dt id="bluebird.nn.Model.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">targets</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.Model.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loader</span><span class="p">:</span> <span class="n"><a class="reference internal" href="bluebird.dataloader.dataloaderbase.DataLoaderBase.html#bluebird.dataloader.dataloaderbase.DataLoaderBase" title="bluebird.dataloader.dataloaderbase.DataLoaderBase">bluebird.dataloader.dataloaderbase.DataLoaderBase</a></span></em>, <em class="sig-param"><span class="n">num_epochs</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.Model.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Used to train the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inputs</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – values used for training</p></li>
-<li><p><strong>targets</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – tarets</p></li>
+<li><p><strong>loader</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">DataLoaderBase</span></code>) – data loader type object used to load data for training</p></li>
 <li><p><strong>num_epochs</strong> (<em>int</em>) – number of epochs you want to train</p></li>
 </ul>
 </dd>
@@ -270,7 +270,7 @@ note: extension is added manually</p></li>
 
 <dl class="py method">
 <dt id="bluebird.nn.Model.step">
-<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#bluebird.nn.Model.step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span><span class="p">:</span> <span class="n"><a class="reference internal" href="bluebird.data.Batch.html#bluebird.data.Batch" title="bluebird.data.Batch">bluebird.data.Batch</a></span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#bluebird.nn.Model.step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Step function is called during each training step.</p>
 <p>It calculates the loss and updates weights and biases.</p>
 <p>You must return loss.</p>
@@ -280,6 +280,17 @@ note: extension is added manually</p></li>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>NotImplementedError</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="bluebird.nn.Model.summary">
+<code class="sig-name descname">summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span><span class="p">:</span> <span class="n">tuple</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#bluebird.nn.Model.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the information about the model (Layes, shapes, params).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>shape</strong> (<em>tuple</em>) – shape of the input vector</p>
 </dd>
 </dl>
 </dd></dl>
@@ -312,6 +323,7 @@ note: extension is added manually</p></li>
 <li class="toctree-l1 current"><a class="reference internal" href="bluebird.html">bluebird</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bluebird.activations.html">activations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluebird.dataloader.html">dataloader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.datasets.html">datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.exceptions.html">exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bluebird.layers.html">layers</a></li>

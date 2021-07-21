@@ -1,4 +1,4 @@
-Relu
+﻿Relu
 ====
 
 .. currentmodule:: bluebird.activations.relu
@@ -20,6 +20,7 @@ Relu
       ~Relu.backward
       ~Relu.build
       ~Relu.forward
+      ~Relu.get_params
    
    
 

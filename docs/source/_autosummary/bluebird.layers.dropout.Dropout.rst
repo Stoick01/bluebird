@@ -1,4 +1,4 @@
-Dropout
+﻿Dropout
 =======
 
 .. currentmodule:: bluebird.layers.dropout
@@ -20,6 +20,7 @@ Dropout
       ~Dropout.backward
       ~Dropout.build
       ~Dropout.forward
+      ~Dropout.get_params
    
    
 

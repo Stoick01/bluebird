@@ -1,4 +1,4 @@
-Linear
+﻿Linear
 ======
 
 .. currentmodule:: bluebird.layers.linear
@@ -20,6 +20,7 @@ Linear
       ~Linear.backward
       ~Linear.build
       ~Linear.forward
+      ~Linear.get_params
    
    
 

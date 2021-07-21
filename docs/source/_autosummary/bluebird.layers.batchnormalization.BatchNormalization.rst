@@ -1,4 +1,4 @@
-BatchNormalization
+﻿BatchNormalization
 ==================
 
 .. currentmodule:: bluebird.layers.batchnormalization
@@ -20,6 +20,7 @@ BatchNormalization
       ~BatchNormalization.backward
       ~BatchNormalization.build
       ~BatchNormalization.forward
+      ~BatchNormalization.get_params
    
    
 
