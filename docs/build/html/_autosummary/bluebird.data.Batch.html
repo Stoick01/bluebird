@@ -58,11 +58,11 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.data.Batch.__init__" title="bluebird.data.Batch.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.data.Batch.count" title="bluebird.data.Batch.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a>(value)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#bluebird.data.Batch.count" title="bluebird.data.Batch.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a>(value, /)</p></td>
+<td><p>Return number of occurrences of value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.data.Batch.index" title="bluebird.data.Batch.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(value, [start, [stop]])</p></td>
-<td><p>Raises ValueError if the value is not present.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bluebird.data.Batch.index" title="bluebird.data.Batch.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(value[, start, stop])</p></td>
+<td><p>Return first index of value.</p></td>
 </tr>
 </tbody>
 </table>
@@ -83,13 +83,15 @@
 </table>
 <dl class="py method">
 <dt id="bluebird.data.Batch.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span> &#x2192; integer – return number of occurrences of value<a class="headerlink" href="#bluebird.data.Batch.count" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.data.Batch.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="bluebird.data.Batch.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer – return first index of value.<a class="headerlink" href="#bluebird.data.Batch.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raises ValueError if the value is not present.</p>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.data.Batch.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
 <dl class="py method">

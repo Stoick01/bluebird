@@ -30,7 +30,7 @@ class DataLoaderBase(DataIterator):
                 return Batch(x, y)
     """
 
-    def __init__(self, batch_size = 32, shuffle = True):
+    def __init__(self, batch_size: int = 32, shuffle: bool = True):
         """
         Initalizes the object.
 
@@ -60,7 +60,7 @@ class DataLoaderBase(DataIterator):
 
         raise NotImplementedError
 
-    def __getitem__(self, idx) -> Batch:
+    def __getitem__(self, idx: int) -> Batch:
         """
         Retursn a batch.
 

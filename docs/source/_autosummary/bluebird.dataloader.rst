@@ -1,4 +1,4 @@
-dataloader
+﻿dataloader
 ==========
 
 .. automodule:: bluebird.dataloader
@@ -31,5 +31,5 @@ dataloader
    
       bluebird.dataloader.dataloader
       bluebird.dataloader.dataloaderbase
-      bluebird.dataloader.fileloader
+      bluebird.dataloader.imageloader
    
