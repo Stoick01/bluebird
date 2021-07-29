@@ -1,4 +1,4 @@
-activations
+﻿activations
 ===========
 
 .. automodule:: bluebird.activations
@@ -30,6 +30,7 @@ activations
 
    
       bluebird.activations.activation
+      bluebird.activations.leakyrelu
       bluebird.activations.relu
       bluebird.activations.sigmoid
       bluebird.activations.softmax

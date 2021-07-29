@@ -32,7 +32,7 @@ class Activation(Layer):
             
     """
 
-    def __init__(self, f: F, f_prime: F) -> None:
+    def __init__(self, f: F, f_prime: F, *argv) -> None:
         """
         Initializes the object.
 
@@ -48,6 +48,7 @@ class Activation(Layer):
         super().__init__()
         self.f = f
         self.f_prime = f_prime
+        self.argv = argv
 
     def forward(self, inputs: Tensor, training: bool = False) -> Tensor:
         """ 
@@ -64,6 +65,9 @@ class Activation(Layer):
 
         self.inputs = inputs
 
+        if len(self.argv) != 0:
+            return self.f(inputs, self.argv)
+
         return self.f(inputs)
 
     def backward(self, grad: Tensor) -> Tensor:
@@ -77,6 +81,9 @@ class Activation(Layer):
             :obj:`Tensor`: f_prime(grad), applies deravtion of the activation function to the gradient
 
         """
+
+        if len(self.argv) != 0:
+            return utl.fix_overflow(self.f_prime(self.inputs, self.argv) * grad)
 
         return utl.fix_overflow(self.f_prime(self.inputs) * grad)
 

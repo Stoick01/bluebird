@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>relu &#8212; BlueBird 0.0.1 documentation</title>
+    <title>leaky_relu &#8212; BlueBird 0.0.1 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -18,8 +18,8 @@
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="relu" href="bluebird.activations.relu.relu.html" />
-    <link rel="prev" title="LeakyRelu" href="bluebird.activations.leakyrelu.LeakyRelu.html" />
+    <link rel="next" title="leaky_relu_prime" href="bluebird.activations.leakyrelu.leaky_relu_prime.html" />
+    <link rel="prev" title="leakyrelu" href="bluebird.activations.leakyrelu.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -36,39 +36,33 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-bluebird.activations.relu">
-<span id="relu"></span><h1>relu<a class="headerlink" href="#module-bluebird.activations.relu" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Relu<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Relu (Rectified Linear Unit).</p>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="bluebird.activations.relu.relu.html#bluebird.activations.relu.relu" title="bluebird.activations.relu.relu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relu</span></code></a>(x)</p></td>
-<td><p>Relu activation function.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bluebird.activations.relu.relu_prime.html#bluebird.activations.relu.relu_prime" title="bluebird.activations.relu.relu_prime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">relu_prime</span></code></a>(x)</p></td>
-<td><p>Derivation of the relu activation function.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="bluebird.activations.relu.Relu.html#bluebird.activations.relu.Relu" title="bluebird.activations.relu.Relu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Relu</span></code></a>()</p></td>
-<td><p>Relu activation function as object.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <div class="section" id="leaky-relu">
+<h1>leaky_relu<a class="headerlink" href="#leaky-relu" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="bluebird.activations.leakyrelu.leaky_relu">
+<code class="sig-name descname">leaky_relu</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em class="sig-param"><span class="n">alpha</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#bluebird.activations.leakyrelu.leaky_relu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relu activation function.</p>
+<dl>
+<dt>function:</dt><dd><p>f(x) = 0 if x &lt; 0</p>
+<p>f(x) = c * x if x &gt; 0</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – input to the function</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – small value that multiplies the input</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>f(x), applies activation function</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -96,16 +90,16 @@
 <li class="toctree-l2 current"><a class="reference internal" href="bluebird.activations.html">activations</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.html#id1">Activations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.activation.html">activation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.leakyrelu.html">leakyrelu</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">relu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Relu</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.relu.relu.html">relu</a></li>
-<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.relu.relu_prime.html">relu_prime</a></li>
-<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.relu.Relu.html">Relu</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.activations.leakyrelu.html">leakyrelu</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bluebird.activations.leakyrelu.html#leaky-relu">Leaky Relu</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">leaky_relu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.leakyrelu.leaky_relu_prime.html">leaky_relu_prime</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.leakyrelu.LeakyRelu.html">LeakyRelu</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.relu.html">relu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.sigmoid.html">sigmoid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.softmax.html">softmax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.tanh.html">tanh</a></li>
@@ -135,8 +129,10 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="bluebird.html">bluebird</a><ul>
   <li><a href="bluebird.activations.html">activations</a><ul>
-      <li>Previous: <a href="bluebird.activations.leakyrelu.LeakyRelu.html" title="previous chapter">LeakyRelu</a></li>
-      <li>Next: <a href="bluebird.activations.relu.relu.html" title="next chapter">relu</a></li>
+  <li><a href="bluebird.activations.leakyrelu.html">leakyrelu</a><ul>
+      <li>Previous: <a href="bluebird.activations.leakyrelu.html" title="previous chapter">leakyrelu</a></li>
+      <li>Next: <a href="bluebird.activations.leakyrelu.leaky_relu_prime.html" title="next chapter">leaky_relu_prime</a></li>
+  </ul></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -172,7 +168,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/_autosummary/bluebird.activations.relu.rst.txt"
+      <a href="../_sources/_autosummary/bluebird.activations.leakyrelu.leaky_relu.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -11,3 +11,4 @@ from .relu import Relu
 from .softmax import Softmax
 from .tanh import Tanh
 from .sigmoid import Sigmoid
+from .leakyrelu import LeakyRelu

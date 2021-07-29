@@ -1,16 +1,24 @@
+from sys import argv
 import numpy as np  
 
-def grad_calc_activ(x, layer, eps=1e-8):
+def grad_calc_activ(x, layer, eps=1e-8, *argv):
     h = x * np.sqrt(eps)
     xp = x + h
     xm = x - h
 
-    p = layer.f(xp)
-    m = layer.f(xm)
+    if len(argv) != 0:
+        p = layer.f(xp, argv)
+        m = layer.f(xm, argv)
+    else:
+        p = layer.f(xp)
+        m = layer.f(xm)
 
     approx = (p - m) / (2 * h)
 
-    grad = layer.f_prime(x)
+    if len(argv) != 0:
+        grad = layer.f_prime(x, argv)
+    else:
+        grad = layer.f_prime(x)
 
     num = np.linalg.norm(approx - grad)
     denum = np.linalg.norm(approx) + np.linalg.norm(grad)
