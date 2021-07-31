@@ -13,6 +13,8 @@ import bluebird.utils as utl
 
 from .activation import Activation
 
+# fix stoftmax
+
 def softmax(x):
     """
     Softmax activation function.

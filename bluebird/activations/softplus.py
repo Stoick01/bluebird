@@ -13,6 +13,8 @@ import bluebird.utils as utl
 
 from .activation import Activation
 
+# fix softplus
+
 def softplus(x):
     """
     Softplus activation function.
