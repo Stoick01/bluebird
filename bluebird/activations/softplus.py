@@ -1,5 +1,5 @@
 """
-Softmax
+Softplus
 =======
 """
 from typing import Callable
@@ -13,12 +13,12 @@ import bluebird.utils as utl
 
 from .activation import Activation
 
-def softmax(x):
+def softplus(x):
     """
-    Softmax activation function.
+    Softplus activation function.
 
     function:
-        f(x) = e^x / sum(e^x)
+        f(x) = len(1 + e^x)
 
     Args:
         x (:obj:`Tensor`): input to the function
@@ -28,13 +28,11 @@ def softmax(x):
     """
 
     exp = np.exp(x - x.max(axis=1, keepdims=True))
-    sum_exp = exp.sum(axis=1, keepdims=True)
-    return exp / (sum_exp + 1e-8)
+    return np.log(1 + exp)
 
-
-def softmax_prime(x):
+def softplus_prime(x):
     """
-    Derivation of the softmax activation function.
+    Derivation of the softplus activation function.
 
     derivation:
         f'(x) = f(x) * (1 - f(x))
@@ -46,12 +44,13 @@ def softmax_prime(x):
         :obj:`Tensor`: f'(x), applies derivation of activation function
     """
 
-    f = softmax(x)
-    return f * (1 - f)
+    exp = np.exp(-(x - x.max(axis=1, keepdims=True)))
+    print(exp)
+    return 1 / (1 + exp)
 
-class Softmax(Activation):
+class Softplus(Activation):
     """
-    Softmax activation function as object.
+    Softplus activation function as object.
 
     Inherits all of its atributes from base Activation class.
 
@@ -68,4 +67,4 @@ class Softmax(Activation):
     """
 
     def __init__(self):
-        super().__init__(softmax, softmax_prime)
+        super().__init__(softplus, softplus_prime)

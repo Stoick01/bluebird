@@ -30,6 +30,32 @@ class TestSigmoid(unittest.TestCase):
 
         assert diff < 1e-8, "Gradient not calculated properly"
 
+# class TestSoftplus(unittest.TestCase):
+    
+#     def test_input_grad(self):
+
+#         softplus = Softplus()
+
+#         x = np.random.randn(5, 5) * 2000
+
+#         diff = grad_calc_activ(x, softplus)
+#         print(diff)
+
+#         assert diff < 1e-8, "Gradient not calculated properly"
+
+# class TestSoftmax(unittest.TestCase):
+    
+#     def test_input_grad(self):
+
+#         softmax = Softmax()
+
+#         x = np.random.randn(5, 5)
+
+#         diff = grad_calc_activ(x, softmax)
+#         print(diff)
+
+#         assert diff < 1e-8, "Gradient not calculated properly"
+
 
 class TestTanh(unittest.TestCase):
     

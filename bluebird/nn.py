@@ -5,8 +5,6 @@ Neural Net
 Default class for creating feed forward neural networs
 """
 
-# TO DO: Model from multiple models, base model class
-
 from bluebird.dataloader.dataloaderbase import DataLoaderBase
 from typing import Sequence, Iterator, Tuple
 

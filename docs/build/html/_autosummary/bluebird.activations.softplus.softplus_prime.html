@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>softmax &#8212; BlueBird 0.0.1 documentation</title>
+    <title>softplus_prime &#8212; BlueBird 0.0.1 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
@@ -18,8 +18,8 @@
     <script src="../_static/js/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="softmax" href="bluebird.activations.softmax.softmax.html" />
-    <link rel="prev" title="Sigmoid" href="bluebird.activations.sigmoid.Sigmoid.html" />
+    <link rel="next" title="Softplus" href="bluebird.activations.softplus.Softplus.html" />
+    <link rel="prev" title="softplus" href="bluebird.activations.softplus.softplus.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -36,38 +36,29 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-bluebird.activations.softmax">
-<span id="softmax"></span><h1>softmax<a class="headerlink" href="#module-bluebird.activations.softmax" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Softmax<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="bluebird.activations.softmax.softmax.html#bluebird.activations.softmax.softmax" title="bluebird.activations.softmax.softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax</span></code></a>(x)</p></td>
-<td><p>Softmax activation function.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="bluebird.activations.softmax.softmax_prime.html#bluebird.activations.softmax.softmax_prime" title="bluebird.activations.softmax.softmax_prime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmax_prime</span></code></a>(x)</p></td>
-<td><p>Derivation of the softmax activation function.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="bluebird.activations.softmax.Softmax.html#bluebird.activations.softmax.Softmax" title="bluebird.activations.softmax.Softmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Softmax</span></code></a>()</p></td>
-<td><p>Softmax activation function as object.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <div class="section" id="softplus-prime">
+<h1>softplus_prime<a class="headerlink" href="#softplus-prime" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="bluebird.activations.softplus.softplus_prime">
+<code class="sig-name descname">softplus_prime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bluebird.activations.softplus.softplus_prime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Derivation of the softplus activation function.</p>
+<dl class="simple">
+<dt>derivation:</dt><dd><p>f’(x) = f(x) * (1 - f(x))</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code>) – input to the function</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>f’(x), applies derivation of activation function</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -98,16 +89,16 @@
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.leakyrelu.html">leakyrelu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.relu.html">relu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.sigmoid.html">sigmoid</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">softmax</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Softmax</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.softmax.softmax.html">softmax</a></li>
-<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.softmax.softmax_prime.html">softmax_prime</a></li>
-<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.softmax.Softmax.html">Softmax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.softmax.html">softmax</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="bluebird.activations.softplus.html">softplus</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="bluebird.activations.softplus.html#id1">Softplus</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.softplus.softplus.html">softplus</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">softplus_prime</a></li>
+<li class="toctree-l5"><a class="reference internal" href="bluebird.activations.softplus.Softplus.html">Softplus</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="bluebird.activations.softplus.html">softplus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bluebird.activations.tanh.html">tanh</a></li>
 </ul>
 </li>
@@ -135,8 +126,10 @@
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="bluebird.html">bluebird</a><ul>
   <li><a href="bluebird.activations.html">activations</a><ul>
-      <li>Previous: <a href="bluebird.activations.sigmoid.Sigmoid.html" title="previous chapter">Sigmoid</a></li>
-      <li>Next: <a href="bluebird.activations.softmax.softmax.html" title="next chapter">softmax</a></li>
+  <li><a href="bluebird.activations.softplus.html">softplus</a><ul>
+      <li>Previous: <a href="bluebird.activations.softplus.softplus.html" title="previous chapter">softplus</a></li>
+      <li>Next: <a href="bluebird.activations.softplus.Softplus.html" title="next chapter">Softplus</a></li>
+  </ul></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -172,7 +165,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/_autosummary/bluebird.activations.softmax.rst.txt"
+      <a href="../_sources/_autosummary/bluebird.activations.softplus.softplus_prime.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

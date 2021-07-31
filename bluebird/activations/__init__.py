@@ -12,3 +12,4 @@ from .softmax import Softmax
 from .tanh import Tanh
 from .sigmoid import Sigmoid
 from .leakyrelu import LeakyRelu
+from .softplus import Softplus

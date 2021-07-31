@@ -34,5 +34,6 @@
       bluebird.activations.relu
       bluebird.activations.sigmoid
       bluebird.activations.softmax
+      bluebird.activations.softplus
       bluebird.activations.tanh
    
